@@ -59,3 +59,13 @@ body {
 .navigation ul li a.active {
   background-color: #ccc;
 }
+
+header {
+  display: flex;
+}
+
+.Logo {
+  font-size: 2em;
+  margin-left: 2em;
+  margin-top: 0em;
+}
