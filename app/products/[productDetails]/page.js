@@ -15,18 +15,23 @@ export default async function productDetailsPage(props) {
     <div>
       productDetails Page
       <div>
-        <h2>{singleProduct.name}</h2>
+        <h1>{singleProduct.name}</h1>
         <img
           src={singleProduct.image}
           alt={singleProduct.title}
           width={300}
           height={300}
+          data-test-id="product-image"
         />
         <p>{singleProduct.description}</p>
-        <p>Price: {singleProduct.price}</p>
+        <p data-test-id="product-price">Price: {singleProduct.price}</p>
         <p>Rating: {singleProduct.rating.rate}</p>
-        <p>Quantity: {singleProduct.quantity}</p>
+        <p data-test-id="product-quantity">
+          Quantity: {singleProduct.quantity}
+        </p>
       </div>
+      <input type="number" id="tentacles" name="tentacles" min="1" max="100" />
+      <button data-test-id="product-add-to-cart">Add to Cart</button>
     </div>
   );
 }

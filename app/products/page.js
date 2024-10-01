@@ -12,8 +12,11 @@ export default function productPage() {
 
       {products.map((product) => {
         return (
-          <div key={`product-${product.id}`}>
-            <Link href={`/products/${product.id}`}>
+          <div
+            key={`product-${product.id}`}
+            data-test-id="product-<product id>"
+          >
+            <Link href={`/products/${product.id}`} data-test-id="products-link">
               <h2>{product.name}</h2>
               <img
                 src={product.image}

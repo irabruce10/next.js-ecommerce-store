@@ -1,3 +1,7 @@
 export default function Home() {
-  return <div>Hello word</div>;
+  return (
+    <div>
+      <h1>Welcome to our E-soko</h1>
+    </div>
+  );
 }
