@@ -14,7 +14,7 @@ export default function productPage() {
         return (
           <div key={`product-${product.id}`}>
             <Link href={`/products/${product.id}`}>
-              <h2>{product.title}</h2>
+              <h2>{product.name}</h2>
               <img
                 src={product.image}
                 alt={product.title}
@@ -22,11 +22,8 @@ export default function productPage() {
                 height={300}
               />
             </Link>
-            <p>{product.description}</p>
+
             <p>Price: {product.price}</p>
-            <p>
-              Rating: {product.rating.rate} ({product.rating.count} votes)
-            </p>
           </div>
         );
       })}
