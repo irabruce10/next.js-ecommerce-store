@@ -1,5 +1,8 @@
 import Link from 'next/link';
 import { getProducts } from '../database/product';
+export const metadata = {
+  title: 'Product',
+};
 
 export default function productPage() {
   const products = getProducts();
