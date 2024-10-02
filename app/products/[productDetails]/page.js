@@ -11,6 +11,7 @@ export async function generateMetadata({ params }) {
 
 export default async function productDetailsPage(props) {
   const singleProduct = getProduct(Number((await props.params).productDetails));
+
   return (
     <div>
       productDetails Page
@@ -31,7 +32,7 @@ export default async function productDetailsPage(props) {
         </p>
       </div>
       <input type="number" id="tentacles" name="tentacles" min="1" max="100" />
-      <button data-test-id="product-add-to-cart">Add to Cart</button>
+      <button>add to cart</button>
     </div>
   );
 }
