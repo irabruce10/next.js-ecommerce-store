@@ -1,8 +1,8 @@
 import localFont from 'next/font/local';
 import './globals.css';
-import Navigation from './components/Navigation';
-import Logo from './components/Logo';
 import { StoreProvider } from './redux/StoreProvider';
+
+import App from './components/App';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -28,12 +28,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <StoreProvider>
-          <header>
-            <Logo />
-            <Navigation />
-          </header>
-
-          <main> {children}</main>
+          <App>{children}</App>
         </StoreProvider>
 
         <footer>Copyright@ MyApp {new Date().getFullYear()} </footer>

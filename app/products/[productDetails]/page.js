@@ -1,5 +1,6 @@
 import React from 'react';
 import { getProduct } from '../../database/product';
+import AddToCart from '../../components/AddToCart';
 
 export async function generateMetadata({ params }) {
   const singleProduct = getProduct(Number((await params).productDetails));
@@ -32,7 +33,12 @@ export default async function productDetailsPage(props) {
         </p>
       </div>
       <input type="number" id="tentacles" name="tentacles" min="1" max="100" />
-      <button>add to cart</button>
+      <AddToCart
+        increasePerClick={true}
+        redirect={false}
+        showQty={false}
+        product={singleProduct}
+      />
     </div>
   );
 }
