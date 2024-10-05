@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   loading: true,
+  showSidebar: false,
   cartItems: [],
 };
 
@@ -11,14 +12,13 @@ const addDecimals = (num) => {
 
 const cartSlice = createSlice({
   name: 'cart',
-  loading: true,
   initialState,
   reducers: {
     addToCart: (state, action) => {
       const existingItem = state.cartItems.find(
         (item) => item.id === action.payload.id,
       );
-      if (existingItem) {
+      if (existingItem?.id === action.payload.id) {
         // existingItem.quantity += action.payload.quantity;
         state.cartItems = state.cartItems.map((item) =>
           item.id === existingItem.id ? action.payload : item,
@@ -34,6 +34,7 @@ const cartSlice = createSlice({
         ),
       );
       state.totalPrice = addDecimals(Number(state.itemsPrice));
+      // Cookies.set('cart', JSON.stringify(state));
     },
 
     removeFromCart: (state, action) => {

@@ -28,11 +28,7 @@ export default async function productDetailsPage(props) {
         <p>{singleProduct.description}</p>
         <p data-test-id="product-price">Price: {singleProduct.price}</p>
         <p>Rating: {singleProduct.rating.rate}</p>
-        <p data-test-id="product-quantity">
-          Quantity: {singleProduct.quantity}
-        </p>
       </div>
-      <input type="number" id="tentacles" name="tentacles" min="1" max="100" />
       <AddToCart
         increasePerClick={true}
         redirect={false}
