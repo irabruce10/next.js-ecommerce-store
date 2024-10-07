@@ -38,7 +38,10 @@ const cartSlice = createSlice({
     },
 
     removeFromCart: (state, action) => {
-      state.cartItems.filter((item) => item.id !== action.payload);
+      const index = state.cartItems.findIndex(
+        (item) => item.id === action.payload,
+      );
+      state.cartItems.splice(index, 1);
 
       state.itemsPrice = addDecimals(
         state.cartItems.reduce(
