@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../redux/CartSlide';
 import { useRouter } from 'next/navigation';
+import createOrUpdateCookie from '../products/[productDetails]/action';
 
 export default function AddToCart({
   product,
@@ -17,7 +18,7 @@ export default function AddToCart({
 
   const [quantity, setQuantity] = useState(1);
 
-  const addToCartHandler = () => {
+  const addToCartHandler = async () => {
     let newQty = quantity;
     if (increasePerClick) {
       const existItem = cartItems.find((item) => item.id === product.id);
@@ -32,6 +33,8 @@ export default function AddToCart({
     }
     dispatch(addToCart({ ...product, quantity: newQty }));
     if (redirect) router.push(`/cart`);
+
+    await createOrUpdateCookie();
   };
 
   return (

@@ -1,8 +1,9 @@
 // import Link from 'next/link';
+
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-export default function Header() {
+export default function CartCount() {
   const { loading, cartItems } = useSelector((state) => state.cart);
 
   return (
