@@ -35,6 +35,7 @@ export default function CartSidebar() {
                     height={50}
                   />
                 </Link>
+                <p>price{item.price}</p>
                 {item.name} - {item.quantity}
                 <select
                   value={item.quantity}

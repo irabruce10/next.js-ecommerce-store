@@ -1,4 +1,3 @@
-import React from 'react';
 import { getProduct } from '../../database/product';
 import AddToCart from '../../components/AddToCart';
 
@@ -30,10 +29,10 @@ export default async function productDetailsPage(props) {
         <p>Rating: {singleProduct.rating.rate}</p>
       </div>
       <AddToCart
-        increasePerClick={true}
-        redirect={false}
-        showQty={false}
+        // increasePerClick={true}
+        // showQty={false}
         product={singleProduct}
+        redirect={false}
       />
     </div>
   );

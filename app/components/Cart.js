@@ -5,11 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart, removeFromCart } from '../redux/CartSlide';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function CartPage() {
   const dispatch = useDispatch();
 
-  // const router = useRouter();
+  const router = useRouter();
   const addToCartHandler = (product, quantity) => {
     dispatch(addToCart({ ...product, quantity: quantity }));
   };
@@ -17,18 +18,20 @@ export default function CartPage() {
   const removeFromCartHandler = (id) => {
     dispatch(removeFromCart(id));
   };
-  const { cartItems, loading, itemsPrice } = useSelector((state) => state.cart);
+  const { cartItems, loading } = useSelector((state) => state.cart);
   return (
     <div>
       <div>
+        <h1>Shopping Cart</h1>
+
         {loading ? (
           <div>Loading...</div>
         ) : cartItems.length === 0 ? (
-          <div>Cart empty</div>
+          <div>
+            Cart empty <Link href="/products">Go back</Link>
+          </div>
         ) : (
           <div>
-            <div>total</div>
-            <div>euro {itemsPrice}</div>
             <div>
               {cartItems.map((item) => (
                 <div key={`item-${item.id}`}>
@@ -40,6 +43,7 @@ export default function CartPage() {
                       height={50}
                     />
                   </Link>
+                  <p>Price: {item.price}</p>
                   {item.name} - {item.quantity}
                   <select
                     value={item.quantity}
@@ -65,6 +69,10 @@ export default function CartPage() {
                 (acc, item) => acc + item.price * item.quantity,
                 0,
               )}
+            </div>
+
+            <div>
+              <button onClick={() => router.push('/shipping')}>checkout</button>
             </div>
           </div>
         )}
