@@ -5,7 +5,7 @@ import Logo from './Logo';
 import { useEffect } from 'react';
 import { hideLoading } from '../redux/CartSlide';
 import { useDispatch } from 'react-redux';
-import Header from './Header';
+// import Header from './Header';
 
 export default function App({ children }) {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ export default function App({ children }) {
       <header>
         <Logo />
         <Navigation />
-        <Header />
+        {/* <Header /> */}
         {/* <CartSidebar /> */}
       </header>
       <main>{children}</main>

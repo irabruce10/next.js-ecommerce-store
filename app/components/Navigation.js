@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import Header from './Header';
 
 export default function Navigation() {
   return (
@@ -15,7 +16,9 @@ export default function Navigation() {
           <Link href="/products">Products</Link>
         </li>
         <li>
-          <Link href="/account">Account</Link>
+          <Link href="/cart">
+            <Header />
+          </Link>
         </li>
       </ul>
     </div>
