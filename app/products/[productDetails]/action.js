@@ -4,30 +4,35 @@ import { cookies } from 'next/headers';
 import { getCookie } from '../../../lib/cookies.js';
 import { parseJson } from '../../../lib/json.js';
 
-export default async function createOrUpdateCookie(fruitId, comment) {
+export default async function createOrUpdateCookie(productId, quantity) {
   // 1. get current cookie!
-  const fruitsCommentsCookie = await getCookie('cart');
+  let getProductCookie = await getCookie('cart');
 
-  // 2. parse the cookie value
-  const fruitsComments =
-    fruitsCommentsCookie === undefined
-      ? // Case A: cookie undefined
-        []
-      : parseJson(fruitsCommentsCookie);
+  // // 2. parse the cookie value
+  // const productCookies =
+  //   getProductCookie === undefined
+  //     ? // Case A: cookie undefined
+  //       []
+  //     : parseJson(getProductCookie);
+
+  if (!Array.isArray(getProductCookie)) {
+    getProductCookie = [];
+  }
 
   // 3. edit the cookie value
-  const fruitToUpdate = fruitsComments.find((fruitComment) => {
-    return fruitComment.id === fruitId;
+  const updateProductCookie = getProductCookie.find((productCookie) => {
+    return productCookie.id === productId;
   });
 
   // Case B: cookie set, id doesn't exist
-  fruitsComments.push({ id: fruitId, comment: comment });
-  if (!fruitToUpdate) {
+
+  if (!updateProductCookie) {
+    getProductCookie.push({ id: productId, quantity: quantity });
   } else {
+    updateProductCookie.quantity += quantity;
     // Case C: cookie set, id exists already
-    fruitToUpdate.comment = comment;
   }
 
   // 4. we override the cookie
-  (await cookies()).set('cart', JSON.stringify(fruitsComments));
+  (await cookies()).set('cart', JSON.stringify(getProductCookie));
 }

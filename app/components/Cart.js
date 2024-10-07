@@ -19,7 +19,6 @@ export default function CartPage() {
     dispatch(removeFromCart(id));
   };
   const { cartItems, loading } = useSelector((state) => state.cart);
-  console.log(cartItems);
 
   return (
     <div>

@@ -8,6 +8,7 @@ import createOrUpdateCookie from '../products/[productDetails]/action';
 
 export default function AddToCart({
   product,
+  productDetails,
   increasePerClick = false,
   redirect = false,
   showQty = true,
@@ -33,8 +34,8 @@ export default function AddToCart({
     }
     dispatch(addToCart({ ...product, quantity: newQty }));
     if (redirect) router.push(`/cart`);
-
-    await createOrUpdateCookie();
+    await createOrUpdateCookie({ ...product, quantity: newQty });
+    console.log(await createOrUpdateCookie(productDetails));
   };
 
   return (

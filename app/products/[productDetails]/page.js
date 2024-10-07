@@ -16,17 +16,17 @@ export async function generateMetadata({ params }) {
 export default async function productDetailsPage(props) {
   const singleProduct = getProduct(Number((await props.params).productDetails));
 
-  const fruitCommentsCookie = await getCookie('cart');
+  // const fruitCommentsCookie = await getCookie('cart');
 
-  let fruitComments = parseJson(fruitCommentsCookie) || [];
-  console.log(fruitComments);
+  // let fruitComments = parseJson(fruitCommentsCookie) || [];
+  // console.log(fruitComments);
 
-  if (!Array.isArray(fruitComments)) {
-    fruitComments = [];
-  }
-  const fruitCommentToDisplay = fruitComments.find((fruitComment) => {
-    return fruitComment.id === singleProduct.id;
-  });
+  // if (!Array.isArray(fruitComments)) {
+  //   fruitComments = [];
+  // }
+  // const fruitCommentToDisplay = fruitComments.find((fruitComment) => {
+  //   return fruitComment.id === singleProduct.id;
+  // });
 
   return (
     <div>
