@@ -1,28 +1,17 @@
 import Link from 'next/link';
 import { getProducts } from '../database/product';
-import { getCookie } from '../../lib/cookies';
-import { parseJson } from '../../lib/json';
+
 export const metadata = {
   title: 'Product',
 };
 
-export default async function productPage() {
-  const fruitCommentsCookie = await getCookie('cart');
-
-  let fruitComments = parseJson(fruitCommentsCookie) || [];
-
-  if (!Array.isArray(fruitComments)) {
-    fruitComments = [];
-  }
+export default function productPage() {
   const products = getProducts();
   return (
     <div>
       <h1>Our top Products</h1>
 
       {products.map((product) => {
-        const fruitComment = fruitComments.find(
-          (fruitObject) => products.id === fruitObject.id,
-        );
         return (
           <div
             key={`product-${product.id}`}
