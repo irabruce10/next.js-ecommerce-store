@@ -1,6 +1,6 @@
 'use client';
 
-import { updateCookies } from './action';
+import { updateCookies, updateCookiesMinus, updateCookiesPlus } from './action';
 
 export default function SelectForm({ item, product, quantity }) {
   // const dispatch = useDispatch();
@@ -37,7 +37,29 @@ export default function SelectForm({ item, product, quantity }) {
 
   return (
     <div>
-      <select
+      <div>
+        <button
+          value={quantity}
+          type="round"
+          onClick={(e) =>
+            updateCookiesMinus(item, (quantity = Number(e.target.value)))
+          }
+        >
+          -
+        </button>
+
+        <span>{item.quantity}</span>
+        <button
+          value={quantity}
+          type="round"
+          onClick={(e) =>
+            updateCookiesPlus(item, (quantity = Number(e.target.value)))
+          }
+        >
+          +
+        </button>
+      </div>
+      {/* <select
         value={quantity}
         // onChange={(e) => addToCartHandler(item, Number(e.target.value))}
         onChange={(e) =>
@@ -45,11 +67,11 @@ export default function SelectForm({ item, product, quantity }) {
         }
       >
         {[...Array(product.countInStock).keys()].map((x) => (
-          <option key={`x-${Math.random()}`} value={x + 1}>
+          <option key={`x-${Math.random()}`} value={x + 0}>
             {x + 0}
           </option>
         ))}
-      </select>
+      </select> */}
     </div>
   );
 }

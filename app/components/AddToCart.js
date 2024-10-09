@@ -5,10 +5,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../redux/CartSlide';
 import { useRouter } from 'next/navigation';
 import createOrUpdateCookie from '../products/[productDetails]/action';
+import { updateCookiesMinus, updateCookiesPlus } from '../cart/action';
 
 export default function AddToCart({
   product,
   productId,
+  productQty,
   increasePerClick = false,
   redirect = false,
   showQty = true,
@@ -43,7 +45,31 @@ export default function AddToCart({
         <div>
           <div>quantity</div>
           <div>
-            <select
+            {/* <button
+              value={quantity}
+              disabled={product.countInStock === 0}
+              type="round"
+              onClick={(e) =>
+                updateCookiesMinus(productId, Number(e.target.value))
+              }
+            >
+              -
+            </button> */}
+
+            {/* <span>{item.quantity}</span> */}
+            <button
+              value={quantity}
+              type="round"
+              onClick={(e) =>
+                updateCookiesPlus(productId, Number(e.target.value))
+              }
+            >
+              +
+            </button>
+          </div>
+
+          <div>
+            {/* <select
               value={quantity}
               onChange={(e) => setQuantity(Number(e.target.value))}
             >
@@ -52,7 +78,7 @@ export default function AddToCart({
                   {x + 1}
                 </option>
               ))}
-            </select>
+            </select> */}
           </div>
         </div>
       )}

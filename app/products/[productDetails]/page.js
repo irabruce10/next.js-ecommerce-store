@@ -1,6 +1,5 @@
 import { getProduct } from '../../database/product';
 import AddToCart from '../../components/AddToCart';
-import Image from 'next/image';
 
 // import { cookies } from 'next/headers';
 
@@ -16,6 +15,7 @@ export default async function productDetailsPage(props) {
   const singleProduct = getProduct(Number((await props.params).productDetails));
   console.log(singleProduct);
 
+  console.log('disabled', singleProduct);
   return (
     <div>
       productDetails Page
@@ -37,6 +37,7 @@ export default async function productDetailsPage(props) {
         // showQty={false}
         product={singleProduct}
         productId={singleProduct.id}
+        productQty={singleProduct.countInStock}
         redirect={false}
       />
     </div>
