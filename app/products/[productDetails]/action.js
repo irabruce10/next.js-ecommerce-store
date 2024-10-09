@@ -6,33 +6,32 @@ import { parseJson } from '../../../lib/json.js';
 
 export default async function createOrUpdateCookie(productId, quantity) {
   // 1. get current cookie!
-  let getProductCookie = (await getCookie('cart')) || [];
+  const products = await getCookie('cart');
 
   // // // 2. parse the cookie value
-  // const productCookies =
-  //   getProductCookie === undefined
-  //     ? // Case A: cookie undefined
-  //       []
-  //     : parseJson(getProductCookie);
+  const productCookies = !products
+    ? // Case A: cookie undefined
+      []
+    : parseJson(products);
 
-  if (!Array.isArray(getProductCookie)) {
-    getProductCookie = [];
-  }
+  // if (!Array.isArray(products)) {
+  //   products = [];
+  // }
 
   // 3. edit the cookie value
-  const updateProductCookie = getProductCookie.find((productCookie) => {
-    return productCookie.id === productId;
+  const updateProductCookie = productCookies.find((product) => {
+    return product.id === productId;
   });
 
   // Case B: cookie set, id doesn't exist
 
   if (!updateProductCookie) {
-    getProductCookie.push({ id: productId, quantity: quantity });
+    productCookies.push({ id: productId, quantity: quantity });
   } else {
     updateProductCookie.quantity += quantity;
     // Case C: cookie set, id exists already
   }
 
   // 4. we override the cookie
-  (await cookies()).set('cart', JSON.stringify({ ...productId }));
+  (await cookies()).set('cart', JSON.stringify(productCookies));
 }

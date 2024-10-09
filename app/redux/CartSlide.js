@@ -1,11 +1,13 @@
 import { createSlice } from '@reduxjs/toolkit';
+
+// import { cookies } from 'next/headers';
 // import { cookies } from 'next/headers';
 // cookies().get('cart')
 //   ? { ...JSON.parse(cookies().get('cart')) }
 //   :
 const initialState = {
   loading: true,
-  showSidebar: false,
+
   cartItems: [],
 };
 
@@ -37,7 +39,7 @@ const cartSlice = createSlice({
         ),
       );
       state.totalPrice = addDecimals(Number(state.itemsPrice));
-      //  cookies().set('cart', JSON.stringify(state));
+      // cookies.set('carts', JSON.stringify(state));
     },
 
     removeFromCart: (state, action) => {

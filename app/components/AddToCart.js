@@ -8,6 +8,7 @@ import createOrUpdateCookie from '../products/[productDetails]/action';
 
 export default function AddToCart({
   product,
+  productId,
   increasePerClick = false,
   redirect = false,
   showQty = true,
@@ -33,7 +34,7 @@ export default function AddToCart({
     }
     dispatch(addToCart({ ...product, quantity: newQty }));
     if (redirect) router.push(`/cart`);
-    await createOrUpdateCookie({ ...product, quantity: newQty });
+    await createOrUpdateCookie(productId, quantity);
   };
 
   return (
@@ -47,7 +48,7 @@ export default function AddToCart({
               onChange={(e) => setQuantity(Number(e.target.value))}
             >
               {[...Array(product.countInStock).keys()].map((x) => (
-                <option key={`x-${x.id}`} value={x + 1}>
+                <option key={`x-${Math.random()}`} value={x + 1}>
                   {x + 1}
                 </option>
               ))}

@@ -14,7 +14,7 @@ const products = [
     id: 2,
     name: 'Mens Casual Premium Slim Fit T-Shirts ',
     price: 22.3,
-    countInStock: 10,
+    countInStock: 8,
     description:
       'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.',
     category: "men's clothing",
@@ -26,6 +26,7 @@ const products = [
     id: 3,
     name: 'Mens Cotton Jacket',
     price: 55.99,
+    countInStock: 10,
     description:
       'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.',
     category: "men's clothing",

@@ -1,7 +1,8 @@
 import { getProduct } from '../../database/product';
 import AddToCart from '../../components/AddToCart';
-import { getCookie } from '../../../lib/cookies';
 import { parseJson } from '../../../lib/json';
+import { getCookie } from '../../../lib/cookies';
+import { cookies } from 'next/headers';
 
 // import { cookies } from 'next/headers';
 
@@ -15,19 +16,7 @@ export async function generateMetadata({ params }) {
 
 export default async function productDetailsPage(props) {
   const singleProduct = getProduct(Number((await props.params).productDetails));
-
-  // const getProductCookies = await getCookie('cart');
-
-  // let productCookies = parseJson(getProductCookies) || [];
-  // console.log(productCookies);
-
-  // if (!Array.isArray(productCookies)) {
-  //   productCookies = [];
-  // }
-  // const fruitCommentToDisplay = productCookies.find((fruitComment) => {
-  //   return fruitComment.id === singleProduct.id;
-  // });
-  // console.log(fruitCommentToDisplay);
+  console.log(singleProduct);
 
   return (
     <div>
@@ -49,6 +38,7 @@ export default async function productDetailsPage(props) {
         // increasePerClick={true}
         // showQty={false}
         product={singleProduct}
+        productId={singleProduct.id}
         redirect={false}
       />
     </div>
