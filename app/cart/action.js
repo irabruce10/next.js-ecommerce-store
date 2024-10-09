@@ -1,32 +1,18 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import setCookie, { getCookie } from '../../lib/cookies';
+import { getCookie } from '../../lib/cookies';
 import { parseJson } from '../../lib/json';
 
 export default async function removeProductFromCookie(productId) {
-  // if (!Array.isArray(products)) {
-  //   products = [];
-  // }
-
-  // products = products.filter((product) => product.id !== productId);
-
-  const getProducts = await getCookie('cart');
-
-  let products = !getProducts
-    ? // Case A: cookie undefined
-      []
-    : parseJson(getProducts);
-
-  console.log(Array.isArray(products));
-  // if (!Array.isArray(products)) {
-  //   products = [];
-  // }
-  // products = products.find((productCookie) => {
-  //   return productCookie.id === productId;
-  // });
-
-  // await setCookie('cart', products);
+  const products = await getCookie('cart');
+  const productCookies = parseJson(products);
+  const updatedProducts = productCookies.filter(
+    (product) => product.id !== productId,
+  );
+  (await cookies()).set('cart', JSON.stringify(updatedProducts));
+  console.log('Updated products:', updatedProducts);
+  return updatedProducts;
 }
 
 export async function updateCookies(item, quantity) {

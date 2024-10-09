@@ -34,6 +34,10 @@ export default async function CartPage() {
             <div>
               {productCookies.map(async (item) => {
                 const product = await getProduct(item.id);
+                // {productCookies.reduce(
+                //   (acc, item) => acc + item.price * item.quantity,
+                //   0,
+                // )}
 
                 return (
                   <div key={`item-${Math.random()}`}>
@@ -54,13 +58,7 @@ export default async function CartPage() {
                 );
               })}
             </div>
-            <div>
-              Total: $
-              {productCookies.reduce(
-                (acc, item) => acc + item.price * item.quantity,
-                0,
-              )}
-            </div>
+            {/* <div>Total: $ ${totalPrice}</div> */}
 
             {/* <div>
               <button onClick={() => router.push('/shipping')}>checkout</button>

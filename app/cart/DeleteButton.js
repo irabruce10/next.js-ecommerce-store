@@ -2,15 +2,11 @@
 
 import removeProductFromCookie from './action';
 
-export default function DeleteButton({ item }) {
-  // const dispatch = useDispatch();
-  // const removeFromCartHandler = (id) => {
-  //   dispatch(removeFromCart(id));
-  // };
+export default function DeleteButton({ product }) {
   return (
     <div>
       {/* <button onClick={() => removeFromCartHandler(item.id)}>Remove</button> */}
-      <button onClick={() => removeProductFromCookie(item)}>Remove</button>
+      <button onClick={() => removeProductFromCookie(product)}>Remove</button>
     </div>
   );
 }

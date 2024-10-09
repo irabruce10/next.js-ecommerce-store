@@ -1,12 +1,6 @@
 'use client';
-import { useDispatch } from 'react-redux';
-import { addToCart } from '../redux/CartSlide';
-import { parseJson } from '../../lib/json';
-import { getModifiedCookieValues } from 'next/dist/server/web/spec-extension/adapters/request-cookies';
-import createOrUpdateCookie from '../products/[productDetails]/action';
+
 import { updateCookies } from './action';
-// import { getCookie } from '../../lib/cookies';
-// import { cookies } from 'next/headers';
 
 export default function SelectForm({ item, product, quantity }) {
   // const dispatch = useDispatch();
