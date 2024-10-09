@@ -27,7 +27,8 @@ export default async function CartPage() {
 
         {productCookies.length === 0 ? (
           <div>
-            Cart empty <Link href="/products">Go back</Link>
+            Your Cart is Empty Now.Start Adding some Products
+            <Link href="/products"> Go To The Products</Link>
           </div>
         ) : (
           <div>
@@ -38,6 +39,8 @@ export default async function CartPage() {
                 //   (acc, item) => acc + item.price * item.quantity,
                 //   0,
                 // )}
+
+                const totalPrice = product.price * item.quantity;
 
                 return (
                   <div key={`item-${Math.random()}`}>
@@ -52,6 +55,7 @@ export default async function CartPage() {
                     <p>name:{product.name}</p>
                     <p>price: {product.price}</p>
                     <p>quantity: {item.quantity}</p>
+                    <p>total price: {totalPrice}</p>
                     <SelectForm item={item.id} product={product} />
                     <DeleteButton product={product.id} />
                   </div>

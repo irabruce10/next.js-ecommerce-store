@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
-import CardCount from './CardCount';
+import CartCount from './CardCount';
 
 export default function Navigation() {
   return (
@@ -17,7 +17,7 @@ export default function Navigation() {
         </li>
         <li>
           <Link href="/cart">
-            <CardCount />
+            <CartCount />
           </Link>
         </li>
       </ul>

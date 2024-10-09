@@ -5,6 +5,7 @@ import Logo from './Logo';
 import { useEffect } from 'react';
 import { hideLoading } from '../redux/CartSlide';
 import { useDispatch } from 'react-redux';
+
 // import Header from './Header';
 
 export default function App({ children }) {

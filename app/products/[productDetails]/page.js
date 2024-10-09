@@ -1,8 +1,6 @@
 import { getProduct } from '../../database/product';
 import AddToCart from '../../components/AddToCart';
-import { parseJson } from '../../../lib/json';
-import { getCookie } from '../../../lib/cookies';
-import { cookies } from 'next/headers';
+import Image from 'next/image';
 
 // import { cookies } from 'next/headers';
 
@@ -25,9 +23,9 @@ export default async function productDetailsPage(props) {
         <h1>{singleProduct.name}</h1>
         <img
           src={singleProduct.image}
-          alt={singleProduct.title}
-          width={300}
-          height={300}
+          alt={singleProduct.name}
+          width={200}
+          height={200}
           data-test-id="product-image"
         />
         <p>{singleProduct.description}</p>

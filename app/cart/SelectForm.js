@@ -46,7 +46,7 @@ export default function SelectForm({ item, product, quantity }) {
       >
         {[...Array(product.countInStock).keys()].map((x) => (
           <option key={`x-${Math.random()}`} value={x + 1}>
-            {x + 1}
+            {x + 0}
           </option>
         ))}
       </select>

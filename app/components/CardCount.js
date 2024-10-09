@@ -1,15 +1,24 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import { getCookie } from '../../lib/cookies';
+import { parseJson } from '../../lib/json';
 
 export default function CartCount() {
-  const { loading, cartItems } = useSelector((state) => state.cart);
+  const [cartQuantity, setCartQuantity] = useState(0);
+
+  async function c() {
+    const cookieCart = await getCookie('cart');
+    if (cookieCart) {
+      const parsedCart = parseJson(cookieCart);
+      const quantity = parsedCart.reduce((acc, item) => acc + item.quantity, 0);
+      setCartQuantity(quantity);
+    }
+  }
+  console.log(c());
 
   return (
     <div>
-      <span>
-        {loading ? '' : cartItems.reduce((a, c) => a + c.quantity, 0)}
-      </span>
-      <p>Cart</p>
+      <span>{cartQuantity}</span>
+      cart
     </div>
   );
 }
