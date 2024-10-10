@@ -18,7 +18,7 @@ export default function CartCount() {
   return (
     <div>
       <span>{cartQuantity}</span>
-      cart
+      <span>🛒</span>
     </div>
   );
 }

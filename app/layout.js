@@ -1,18 +1,14 @@
-import localFont from 'next/font/local';
 import './globals.css';
 import { StoreProvider } from './redux/StoreProvider';
+import { Salsa } from 'next/font/google';
 
 import App from './components/App';
 
-const geistSans = localFont({
-  src: './fonts/GeistVF.woff',
-  variable: '--font-geist-sans',
-  weight: '100 900',
-});
-const geistMono = localFont({
-  src: './fonts/GeistMonoVF.woff',
-  variable: '--font-geist-mono',
-  weight: '100 900',
+const salsa = Salsa({
+  subsets: ['latin'],
+  family: 'Salsa',
+  weight: '400',
+  display: 'swap',
 });
 
 export const metadata = {
@@ -26,12 +22,15 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${salsa.className}  text-primary-100 min-h-screen flex flex-col`}
+      >
         <StoreProvider>
-          <App>{children}</App>
+          <App>
+            {children}
+            <footer>Copyright@ MyApp {new Date().getFullYear()} </footer>
+          </App>
         </StoreProvider>
-
-        <footer>Copyright@ MyApp {new Date().getFullYear()} </footer>
       </body>
     </html>
   );

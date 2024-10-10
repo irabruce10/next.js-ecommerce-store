@@ -1,5 +1,6 @@
 import { getProduct } from '../../database/product';
 import AddToCart from '../../components/AddToCart';
+import styles from './productDetail.module.scss';
 
 // import { cookies } from 'next/headers';
 
@@ -13,33 +14,36 @@ export async function generateMetadata({ params }) {
 
 export default async function productDetailsPage(props) {
   const singleProduct = getProduct(Number((await props.params).productDetails));
-  console.log(singleProduct);
 
-  console.log('disabled', singleProduct);
   return (
-    <div>
-      productDetails Page
-      <div>
-        <h1>{singleProduct.name}</h1>
-        <img
-          src={singleProduct.image}
-          alt={singleProduct.name}
-          width={200}
-          height={200}
-          data-test-id="product-image"
-        />
-        <p>{singleProduct.description}</p>
-        <p data-test-id="product-price">Price: {singleProduct.price}</p>
-        <p>Rating: {singleProduct.rating.rate}</p>
+    <div className={styles.productDetail_container}>
+      <h1> Product Details</h1>
+      <div className={styles.productDetail_card}>
+        <div className={styles.aside1}>
+          <img
+            src={singleProduct.image}
+            alt={singleProduct.name}
+            width={400}
+            height={550}
+            data-test-id="product-image"
+          />
+        </div>
+
+        <div className={styles.aside2}>
+          <h1>{singleProduct.name}</h1>
+          <p>{singleProduct.description}</p>
+          <p data-test-id="product-price">Price: {singleProduct.price}</p>
+          <p>Rating: {singleProduct.rating.rate}</p>
+          <AddToCart
+            // increasePerClick={true}
+            // showQty={false}
+            product={singleProduct}
+            productId={singleProduct.id}
+            productQty={singleProduct.countInStock}
+            redirect={false}
+          />
+        </div>
       </div>
-      <AddToCart
-        // increasePerClick={true}
-        // showQty={false}
-        product={singleProduct}
-        productId={singleProduct.id}
-        productQty={singleProduct.countInStock}
-        redirect={false}
-      />
     </div>
   );
 }

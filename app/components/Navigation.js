@@ -4,8 +4,8 @@ import CartCount from './CardCount';
 
 export default function Navigation() {
   return (
-    <div>
-      <ul className="navigation">
+    <div className="nav-container">
+      <ul className="nav-ul">
         <li>
           <Link href="/">Home</Link>
         </li>
@@ -15,7 +15,7 @@ export default function Navigation() {
         <li>
           <Link href="/products">Products</Link>
         </li>
-        <li>
+        <li className="cart">
           <Link href="/cart">
             <CartCount />
           </Link>

@@ -14,14 +14,14 @@ export default function App({ children }) {
     dispatch(hideLoading());
   }, [dispatch]);
   return (
-    <div>
-      <header>
+    <div className="container">
+      <header className="header">
         <Logo />
         <Navigation />
         {/* <Header /> */}
         {/* <CartSidebar /> */}
       </header>
-      <main>{children}</main>
+      <main className='main'>{children}</main>
     </div>
   );
 }
