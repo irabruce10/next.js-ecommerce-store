@@ -7,6 +7,8 @@ export const metadata = {
 
 export default async function productPage() {
   const products = await getProductsInsecure();
+
+  console.log(products);
   return (
     <div className={styles.product_container}>
       <h1 className="title">Our top Products</h1>

@@ -1,11 +1,13 @@
-import { getProduct } from '../../database/product';
+import { getProductInsecure } from '../../database/product';
 import AddToCart from '../../components/AddToCart';
 import styles from './productDetail.module.scss';
 
 // import { cookies } from 'next/headers';
 
 export async function generateMetadata({ params }) {
-  const singleProduct = getProduct(Number((await params).productDetails));
+  const singleProduct = getProductInsecure(
+    Number((await params).productDetails),
+  );
   return {
     title: `${singleProduct.name} - E-soko`,
     description: singleProduct.description,
@@ -13,7 +15,11 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function productDetailsPage(props) {
-  const singleProduct = getProduct(Number((await props.params).productDetails));
+  const singleProduct = await getProductInsecure(
+    Number((await props.params).productDetails),
+  );
+
+  console.log('secur', singleProduct);
 
   return (
     <div className={styles.productDetail_container}>
@@ -33,7 +39,7 @@ export default async function productDetailsPage(props) {
           <h1>{singleProduct.name}</h1>
           <p>{singleProduct.description}</p>
           <p data-test-id="product-price">Price: {singleProduct.price}</p>
-          <p>Rating: {singleProduct.rating.rate}</p>
+          {/* <p>Rating: {singleProduct.rating.rate}</p> */}
           <AddToCart
             // increasePerClick={true}
             // showQty={false}
