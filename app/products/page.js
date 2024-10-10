@@ -1,12 +1,12 @@
 import Link from 'next/link';
-import { getProducts } from '../database/product';
 import styles from './product.module.scss';
+import { getProductsInsecure } from '../database/product.ts';
 export const metadata = {
   title: 'Product',
 };
 
-export default function productPage() {
-  const products = getProducts();
+export default async function productPage() {
+  const products = await getProductsInsecure();
   return (
     <div className={styles.product_container}>
       <h1 className="title">Our top Products</h1>
