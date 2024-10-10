@@ -123,24 +123,23 @@ import { sql } from './connect';
 
 export const getProductsInsecure = cache(async () => {
   const products = await sql`
-  SELECT
-  *
-  FROM
-  products
-
+    SELECT
+      *
+    FROM
+      products
   `;
 
   return products;
 });
 
 export const getProductInsecure = cache(async (id: number) => {
-  const products = await sql`
-  SELECT
-  *
-  FROM
-  products
-  WHERE id = ${id}
-
+  const [products] = await sql`
+    SELECT
+      *
+    FROM
+      products
+    WHERE
+      id = ${id}
   `;
 
   return products;
@@ -179,31 +178,18 @@ export const getProductInsecure = cache(async (id: number) => {
 //     1,
 //     10
 
-//   ),
-//   (
-//    'Mens Cotton Jacket',
-//    55.99,
-//    'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors. Good gift choice for you or your family member. A warm hearted love to Father, husband or son in this thanksgiving or Christmas Day.',
-//    'men_clothing',
-//    'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-//     1,
-//     7
-//   ),
-//   (
-//     'Mens Casual Slim Fit',
-//     15.99,
-//    'The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below on the product description.',
-//    'men_s clothing',
-//    'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
-//    1,
-//    5
-//   ),
-//   (
-//   'John Hardy Women_s Legends Naga Gold & Silver Dragon Station Chain Bracelet',
-//    695,
-// 'From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean_s pearl. Wear facing inward to be bestowed with love and abundance, or outward for protection.',
-//  'jewelery',
-//  'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_jpg',
+// ),
+// ('SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s',
+// 164,
+// 'Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)',
+// 'electronics',
+// 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg',
 // 1,
-// 5
-// );
+// 10),
+//   ('Solid Gold Petite Micropave ',
+//   199.99,
+//   'Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.',
+//   'jewelery',
+//   'https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg',
+//   1,
+//   4);

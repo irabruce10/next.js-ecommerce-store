@@ -5,7 +5,7 @@ import DeleteButton from './DeleteButton';
 import SelectForm from './SelectForm';
 import { getCookie } from '../../lib/cookies';
 import { parseJson } from '../../lib/json';
-import { getProduct } from '../database/product';
+import { getProductInsecure } from '../database/product';
 
 export default async function CartPage() {
   const products = await getCookie('cart');
@@ -34,7 +34,7 @@ export default async function CartPage() {
           <div>
             <div>
               {productCookies.map(async (item) => {
-                const product = await getProduct(item.id);
+                const product = await getProductInsecure(item.id);
                 // {productCookies.reduce(
                 //   (acc, item) => acc + item.price * item.quantity,
                 //   0,
