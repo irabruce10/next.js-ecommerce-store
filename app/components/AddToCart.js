@@ -7,12 +7,11 @@ import { useRouter } from 'next/navigation';
 import createOrUpdateCookie from '../products/[productDetails]/action';
 import { updateCookiesMinus, updateCookiesPlus } from '../cart/action';
 import styles from './AddToCart.module.scss';
-import SelectForm from '../cart/SelectForm';
 
 export default function AddToCart({
   product,
   productId,
-  productQty,
+
   increasePerClick = false,
   redirect = false,
   showQty = true,

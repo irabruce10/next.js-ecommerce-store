@@ -3,6 +3,7 @@ import { StoreProvider } from './redux/StoreProvider';
 import { Salsa } from 'next/font/google';
 
 import App from './components/App';
+import Footer from './components/footer/Footer';
 
 const salsa = Salsa({
   subsets: ['latin'],
@@ -28,7 +29,7 @@ export default function RootLayout({ children }) {
         <StoreProvider>
           <App>
             {children}
-            <footer>Copyright@ MyApp {new Date().getFullYear()} </footer>
+            <Footer />
           </App>
         </StoreProvider>
       </body>

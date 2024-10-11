@@ -5,11 +5,13 @@ import styles from './productDetail.module.scss';
 // import { cookies } from 'next/headers';
 
 export async function generateMetadata({ params }) {
-  const singleProduct = getProductInsecure(
+  const singleProduct = await getProductInsecure(
     Number((await params).productDetails),
   );
+
+  console.log('sing', singleProduct);
   return {
-    title: `${singleProduct.id} - E-soko`,
+    title: `${singleProduct.name} - E-soko`,
     description: singleProduct.description,
   };
 }
