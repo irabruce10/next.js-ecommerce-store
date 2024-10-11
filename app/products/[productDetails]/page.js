@@ -46,6 +46,7 @@ export default async function productDetailsPage(props) {
             product={singleProduct}
             productId={singleProduct.id}
             productQty={singleProduct.countInStock}
+            pro={singleProduct.quantity}
             redirect={false}
           />
         </div>

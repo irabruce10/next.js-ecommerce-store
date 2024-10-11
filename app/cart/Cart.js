@@ -45,12 +45,31 @@ export default async function CartPage() {
             </thead>
             {productCookies.map(async (item) => {
               const product = await getProductInsecure(item.id);
+              console.log('prog', item);
               // {productCookies.reduce(
               //   (acc, item) => acc + item.price * item.quantity,
               //   0,
               // )}
 
               const totalPrice = product.price * item.quantity;
+              console.log('leng', item.quantity);
+              // const a = await productCookies.reduce(
+              //   (acc, product) => acc + totalPrice,
+              //   0,
+              // );
+
+              // const a = productCookies.reduce((acc, item) => {
+              //   const productz = productCookies.find((p) => p.id === item.id);
+
+              //   console.log('ttt', productz);
+              //   return totalPrice + acc;
+              // }, 0);
+
+              // console.log('ttt', a);
+              // const a = productCookies.reduce(
+              //   (acc, itemw) => acc + product.price * itemw.quantity,
+              //   0,
+              // );
 
               return (
                 <tbody key={`item-${Math.random()}`}>
@@ -68,9 +87,8 @@ export default async function CartPage() {
                     <td data-title="Product">
                       <p>{product.name}</p>
                     </td>
-
                     <td data-title="Price">
-                      <p>{product.price}</p>
+                      <p>€{product.price}</p>
                     </td>
                     <td data-title="Quantity">
                       <div className={styles.select_form}>
@@ -79,16 +97,16 @@ export default async function CartPage() {
                         </SelectForm>
                       </div>
                     </td>
-                    <td data-title="Total">{totalPrice}</td>
+                    <td data-title="Total">€{totalPrice}</td>
                     <td>
                       <DeleteButton product={product.id} />
                     </td>
+                    {/* <td>Total: $ ${a}</td> */}
                   </tr>
                 </tbody>
               );
             })}
           </table>
-          {/* <div>Total: $ ${totalPrice}</div> */}
 
           {/* <div>
               <button onClick={() => router.push('/shipping')}>checkout</button>
