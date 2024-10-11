@@ -26,7 +26,6 @@ export async function updateCookiesPlus(item, quantity) {
   const productCookie = products.find((product) => {
     return product.id === item;
   });
-  console.log('procoo', productCookie);
 
   // if (productCookie) {
   //   productCookie.quantity += quantity;
@@ -39,7 +38,7 @@ export async function updateCookiesPlus(item, quantity) {
     products.push({ id: item, quantity: quantity });
   } else {
     productCookie.quantity += 1;
-    console.log('qty', Number(quantity));
+
     // Case C: cookie set, id exists already
   }
 
@@ -58,7 +57,6 @@ export async function updateCookiesMinus(item, quantity) {
   const productCookie = products.find((product) => {
     return product.id === item;
   });
-  console.log('procoo', productCookie);
 
   // if (productCookie) {
   //   productCookie.quantity += quantity;
@@ -72,7 +70,6 @@ export async function updateCookiesMinus(item, quantity) {
   } else {
     productCookie.quantity -= 1;
 
-    console.log('qty', Number(quantity));
     // Case C: cookie set, id exists already
   }
 

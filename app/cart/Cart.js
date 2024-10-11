@@ -1,11 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-
 import DeleteButton from './DeleteButton';
 import SelectForm from './SelectForm';
 import { getCookie } from '../../lib/cookies';
 import { parseJson } from '../../lib/json';
 import { getProductInsecure } from '../database/product';
+
+import styles from './cart.module.scss';
 
 export default async function CartPage() {
   const products = await getCookie('cart');
@@ -17,59 +18,83 @@ export default async function CartPage() {
   }
 
   return (
-    <div>
-      <div>
-        <h1>Shopping Cart</h1>
+    <div className={styles.cart_container}>
+      <h1 className={styles.cart_title}>Shopping Cart</h1>
 
-        {/* loading ? (
+      {/* loading ? (
           <div>Loading...</div>
         ) : */}
 
-        {productCookies.length === 0 ? (
-          <div>
-            Your Cart is Empty Now.Start Adding some Products
-            <Link href="/products"> Go To The Products</Link>
-          </div>
-        ) : (
-          <div>
-            <div>
-              {productCookies.map(async (item) => {
-                const product = await getProductInsecure(item.id);
-                // {productCookies.reduce(
-                //   (acc, item) => acc + item.price * item.quantity,
-                //   0,
-                // )}
+      {productCookies.length === 0 ? (
+        <h1 className={styles.cart_title}>
+          Your Cart is Empty Now.Start Adding some Products
+          <Link href="/products"> Go To The Products</Link>
+        </h1>
+      ) : (
+        <div className={styles.cart_table_container}>
+          <table className={styles.cart_table}>
+            <thead>
+              <tr>
+                <th>&nbsp;</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Remove</th>
+              </tr>
+            </thead>
+            {productCookies.map(async (item) => {
+              const product = await getProductInsecure(item.id);
+              // {productCookies.reduce(
+              //   (acc, item) => acc + item.price * item.quantity,
+              //   0,
+              // )}
 
-                const totalPrice = product.price * item.quantity;
+              const totalPrice = product.price * item.quantity;
 
-                return (
-                  <div key={`item-${Math.random()}`}>
-                    <Link href={`/product/${item.id}`}>
-                      <Image
-                        src={product.image}
-                        alt={product.name}
-                        width={50}
-                        height={50}
-                      />
-                    </Link>
-                    <p>name:{product.name}</p>
-                    <p>price: {product.price}</p>
-                    <p>quantity: {item.quantity}</p>
-                    <p>total price: {totalPrice}</p>
-                    <SelectForm item={item.id} product={product} />
-                    <DeleteButton product={product.id} />
-                  </div>
-                );
-              })}
-            </div>
-            {/* <div>Total: $ ${totalPrice}</div> */}
+              return (
+                <tbody key={`item-${Math.random()}`}>
+                  <tr>
+                    <td>
+                      <div>
+                        <Image
+                          src={product.image}
+                          alt={product.name}
+                          width={50}
+                          height={50}
+                        />
+                      </div>
+                    </td>
+                    <td data-title="Product">
+                      <p>{product.name}</p>
+                    </td>
 
-            {/* <div>
+                    <td data-title="Price">
+                      <p>{product.price}</p>
+                    </td>
+                    <td data-title="Quantity">
+                      <div className={styles.select_form}>
+                        <SelectForm item={item.id} product={product}>
+                          <input value={item.quantity} />
+                        </SelectForm>
+                      </div>
+                    </td>
+                    <td data-title="Total">{totalPrice}</td>
+                    <td>
+                      <DeleteButton product={product.id} />
+                    </td>
+                  </tr>
+                </tbody>
+              );
+            })}
+          </table>
+          {/* <div>Total: $ ${totalPrice}</div> */}
+
+          {/* <div>
               <button onClick={() => router.push('/shipping')}>checkout</button>
             </div> */}
-          </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 }

@@ -34,7 +34,7 @@ export default async function productPage() {
                 <h2>{product.name}</h2>
               </Link>
 
-              <p className={styles.price}>Price: {product.price}</p>
+              <p className={styles.price}>Price: € {product.price}</p>
             </div>
           );
         })}

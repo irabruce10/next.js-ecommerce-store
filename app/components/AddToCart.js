@@ -45,7 +45,7 @@ export default function AddToCart({
       {product.countInStock > 0 && showQty && (
         <div>
           <div className={styles.stockQuantity}>
-            quantity {product.countInStock}
+            Quantity in stock {product.countInStock}
           </div>
           <div>
             <button
@@ -60,7 +60,7 @@ export default function AddToCart({
               -
             </button>
 
-            {/* <span>{item.quantity}</span> */}
+            <span className={styles.proQuantity}>{product.quantity}</span>
             <button
               className={styles.addToCart_btn}
               value={quantity}

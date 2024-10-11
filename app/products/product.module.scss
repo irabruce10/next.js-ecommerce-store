@@ -1,5 +1,4 @@
 .product_container {
-  border: 1px gray solid;
   overflow: hidden;
 
   .product_card {
@@ -8,7 +7,7 @@
     grid-template-columns: 400px 400px 400px;
     grid-template-rows: 400px auto 400px;
     column-gap: 10px;
-    row-gap: 15px;
+    row-gap: 25px;
   }
 
   .product_link {
@@ -19,6 +18,8 @@
   .price {
     font-weight: bold;
     font-size: 1.2em;
+    color: #ff324d;
+    margin-top: 5px;
   }
   h2 {
     width: 300px;

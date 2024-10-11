@@ -1,0 +1,25 @@
+.cart_count {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+
+  span {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background-color: red;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 2px 4px;
+    border-radius: 50%;
+    min-width: 16px;
+    text-align: center;
+  }
+
+  svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+}

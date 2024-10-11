@@ -1,43 +1,11 @@
 'use client';
 
-import { updateCookies, updateCookiesMinus, updateCookiesPlus } from './action';
+import { updateCookiesMinus, updateCookiesPlus } from './action';
 
-export default function SelectForm({ item, product, quantity }) {
-  // const dispatch = useDispatch();
-  // const updateCartCookie = (productId, quantity) => {
-  //   const cart = parseJson(getModifiedCookieValues('cart')) || [];
-  //   const existingProduct = cart.find((item) => item.id === productId);
-
-  //   if (existingProduct) {
-  //     existingProduct.quantity = quantity;
-  //   }
-  // };
-  // const addToCartHandler = async (productId, quantity) => {
-  //   const products = await getCookie('cart');
-
-  //   const productCookies = !products
-  //     ? // Case A: cookie undefined
-  //       []
-  //     : parseJson(products);
-
-  //   const updateProductCookie = productCookies.find((prod) => {
-  //     return prod.id === productId;
-  //   });
-
-  //   // Case B: cookie set, id doesn't exist
-
-  //   if (!updateProductCookie) {
-  //     productCookies.push({ id: productId, quantity: quantity });
-  //   } else {
-  //     updateProductCookie.quantity += quantity;
-  //     // Case C: cookie set, id exists already
-  //   }
-  //   (await cookies()).set('cart', JSON.stringify(productCookies));
-  // };
-
+export default function SelectForm({ item, quantity, children }) {
   return (
     <div>
-      <div>
+      <div className="selectCartBtn">
         <button
           value={quantity}
           type="round"
@@ -48,7 +16,8 @@ export default function SelectForm({ item, product, quantity }) {
           -
         </button>
 
-        <span>{item.quantity}</span>
+        {/* <input value={item.quantity} /> */}
+        <div>{children}</div>
         <button
           value={quantity}
           type="round"
