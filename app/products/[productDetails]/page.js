@@ -9,7 +9,7 @@ export async function generateMetadata({ params }) {
     Number((await params).productDetails),
   );
   return {
-    title: `${singleProduct.name} - E-soko`,
+    title: `${singleProduct.id} - E-soko`,
     description: singleProduct.description,
   };
 }
@@ -18,8 +18,6 @@ export default async function productDetailsPage(props) {
   const singleProduct = await getProductInsecure(
     Number((await props.params).productDetails),
   );
-
-  console.log('secur', singleProduct);
 
   return (
     <div className={styles.productDetail_container}>
@@ -37,8 +35,10 @@ export default async function productDetailsPage(props) {
 
         <div className={styles.aside2}>
           <h1>{singleProduct.name}</h1>
-          <p>{singleProduct.description}</p>
-          <p data-test-id="product-price">Price: {singleProduct.price}</p>
+          <p className={styles.price} data-test-id="product-price">
+            Price: € {singleProduct.price}
+          </p>
+          <p className={styles.description}>{singleProduct.description}</p>
           {/* <p>Rating: {singleProduct.rating.rate}</p> */}
           <AddToCart
             // increasePerClick={true}

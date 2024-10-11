@@ -2,15 +2,38 @@
   .productDetail_card {
     margin-top: 2em;
     display: flex;
+
     .aside1 {
       padding: 20px;
       border: 1px solid #ccc;
       height: 600px;
+      margin-right: 3em;
     }
     .aside2 {
       padding: 20px;
       border: 1px solid #ccc;
       height: 600px;
+      width: 100%;
+
+      h1 {
+        text-align: center;
+        margin-bottom: 1em;
+      }
+
+      .price {
+        color: #ff324d;
+        font-weight: bold;
+        font-size: 2em;
+        margin-bottom: 1.3em;
+      }
+
+      .description {
+        width: 400px;
+        margin: auto;
+        font-size: 1.5em;
+        font-weight: normal;
+        line-height: 1.5;
+      }
     }
   }
 }

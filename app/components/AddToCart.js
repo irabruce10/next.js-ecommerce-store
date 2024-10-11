@@ -6,6 +6,7 @@ import { addToCart } from '../redux/CartSlide';
 import { useRouter } from 'next/navigation';
 import createOrUpdateCookie from '../products/[productDetails]/action';
 import { updateCookiesMinus, updateCookiesPlus } from '../cart/action';
+import styles from './AddToCart.module.scss';
 
 export default function AddToCart({
   product,
@@ -40,12 +41,15 @@ export default function AddToCart({
   };
 
   return (
-    <div>
+    <div className={styles.addToCart_container}>
       {product.countInStock > 0 && showQty && (
         <div>
-          <div>quantity</div>
+          <div className={styles.stockQuantity}>
+            quantity {product.countInStock}
+          </div>
           <div>
-            {/* <button
+            <button
+              className={styles.addToCart_btn}
               value={quantity}
               disabled={product.countInStock === 0}
               type="round"
@@ -54,10 +58,11 @@ export default function AddToCart({
               }
             >
               -
-            </button> */}
+            </button>
 
             {/* <span>{item.quantity}</span> */}
             <button
+              className={styles.addToCart_btn}
               value={quantity}
               type="round"
               onClick={(e) =>
@@ -84,9 +89,13 @@ export default function AddToCart({
       )}
       <div>
         {product.countInStock > 0 ? (
-          <button onClick={addToCartHandler}>Add to cart</button>
+          <button className={styles.addBtn} onClick={addToCartHandler}>
+            Add to cart
+          </button>
         ) : (
-          <button disabled>Out of stock</button>
+          <button className={styles.countOutStock_btn} disabled>
+            Out of stock
+          </button>
         )}
       </div>
     </div>
