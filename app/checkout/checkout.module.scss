@@ -1,0 +1,33 @@
+.checkout_container {
+  width: 100%;
+  text-align: center;
+  margin-top: 2em;
+
+  .checkout_asides {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    margin-top: 2em;
+  }
+
+  .aside1 {
+    margin-top: 1em;
+
+    input {
+      margin-bottom: 2em;
+      padding: 1em 20em 1em 0.9em;
+    }
+
+    input::placeholder {
+      font-size: 1.2em;
+      font-style: italic;
+    }
+
+    .select_country {
+      margin-bottom: 2em;
+      padding: 1em 25em 1em 0.9em;
+      color: gray;
+    }
+  }
+}

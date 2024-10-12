@@ -1,13 +1,12 @@
+import styles from './checkout.module.scss';
+
 export default function checkoutPage() {
   return (
-    <div>
+    <div className={styles.checkout_container}>
       <h1>Billing Details</h1>
 
-      <div>
-        <div>
-          <div>
-            <h4>Billing Details</h4>
-          </div>
+      <div className={styles.checkout_asides}>
+        <div className={styles.aside1}>
           <form>
             <div>
               <input required="" name="fname" placeholder="First name *" />
@@ -15,30 +14,26 @@ export default function checkoutPage() {
             <div>
               <input required="" name="lname" placeholder="Last name *" />
             </div>
-            <div>
-              <input required="" name="cname" placeholder="Company Name" />
-            </div>
+
             <div>
               <div>
-                <select>
-                  <option value="">Select an option...</option>
-                  <option value="AX">Aland Islands</option>
-                  <option value="AF">Afghanistan</option>
-                  <option value="AL">Albania</option>
-                  <option value="DZ">Algeria</option>
-                  <option value="AD">Andorra</option>
-                  <option value="AO">Angola</option>
+                <select className={styles.select_country}>
+                  <option value="">Select Country</option>
+                  <option value="AT">Austria</option>
+                  <option value="GM">Germany</option>
+                  <option value="FR">France</option>
+                  <option value="BE">Belgium</option>
+                  <option value="DN">Denmark</option>
+                  <option value="UR">Ukraine</option>
                   <option value="AI">Anguilla</option>
-                  <option value="AQ">Antarctica</option>
+                  <option value="AR">Czech Republic</option>
                 </select>
               </div>
             </div>
             <div>
               <input name="billing_address" placeholder="Address *" />
             </div>
-            <div>
-              <input name="billing_address2" placeholder="Address line2" />
-            </div>
+
             <div>
               <input required="" name="city" placeholder="City / Town *" />
             </div>
@@ -55,18 +50,10 @@ export default function checkoutPage() {
             <div>
               <input required="" name="email" placeholder="Email address *" />
             </div>
-            <div>
-              <h4>Additional information</h4>
-            </div>
-            <div>
-              <textarea rows="5" placeholder="Order notes">
-                f
-              </textarea>
-            </div>
           </form>
         </div>
 
-        <div>
+        <div className={styles.aside2}>
           <div>
             <div>
               <h4>Your Orders</h4>

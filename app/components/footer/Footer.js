@@ -33,11 +33,11 @@ export default function Footer() {
         <div class={styles.widget}>
           <ul class={styles.social_icon}>
             <li>
-              <a href="#">
+              <a href="#cart">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -48,11 +48,11 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#cart">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -63,11 +63,11 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#cart">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -78,11 +78,11 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#cart">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -93,11 +93,11 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#cart">
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -110,10 +110,10 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-        <div className={styles.banks_count}>
+        <div className={styles.banks_logo}>
           <ul>
             <li>
-              <a href="/">
+              <a href="#cart">
                 <Image
                   src="/images/visa.png"
                   width={50}
@@ -123,7 +123,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#cart">
                 <Image
                   src="/images/discover.png"
                   height={50}
@@ -133,7 +133,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#cart">
                 <Image
                   src="/images/master_card.png"
                   height={50}
@@ -143,7 +143,7 @@ export default function Footer() {
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="#cart">
                 <Image
                   src="/images/paypal.png"
                   height={50}
