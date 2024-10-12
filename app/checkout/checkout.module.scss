@@ -1,7 +1,7 @@
 .checkout_container {
   width: 100%;
   text-align: center;
-  margin-top: 2em;
+  margin-top: 1em;
 
   .checkout_asides {
     display: flex;
@@ -12,7 +12,11 @@
   }
 
   .aside1 {
-    margin-top: 1em;
+    margin-top: 0em;
+
+    h4 {
+      padding-bottom: 1em;
+    }
 
     input {
       margin-bottom: 2em;
@@ -28,6 +32,33 @@
       margin-bottom: 2em;
       padding: 1em 25em 1em 0.9em;
       color: gray;
+    }
+  }
+
+  .aside2 {
+    width: 700px;
+    text-align: center;
+    margin: 0 auto;
+    display: online-block;
+    border: 1px solid gray;
+
+    h4 {
+      padding-bottom: 1em;
+    }
+
+    .order_table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-left: 12em;
+
+      .table {
+        margin-left: -3.5em;
+        th,
+        td {
+          padding: 10px;
+          border-bottom: 1px solid #ccc;
+        }
+      }
     }
   }
 }

@@ -3,10 +3,11 @@ import styles from './checkout.module.scss';
 export default function checkoutPage() {
   return (
     <div className={styles.checkout_container}>
-      <h1>Billing Details</h1>
+      <h1>Checkout</h1>
 
       <div className={styles.checkout_asides}>
         <div className={styles.aside1}>
+          <h4>Billing Details</h4>
           <form>
             <div>
               <input required="" name="fname" placeholder="First name *" />
@@ -58,8 +59,8 @@ export default function checkoutPage() {
             <div>
               <h4>Your Orders</h4>
             </div>
-            <div>
-              <table>
+            <div className={styles.order_table}>
+              <table className={styles.table}>
                 <thead>
                   <tr>
                     <th>Product</th>
