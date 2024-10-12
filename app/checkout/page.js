@@ -109,7 +109,7 @@ export default function checkoutPage() {
                 </tfoot>
               </table>
             </div>
-            <div>
+            <div className={styles.payment}>
               <div>
                 <h4>Payment</h4>
               </div>
@@ -157,7 +157,7 @@ export default function checkoutPage() {
                 </div>
               </div>
             </div>
-            <button>Place Order</button>
+            <button className={styles.payment_btn}>Place Order</button>
           </div>
         </div>
       </div>
