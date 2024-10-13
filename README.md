@@ -38,3 +38,53 @@ If you don't have PostgreSQL installed yet, follow the instructions from the Pos
 Copy the .env.example file to a new file called .env (ignored from Git) and fill in the necessary information.
 
 Then, connect to the built-in postgres database as administrator in order to create the database:
+
+# Windows
+
+If it asks for a password, use postgres.
+
+psql -U postgres
+
+# macOS
+
+psql postgres
+
+# Linux
+
+sudo -u postgres psql
+
+Once you have connected, run the following to create the database:
+
+CREATE DATABASE <database name>;
+CREATE USER <user name> WITH ENCRYPTED PASSWORD '<user password>';
+GRANT ALL PRIVILEGES ON DATABASE <database name> TO <user name>;
+\connect <database name>
+CREATE SCHEMA <schema name> AUTHORIZATION <user name>;
+Quit psql using the following command:
+
+\q
+On Linux, it is best practice to create an operating system user for each database, to ensure that the operating system user can only access the single database and no other system resources. A different password is needed on Linux because passwords of operating system users cannot contain the user name. First, generate a random password and copy it:
+
+openssl rand -hex 16
+Then create the user, using the database user name from the previous section above. When you are prompted to create a password for the user, paste in the generated password.
+
+sudo adduser <user name>
+Once you're ready to use the new user, reconnect using the following command.
+
+# Windows and macOS:
+
+psql -U <user name> <database name>
+
+# Linux:
+
+sudo -u <user name> psql -U <user name> <database name>
+
+# Run Tests
+
+# Jest
+
+pnpm jest
+
+# Playwright
+
+pnpm playwright test
