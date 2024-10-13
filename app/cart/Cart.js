@@ -54,7 +54,10 @@ export default async function CartPage() {
               const totalPrice = product.price * item.quantity;
 
               return (
-                <tbody key={`item-${Math.random()}`}>
+                <tbody
+                  data-test-id="cart-product-<product id>"
+                  key={`item-${Math.random()}`}
+                >
                   <tr>
                     <td>
                       <div>
@@ -73,15 +76,20 @@ export default async function CartPage() {
                       <p>€{product.price}</p>
                     </td>
                     <td data-title="Quantity">
-                      <div>
+                      <div data-test-id="cart-product-quantity-<product id>">
                         <SelectForm item={item.id} product={product}>
                           <input value={item.quantity} />
                         </SelectForm>
                       </div>
                     </td>
-                    <td data-title="Total">€{totalPrice}</td>
+                    <td data-title="Total" data-test-id="cart-total">
+                      €{totalPrice}
+                    </td>
                     <td>
-                      <DeleteButton product={product.id} />
+                      <DeleteButton
+                        product={product.id}
+                        data-test-id="cart-product-remove-<product id>"
+                      />
                     </td>
                     {/* <td>Total: $ ${a}</td> */}
                   </tr>
@@ -91,7 +99,9 @@ export default async function CartPage() {
           </table>
 
           <div>
-            <Link href="/checkout">Checkout</Link>
+            <Link data-test-id="cart-checkout" href="/checkout">
+              Checkout
+            </Link>
           </div>
         </div>
       )}

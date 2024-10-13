@@ -9,7 +9,6 @@ export async function generateMetadata({ params }) {
     Number((await params).productDetails),
   );
 
-  console.log('sing', singleProduct);
   return {
     title: `${singleProduct.name} - E-soko`,
     description: singleProduct.description,

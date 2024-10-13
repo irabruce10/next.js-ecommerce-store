@@ -44,7 +44,7 @@ export default function AddToCart({
     <div className={styles.addToCart_container}>
       {product.countInStock > 0 && showQty && (
         <div>
-          <div className={styles.stockQuantity}>
+          <div className={styles.stockQuantity} data-test-id="product-quantity">
             Quantity in stock {product.countInStock}
           </div>
           <div>
@@ -89,7 +89,11 @@ export default function AddToCart({
       )}
       <div>
         {product.countInStock > 0 ? (
-          <button className={styles.addBtn} onClick={addToCartHandler}>
+          <button
+            className={styles.addBtn}
+            onClick={addToCartHandler}
+            data-test-id="product-add-to-cart"
+          >
             Add to cart
           </button>
         ) : (
