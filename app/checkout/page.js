@@ -51,6 +51,29 @@ export default function checkoutPage() {
             <div>
               <input required="" name="email" placeholder="Email address *" />
             </div>
+            <div>
+              <input
+                required=""
+                name="email"
+                placeholder="Password *"
+                type="password"
+              />
+            </div>
+            <div>
+              <input
+                required=""
+                name="credit card"
+                placeholder="Credit card *"
+                type="card"
+              />
+            </div>
+            <div>
+              <input
+                required=""
+                name="expiration date"
+                placeholder="expiration date *"
+              />
+            </div>
           </form>
         </div>
 
@@ -157,7 +180,7 @@ export default function checkoutPage() {
                 </div>
               </div>
             </div>
-            <button className={styles.payment_btn}>Place Order</button>
+            <button className={styles.payment_btn}>Confirm Order</button>
           </div>
         </div>
       </div>
