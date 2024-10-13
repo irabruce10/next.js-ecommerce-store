@@ -16,8 +16,8 @@ export default function Navigation() {
           <Link href="/products">Products</Link>
         </li>
         <li className="cart">
-          <Link href="/cart">
-            <CartCount />
+          <Link href="/cart" data-test-id="cart-link">
+            <CartCount data-test-id="cart-count" />
           </Link>
         </li>
       </ul>

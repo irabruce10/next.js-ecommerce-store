@@ -10,15 +10,37 @@ export default function checkoutPage() {
           <h4>Billing Details</h4>
           <form>
             <div>
-              <input required="" name="fname" placeholder="First name *" />
+              <input
+                data-test-id="checkout-first-name"
+                required=""
+                name="fname"
+                placeholder="First name *"
+              />
             </div>
             <div>
-              <input required="" name="lname" placeholder="Last name *" />
+              <input
+                data-test-id="checkout-last-name"
+                required=""
+                name="lname"
+                placeholder="Last name *"
+              />
+            </div>
+            <div>
+              <input
+                data-test-id="checkout-security-code"
+                required=""
+                name="email"
+                placeholder="Password *"
+                type="password"
+              />
             </div>
 
             <div>
               <div>
-                <select className={styles.select_country}>
+                <select
+                  className={styles.select_country}
+                  data-test-id="checkout-country"
+                >
                   <option value="">Select Country</option>
                   <option value="AT">Austria</option>
                   <option value="GM">Germany</option>
@@ -32,14 +54,24 @@ export default function checkoutPage() {
               </div>
             </div>
             <div>
-              <input name="billing_address" placeholder="Address *" />
+              <input
+                data-test-id="checkout-address"
+                name="billing_address"
+                placeholder="Address *"
+              />
             </div>
 
             <div>
-              <input required="" name="city" placeholder="City / Town *" />
+              <input
+                data-test-id="checkout-city"
+                required=""
+                name="city"
+                placeholder="City / Town *"
+              />
             </div>
             <div>
               <input
+                data-test-id="checkout-postal-code"
                 required=""
                 name="zipcode"
                 placeholder="Postcode / ZIP *"
@@ -49,16 +81,14 @@ export default function checkoutPage() {
               <input required="" name="phone" placeholder="Phone *" />
             </div>
             <div>
-              <input required="" name="email" placeholder="Email address *" />
-            </div>
-            <div>
               <input
+                data-test-id="checkout-email"
                 required=""
                 name="email"
-                placeholder="Password *"
-                type="password"
+                placeholder="Email address *"
               />
             </div>
+
             <div>
               <input
                 required=""
@@ -69,6 +99,7 @@ export default function checkoutPage() {
             </div>
             <div>
               <input
+                data-test-id="checkout-expiration-date"
                 required=""
                 name="expiration date"
                 placeholder="expiration date *"
@@ -180,7 +211,12 @@ export default function checkoutPage() {
                 </div>
               </div>
             </div>
-            <button className={styles.payment_btn}>Confirm Order</button>
+            <button
+              data-test-id="checkout-confirm-order"
+              className={styles.payment_btn}
+            >
+              Confirm Order
+            </button>
           </div>
         </div>
       </div>
