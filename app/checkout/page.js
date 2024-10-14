@@ -1,4 +1,5 @@
 import styles from './checkout.module.scss';
+import ResetCookies from './ResetCookies';
 
 export default function checkoutPage() {
   return (
@@ -211,12 +212,19 @@ export default function checkoutPage() {
                 </div>
               </div>
             </div>
-            <button
+
+            <ResetCookies />
+
+            {/*
+
+            <Link
+              href="#/"
               data-test-id="checkout-confirm-order"
               className={styles.payment_btn}
+              onClick={deleteAllCheckout}
             >
               Confirm Order
-            </button>
+            </Link>*/}
           </div>
         </div>
       </div>
