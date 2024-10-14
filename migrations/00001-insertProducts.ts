@@ -1,6 +1,7 @@
 import { Sql } from 'postgres';
 const products = [
   {
+    id: 1,
     name: 'Fjallraven - Foldsack No. 1 Backpack ',
     price: 109.95,
 
@@ -12,6 +13,7 @@ const products = [
     countInStock: 10,
   },
   {
+    id: 2,
     name: 'Mens Casual Premium Slim Fit T-Shirts ',
     price: 22.3,
 
@@ -24,6 +26,7 @@ const products = [
     countInStock: 8,
   },
   {
+    id: 3,
     name: 'Mens Cotton Jacket',
     price: 55.99,
 
@@ -36,6 +39,7 @@ const products = [
     countInStock: 10,
   },
   {
+    id: 4,
     name: 'Mens Casual Slim Fit',
     price: 15.99,
     description:
@@ -47,6 +51,7 @@ const products = [
     countInStock: 5,
   },
   {
+    id: 5,
     name: "John Hardy Women's Legends Naga Gold & Silver ",
     price: 695,
     description:
@@ -58,6 +63,7 @@ const products = [
     countInStock: 0,
   },
   {
+    id: 6,
     name: 'Solid Gold Petite Micropave ',
     price: 168,
     description:
@@ -69,6 +75,7 @@ const products = [
     countInStock: 1,
   },
   {
+    id: 7,
     name: 'White Gold Plated Princess',
     price: 9.99,
     description:
@@ -80,6 +87,7 @@ const products = [
     countInStock: 3,
   },
   {
+    id: 8,
     name: 'Pierced Owl Rose Gold Plated Stainless Steel',
     price: 10.99,
     description:
@@ -91,6 +99,7 @@ const products = [
     countInStock: 14,
   },
   {
+    id: 9,
     name: 'WD 2TB Elements Portable External Hard Drive ',
     price: 64,
     description:
@@ -102,6 +111,7 @@ const products = [
     countInStock: 4,
   },
   {
+    id: 10,
     name: 'SanDisk SSD PLUS 1TB Internal SSD ',
     price: 109,
     description:
