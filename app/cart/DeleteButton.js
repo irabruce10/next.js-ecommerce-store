@@ -6,8 +6,8 @@ import styles from './cart.module.scss';
 export default function DeleteButton({ product }) {
   return (
     <div>
-      {/* <button onClick={() => removeFromCartHandler(item.id)}>Remove</button> */}
       <button
+        data-test-id={`cart-product-remove-${product.id}`}
         className={styles.deleteCartBtn}
         onClick={() => removeProductFromCookie(product)}
       >

@@ -27,7 +27,7 @@ export default async function productPage() {
               >
                 <Image
                   src={product.image}
-                  alt={product.title}
+                  alt={product.name}
                   width={250}
                   height={300}
                   data-test-id="product-image"
