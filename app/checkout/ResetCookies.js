@@ -6,7 +6,7 @@ export default function ResetCookies() {
   return (
     <div>
       <Link
-        href="#/"
+        href="/thank_you"
         data-test-id="checkout-confirm-order"
         className={styles.payment_btn}
         onClick={() => removeAllCookies()}
