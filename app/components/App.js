@@ -1,10 +1,10 @@
 'use client';
-import Navigation from './Navigation';
 // import CartSidebar from './CartSidebar';
 import Logo from './Logo';
 import { useEffect } from 'react';
 import { hideLoading } from '../redux/CartSlide';
 import { useDispatch } from 'react-redux';
+import Navigation from './Navigation';
 
 // import Header from './Header';
 
@@ -21,7 +21,7 @@ export default function App({ children }) {
         {/* <Header /> */}
         {/* <CartSidebar /> */}
       </header>
-      <main className='main'>{children}</main>
+      <main className="main">{children}</main>
     </div>
   );
 }

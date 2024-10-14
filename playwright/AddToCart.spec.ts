@@ -25,6 +25,16 @@ test('add to cart test', async ({ page }) => {
 
   await page.getByTestId('cart-link').click();
   await page.waitForURL('/cart');
+  await page.getByRole('link', { name: 'cart' }).click();
+
+  await expect(
+    page.getByText('Your Cart is Empty Now.Start Adding some Products'),
+  ).toBeVisible();
+  await expect(
+    page.getByRole('heading', {
+      name: 'Your cart is emptyYour Cart is Empty Now.Start Adding some Products',
+    }),
+  ).toBeVisible();
 
   // await expect(page.getByTestId('cart-product-remove-1')).toBeVisible();
 
