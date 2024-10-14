@@ -4,10 +4,10 @@ import { Salsa } from 'next/font/google';
 
 import App from './components/App';
 import Footer from './components/footer/Footer';
+import { ReactNode } from 'react';
 
 const salsa = Salsa({
   subsets: ['latin'],
-  family: 'Salsa',
   weight: '400',
   display: 'swap',
 });
@@ -20,7 +20,10 @@ export const metadata = {
   description: 'E-soko market ,beautiful market ...',
 };
 
-export default function RootLayout({ children }) {
+type Props = {
+  children: ReactNode;
+};
+export default function RootLayout({ children }: Props) {
   return (
     <html lang="en">
       <body
