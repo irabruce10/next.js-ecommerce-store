@@ -1,7 +1,7 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { getCookie } from '../../../lib/cookies.js';
+import { getCookie } from '../../../lib/cookies';
 import { parseJson } from '../../../lib/json.js';
 
 export default async function createOrUpdateCookie(productId, quantity) {

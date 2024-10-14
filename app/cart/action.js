@@ -1,8 +1,8 @@
 'use server';
 
 import { cookies } from 'next/headers';
-import { getCookie } from '../../lib/cookies';
 import { parseJson } from '../../lib/json';
+import { getCookie } from '../../lib/cookies';
 
 export default async function removeProductFromCookie(productId) {
   const products = await getCookie('cart');
