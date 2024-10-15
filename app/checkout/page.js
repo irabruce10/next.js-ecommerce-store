@@ -138,7 +138,7 @@ export default async function checkoutPage() {
                 const totalPrice = product.price * item.quantity;
 
                 return (
-                  <table className={styles.table} key={item.id}>
+                  <table className={styles.table} key={`item-${item.id}`}>
                     <tbody>
                       <tr>
                         <td>
