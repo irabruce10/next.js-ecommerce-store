@@ -1,7 +1,17 @@
+import { getCookie } from '../../lib/cookies';
+import { parseJson } from '../../lib/json';
+import { getProductInsecure } from '../database/product';
 import styles from './checkout.module.scss';
 import ResetCookies from './ResetCookies';
 
-export default function checkoutPage() {
+export default async function checkoutPage() {
+  const products = await getCookie('cart');
+
+  let productCookies = products ? parseJson(products) : [];
+
+  if (!Array.isArray(productCookies)) {
+    productCookies = [];
+  }
   return (
     <div className={styles.checkout_container}>
       <h1>Checkout</h1>
@@ -114,56 +124,48 @@ export default function checkoutPage() {
             <div>
               <h4>Your Orders</h4>
             </div>
-            <div className={styles.order_table}>
-              <table className={styles.table}>
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Total</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>
-                      Lorem ipsum furniture seven <span>x 5</span>
-                    </td>
-                    <td>$212.50</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Lorem ipsum fashion eight <span>x 1</span>
-                    </td>
-                    <td>$19.92</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Lorem ipsum fashion sev <span>x 3</span>
-                    </td>
-                    <td>$69.00</td>
-                  </tr>
-                  <tr>
-                    <td>
-                      Lorem ipsum furniture two <span>x 6</span>
-                    </td>
-                    <td>$540.00</td>
-                  </tr>
-                </tbody>
-                <tfoot>
-                  <tr>
-                    <th>SubTotal</th>
-                    <td>$841.42</td>
-                  </tr>
-                  <tr>
-                    <th>Shipping</th>
-                    <td>Free Shipping</td>
-                  </tr>
-                  <tr>
-                    <th>Total</th>
-                    <td>$841.42</td>
-                  </tr>
-                </tfoot>
-              </table>
-            </div>
+
+            <table className={styles.order_table}>
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Total</th>
+                </tr>
+              </thead>
+              {productCookies.map(async (item) => {
+                const product = await getProductInsecure(item.id);
+
+                const totalPrice = product.price * item.quantity;
+
+                return (
+                  <table className={styles.table} key={item.id}>
+                    <tbody>
+                      <tr>
+                        <td>
+                          {product.name} <span>x {product.quantity}</span>
+                        </td>
+                        <td>{totalPrice}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                );
+              })}
+
+              <tfoot>
+                <tr>
+                  <th>SubTotal</th>
+                  <td>$841.42</td>
+                </tr>
+                <tr>
+                  <th>Shipping</th>
+                  <td>Free Shipping</td>
+                </tr>
+                <tr>
+                  <th>Total</th>
+                  <td>$841.42</td>
+                </tr>
+              </tfoot>
+            </table>
             <div className={styles.payment}>
               <div>
                 <h4>Payment</h4>

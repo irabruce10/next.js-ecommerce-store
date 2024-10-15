@@ -45,17 +45,12 @@ export default async function CartPage() {
             </thead>
             {productCookies.map(async (item) => {
               const product = await getProductInsecure(item.id);
-              console.log('prog', item);
-              // {productCookies.reduce(
-              //   (acc, item) => acc + item.price * item.quantity,
-              //   0,
-              // )}
 
               const totalPrice = product.price * item.quantity;
 
               return (
                 <tbody
-                  data-test-id="cart-product-<product id>"
+                  data-test-id={`cart-product-${item.id}`}
                   key={`item-${Math.random()}`}
                 >
                   <tr>
@@ -76,9 +71,12 @@ export default async function CartPage() {
                       <p>€{product.price}</p>
                     </td>
                     <td data-title="Quantity">
-                      <div data-test-id="cart-product-quantity-<product id>">
+                      <div data-test-id={`cart-product-quantity-${item.id}`}>
                         <SelectForm item={item.id} product={product}>
-                          <input value={item.quantity} />
+                          <input
+                            value={item.quantity}
+                            data-test-id={`cart-product-quantity-${item.id}`}
+                          />
                         </SelectForm>
                       </div>
                     </td>
@@ -88,7 +86,7 @@ export default async function CartPage() {
                     <td>
                       <DeleteButton
                         product={product.id}
-                        data-test-id="cart-product-remove-<product id>"
+                        data-test-id={`cart-product-remove-${item.id}`}
                       />
                     </td>
                     {/* <td>Total: $ ${a}</td> */}

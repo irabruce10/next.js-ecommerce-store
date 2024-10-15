@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../redux/CartSlide';
@@ -11,7 +11,6 @@ import styles from './AddToCart.module.scss';
 export default function AddToCart({
   product,
   productId,
-
   increasePerClick = false,
   redirect = false,
   showQty = true,
@@ -44,7 +43,7 @@ export default function AddToCart({
     <div className={styles.addToCart_container}>
       {product.countInStock > 0 && showQty && (
         <div>
-          <div className={styles.stockQuantity} data-test-id="product-quantity">
+          <div className={styles.stockQuantity}>
             Quantity in stock {product.countInStock}
           </div>
           <div>
@@ -60,7 +59,12 @@ export default function AddToCart({
               -
             </button>
 
-            <span className={styles.proQuantity}>{product.quantity}</span>
+            <span
+              className={styles.proQuantity}
+              data-test-id="product-quantity"
+            >
+              {product.quantity}
+            </span>
             <button
               className={styles.addToCart_btn}
               value={quantity}

@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import styles from './product.module.scss';
-import { getProductsInsecure } from '../database/product.ts';
+import { getProductsInsecure } from '../database/product';
 import Image from 'next/image';
 export const metadata = {
   title: 'Product',
