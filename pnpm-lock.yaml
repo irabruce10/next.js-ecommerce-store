@@ -17,9 +17,6 @@ importers:
       dotenv-safe:
         specifier: ^9.1.0
         version: 9.1.0(dotenv@16.4.5)
-      js-cookie:
-        specifier: ^3.0.5
-        version: 3.0.5
       next:
         specifier: 15.0.0-canary.171
         version: 15.0.0-canary.171(@babel/core@7.25.2)(@playwright/test@1.48.0)(react-dom@19.0.0-rc-2d16326d-20240930(react@19.0.0-rc-2d16326d-20240930))(react@19.0.0-rc-2d16326d-20240930)(sass@1.79.4)
@@ -66,6 +63,9 @@ importers:
       '@types/dotenv-safe':
         specifier: ^8.1.6
         version: 8.1.6
+      '@types/js-cookie':
+        specifier: ^3.0.6
+        version: 3.0.6
       '@types/node':
         specifier: ^22.7.4
         version: 22.7.4
@@ -103,8 +103,8 @@ importers:
         specifier: ^16.9.0
         version: 16.9.0(typescript@5.6.2)
       stylelint-config-upleveled:
-        specifier: ^1.1.4
-        version: 1.1.4(postcss@8.4.47)(stylelint-scss@6.7.0(stylelint@16.9.0(typescript@5.6.2)))(stylelint@16.9.0(typescript@5.6.2))
+        specifier: ^1.1.5
+        version: 1.1.5(postcss@8.4.47)(stylelint-scss@6.7.0(stylelint@16.9.0(typescript@5.6.2)))(stylelint@16.9.0(typescript@5.6.2))
       typescript:
         specifier: ^5.6.2
         version: 5.6.2
@@ -945,6 +945,9 @@ packages:
 
   '@types/istanbul-reports@3.0.4':
     resolution: {integrity: sha512-pk2B1NWalF9toCRu6gjBzR69syFjP4Od8WRAX+0mmf9lAjCRicLOWc+ZrxZHx/0XRjotgkF9t6iaMJ+aXcOdZQ==}
+
+  '@types/js-cookie@3.0.6':
+    resolution: {integrity: sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==}
 
   '@types/jsdom@20.0.1':
     resolution: {integrity: sha512-d0r18sZPmMQr1eG35u12FZfhIXNrnsPU/g5wvRKCUf/tOGilKKwYMYGqh33BNR6ba+2gkHw1EUiHoN3mn7E5IQ==}
@@ -2560,10 +2563,6 @@ packages:
       node-notifier:
         optional: true
 
-  js-cookie@3.0.5:
-    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
-    engines: {node: '>=14'}
-
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
@@ -3586,8 +3585,8 @@ packages:
     peerDependencies:
       stylelint: ^16.1.0
 
-  stylelint-config-upleveled@1.1.4:
-    resolution: {integrity: sha512-hxY8DP29hario5UxY/mRTG6DJUmDUwigEWHmulLrX7tII+zz4z+69k0IBfHTKvQkU0hDE8Uo0qxTOjxX/iKJUg==}
+  stylelint-config-upleveled@1.1.5:
+    resolution: {integrity: sha512-UZpG9ivKQPPKZaIeylVf0ElBeVkJjBg0oaNjTRKEgFdxaB+zcewtaO78XJqw0qrcp43Rqb59UDOmCUhFAvEjwg==}
     engines: {node: '>=20.9.0'}
     peerDependencies:
       stylelint: ^16.9.0
@@ -4875,6 +4874,8 @@ snapshots:
   '@types/istanbul-reports@3.0.4':
     dependencies:
       '@types/istanbul-lib-report': 3.0.3
+
+  '@types/js-cookie@3.0.6': {}
 
   '@types/jsdom@20.0.1':
     dependencies:
@@ -6959,8 +6960,6 @@ snapshots:
       - supports-color
       - ts-node
 
-  js-cookie@3.0.5: {}
-
   js-tokens@4.0.0: {}
 
   js-yaml@3.14.1:
@@ -8005,7 +8004,7 @@ snapshots:
     dependencies:
       stylelint: 16.9.0(typescript@5.6.2)
 
-  stylelint-config-upleveled@1.1.4(postcss@8.4.47)(stylelint-scss@6.7.0(stylelint@16.9.0(typescript@5.6.2)))(stylelint@16.9.0(typescript@5.6.2)):
+  stylelint-config-upleveled@1.1.5(postcss@8.4.47)(stylelint-scss@6.7.0(stylelint@16.9.0(typescript@5.6.2)))(stylelint@16.9.0(typescript@5.6.2)):
     dependencies:
       postcss-styled-syntax: 0.6.4(postcss@8.4.47)
       stylelint: 16.9.0(typescript@5.6.2)
