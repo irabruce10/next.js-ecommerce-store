@@ -4,10 +4,11 @@ import { Salsa } from 'next/font/google';
 
 import App from './components/App';
 import Footer from './components/footer/Footer';
-import { ReactNode } from 'react';
+import type { ReactNode } from 'react';
 
 const salsa = Salsa({
   subsets: ['latin'],
+
   weight: '400',
   display: 'swap',
 });

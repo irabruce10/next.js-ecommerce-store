@@ -3,19 +3,24 @@ import AddToCart from '../../components/AddToCart';
 import styles from './productDetail.module.scss';
 
 // import { cookies } from 'next/headers';
-
-export async function generateMetadata({ params }) {
+type Props = {
+  params: Promise<{
+    productDetails: string;
+    productQty: number;
+  }>;
+};
+export async function generateMetadata(props: Props) {
   const singleProduct = await getProductInsecure(
-    Number((await params).productDetails),
+    Number((await props.params).productDetails),
   );
 
   return {
-    title: `${singleProduct.name} - E-soko`,
-    description: singleProduct.description,
+    title: `${singleProduct?.name} - E-soko`,
+    description: singleProduct?.description,
   };
 }
 
-export default async function productDetailsPage(props) {
+export default async function productDetailsPage(props: Props) {
   const singleProduct = await getProductInsecure(
     Number((await props.params).productDetails),
   );
@@ -26,8 +31,8 @@ export default async function productDetailsPage(props) {
       <div className={styles.productDetail_card}>
         <div className={styles.aside1}>
           <img
-            src={singleProduct.image}
-            alt={singleProduct.name}
+            src={singleProduct?.image}
+            alt={singleProduct?.name}
             width={400}
             height={550}
             data-test-id="product-image"
@@ -35,19 +40,19 @@ export default async function productDetailsPage(props) {
         </div>
 
         <div className={styles.aside2}>
-          <h1>{singleProduct.name}</h1>
+          <h1>{singleProduct?.name}</h1>
           <p className={styles.price} data-test-id="product-price">
-            Price: € {singleProduct.price}
+            Price: € {singleProduct?.price}
           </p>
-          <p className={styles.description}>{singleProduct.description}</p>
-          {/* <p>Rating: {singleProduct.rating.rate}</p> */}
+          <p className={styles.description}>{singleProduct?.description}</p>
+          {/* <p>Rating: {?.rating.rate}</p> */}
           <AddToCart
             // increasePerClick={true}
             // showQty={false}
             product={singleProduct}
-            productId={singleProduct.id}
-            productQty={singleProduct.countInStock}
-            pro={singleProduct.quantity}
+            productId={singleProduct?.id}
+            productQty={singleProduct?.countInStock}
+            // pro={singleProduct.quantity}
             redirect={false}
           />
         </div>

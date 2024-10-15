@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import Image from '../node_modules/next/image';
 import bg1 from '../public/images/bg1.jpg';
 
 export default function Home() {

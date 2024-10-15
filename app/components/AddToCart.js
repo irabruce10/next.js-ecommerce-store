@@ -11,6 +11,8 @@ import styles from './AddToCart.module.scss';
 export default function AddToCart({
   product,
   productId,
+  productQty,
+
   increasePerClick = false,
   redirect = false,
   showQty = true,
@@ -30,6 +32,7 @@ export default function AddToCart({
         if (existItem.quantity + 1 <= product.countInStock) {
           newQty = existItem.quantity + 1;
         } else {
+          setQuantity();
           return alert('No more ....');
         }
       }
@@ -49,7 +52,7 @@ export default function AddToCart({
           <div>
             <button
               className={styles.addToCart_btn}
-              value={quantity}
+              value={productQty}
               disabled={product.countInStock <= 0}
               type="round"
               onClick={(e) =>

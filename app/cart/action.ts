@@ -1,12 +1,15 @@
 'use server';
-
-import { cookies } from 'next/headers';
-import { parseJson } from '../../lib/json';
 import { getCookie } from '../../lib/cookies';
+import { parseJson } from '../../lib/json';
+import { cookies } from '../../node_modules/next/headers';
 
-export default async function removeProductFromCookie(productId) {
+export type Product = {
+  id: number;
+  quantity: number;
+};
+export default async function removeProductFromCookie(productId: number) {
   const products = await getCookie('cart');
-  const productCookies = parseJson(products);
+  const productCookies: Product[] = parseJson(products);
   const updatedProducts = productCookies.filter(
     (product) => product.id !== productId,
   );
@@ -15,10 +18,10 @@ export default async function removeProductFromCookie(productId) {
   return updatedProducts;
 }
 
-export async function updateCookiesPlus(item, quantity) {
+export async function updateCookiesPlus(item: number, quantity: number) {
   const getProducts = await getCookie('cart');
 
-  const products = !getProducts ? [] : parseJson(getProducts);
+  const products: Product[] = !getProducts ? [] : parseJson(getProducts);
 
   const productCookie = products.find((product) => {
     return product.id === item;
@@ -33,10 +36,10 @@ export async function updateCookiesPlus(item, quantity) {
   (await cookies()).set('cart', JSON.stringify(products));
 }
 
-export async function updateCookiesMinus(item, quantity) {
+export async function updateCookiesMinus(item: number, quantity: number) {
   const getProducts = await getCookie('cart');
 
-  const products = !getProducts ? [] : parseJson(getProducts);
+  const products: Product[] = !getProducts ? [] : parseJson(getProducts);
 
   const productCookie = products.find((product) => {
     return product.id === item;
@@ -48,17 +51,17 @@ export async function updateCookiesMinus(item, quantity) {
     productCookie.quantity -= 1;
   }
 
-  if (productCookie.quantity === 0) {
+  if (productCookie?.quantity === 0) {
     products.splice(products.indexOf(productCookie), 1);
   }
 
   (await cookies()).set('cart', JSON.stringify(products));
 }
 
-export async function removeAllCookies(item) {
+export async function removeAllCookies(item: number) {
   const getProducts = await getCookie('cart');
 
-  let products = !getProducts ? [] : parseJson(getProducts);
+  let products: Product[] = !getProducts ? [] : parseJson(getProducts);
   if (item) {
     products = products.filter((product) => product.id !== item);
   } else {

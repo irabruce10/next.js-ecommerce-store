@@ -1,22 +1,26 @@
 'use server';
 
-import { cookies } from 'next/headers';
 import { getCookie } from '../../../lib/cookies';
-import { parseJson } from '../../../lib/json.js';
+import { parseJson } from '../../../lib/json';
 
-export default async function createOrUpdateCookie(productId, quantity) {
+import { cookies } from '../../../node_modules/next/headers';
+
+export type Product = {
+  id: number;
+  quantity: number;
+};
+export default async function createOrUpdateCookie(
+  productId: number,
+  quantity: number,
+) {
   // 1. get current cookie!
   const products = await getCookie('cart');
 
   // // // 2. parse the cookie value
-  const productCookies = !products
+  const productCookies: Product[] = !products
     ? // Case A: cookie undefined
       []
     : parseJson(products);
-
-  // if (!Array.isArray(products)) {
-  //   products = [];
-  // }
 
   // 3. edit the cookie value
   const updateProductCookie = productCookies.find((product) => {
