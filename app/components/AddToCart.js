@@ -8,14 +8,14 @@ import createOrUpdateCookie from '../products/[productDetails]/action';
 import { updateCookiesMinus, updateCookiesPlus } from '../cart/action';
 import styles from './AddToCart.module.scss';
 
-type Props = {
-  product;
-  productId;
-  productQty;
-  increasePerClick?: boolean;
-  redirect?: boolean;
-  showQty?: boolean;
-};
+// type Props = {
+//   product;
+//   productId;
+//   productQty;
+//   increasePerClick?: boolean;
+//   redirect?: boolean;
+//   showQty?: boolean;
+// };
 
 export default function AddToCart({
   product,
