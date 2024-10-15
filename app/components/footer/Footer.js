@@ -1,12 +1,11 @@
-import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
 import styles from './Footer.module.scss';
+import Image from 'next/image';
 
 export default function Footer() {
   return (
-    <div class={styles.footer_container}>
-      <div class={styles.footer_row}>
+    <div className={styles.footer_container}>
+      <div className={styles.footer_row}>
         <div>
           <p>
             Copyright © {new Date().getFullYear()} . Built with{' '}
@@ -30,8 +29,8 @@ export default function Footer() {
             </Link>
           </p>
         </div>
-        <div class={styles.widget}>
-          <ul class={styles.social_icon}>
+        <div className={styles.widget}>
+          <ul className={styles.social_icon}>
             <li>
               <a href="#cart">
                 <svg
