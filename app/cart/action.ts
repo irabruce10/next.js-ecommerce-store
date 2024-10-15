@@ -9,7 +9,7 @@ export type Product = {
 };
 export default async function removeProductFromCookie(productId: number) {
   const products = await getCookie('cart');
-  const productCookies: Product[] = parseJson(products);
+  const productCookies: Product[] = parseJson(products)!;
   const updatedProducts = productCookies.filter(
     (product) => product.id !== productId,
   );
@@ -21,7 +21,7 @@ export default async function removeProductFromCookie(productId: number) {
 export async function updateCookiesPlus(item: number, quantity: number) {
   const getProducts = await getCookie('cart');
 
-  const products: Product[] = !getProducts ? [] : parseJson(getProducts);
+  const products: Product[] = !getProducts ? [] : parseJson(getProducts)!;
 
   const productCookie = products.find((product) => {
     return product.id === item;
@@ -39,7 +39,7 @@ export async function updateCookiesPlus(item: number, quantity: number) {
 export async function updateCookiesMinus(item: number, quantity: number) {
   const getProducts = await getCookie('cart');
 
-  const products: Product[] = !getProducts ? [] : parseJson(getProducts);
+  const products: Product[] = !getProducts ? [] : parseJson(getProducts)!;
 
   const productCookie = products.find((product) => {
     return product.id === item;
@@ -61,7 +61,7 @@ export async function updateCookiesMinus(item: number, quantity: number) {
 export async function removeAllCookies(item: number) {
   const getProducts = await getCookie('cart');
 
-  let products: Product[] = !getProducts ? [] : parseJson(getProducts);
+  let products: Product[] = !getProducts ? [] : parseJson(getProducts)!;
   if (item) {
     products = products.filter((product) => product.id !== item);
   } else {

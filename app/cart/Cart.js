@@ -1,5 +1,3 @@
-import DeleteButton from './DeleteButton';
-import SelectForm from './SelectForm';
 import { getCookie } from '../../lib/cookies';
 import { parseJson } from '../../lib/json';
 import { getProductInsecure } from '../database/product';
@@ -7,6 +5,8 @@ import { getProductInsecure } from '../database/product';
 import styles from './cart.module.scss';
 import Link from 'next/link';
 import Image from 'next/image';
+import DeleteButton from './DeleteButton';
+import SelectForm from './SelectForm';
 
 export default async function CartPage() {
   const products = await getCookie('cart');

@@ -3,13 +3,18 @@
 import removeProductFromCookie from './action';
 import styles from './cart.module.scss';
 
-export default function DeleteButton({ product }) {
+type Props = {
+  id: string | number | undefined;
+  product: number;
+};
+
+export default function DeleteButton(props: Props) {
   return (
     <div>
       <button
-        data-test-id={`cart-product-remove-${product.id}`}
+        data-test-id={`cart-product-remove-${props.id}`}
         className={styles.deleteCartBtn}
-        onClick={() => removeProductFromCookie(product)}
+        onClick={() => removeProductFromCookie(props.product)}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"

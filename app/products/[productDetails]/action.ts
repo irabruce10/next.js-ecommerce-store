@@ -20,7 +20,7 @@ export default async function createOrUpdateCookie(
   const productCookies: Product[] = !products
     ? // Case A: cookie undefined
       []
-    : parseJson(products);
+    : parseJson(products)!;
 
   // 3. edit the cookie value
   const updateProductCookie = productCookies.find((product) => {
