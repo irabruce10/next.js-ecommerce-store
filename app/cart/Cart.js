@@ -7,6 +7,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import DeleteButton from './DeleteButton';
 import SelectForm from './SelectForm';
+import sumTotol from './SumProduct';
 
 export default async function CartPage() {
   const products = await getCookie('cart');
@@ -16,6 +17,8 @@ export default async function CartPage() {
   if (!Array.isArray(productCookies)) {
     productCookies = [];
   }
+
+  let totalSum = 0;
 
   return (
     <div className={styles.cart_container}>
@@ -47,6 +50,12 @@ export default async function CartPage() {
               const product = await getProductInsecure(item.id);
 
               const totalPrice = product.price * item.quantity;
+
+              // product.totalPrice = totalPrice;
+
+              // totalSum += totalPrice;
+
+              // console.log(totalSum);
 
               return (
                 <tbody
@@ -89,11 +98,33 @@ export default async function CartPage() {
                         data-test-id={`cart-product-remove-${item.id}`}
                       />
                     </td>
-                    {/* <td>Total: $ ${a}</td> */}
                   </tr>
                 </tbody>
               );
             })}
+          </table>
+
+          <table>
+            <tbody>
+              <tr>
+                <th colSpan="4">Total</th>
+                <td data-test-id="cart-total">
+                  €{' '}
+                  {/* {productCookies.reduce(async (sum, item) => {
+                    const product = await getProductInsecure(item.id);
+                    console.log('productoo', product);
+                    return sum + product.price * item.quantity;
+                  }, 0)} */}
+                  {productCookies.map(async (itecm) => {
+                    const producct = await getProductInsecure(itecm.id);
+                    const totalPrice = producct.price * itecm.quantity;
+
+                    console.log('producct', producct);
+                    return totalPrice+;
+                  })}
+                </td>
+              </tr>
+            </tbody>
           </table>
 
           <div className={styles.checkout_btn}>
