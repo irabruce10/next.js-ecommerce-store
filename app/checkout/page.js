@@ -138,20 +138,18 @@ export default async function checkoutPage() {
                 const totalPrice = product.price * item.quantity;
 
                 return (
-                  <table className={styles.table} key={`item-${item.id}`}>
-                    <tbody>
-                      <tr>
-                        <td>
-                          {product.name} <span>x {product.quantity}</span>
-                        </td>
-                        <td>{totalPrice}</td>
-                      </tr>
-                    </tbody>
-                  </table>
+                  <tbody className={styles.table} key={`item-${item.id}`}>
+                    <tr>
+                      <td>
+                        {product.name} <span>x {product.quantity}</span>
+                      </td>
+                      <td>{totalPrice}</td>
+                    </tr>
+                  </tbody>
                 );
               })}
 
-              <tfoot>
+              <tbody>
                 <tr>
                   <th>SubTotal</th>
                   <td>$841.42</td>
@@ -164,8 +162,9 @@ export default async function checkoutPage() {
                   <th>Total</th>
                   <td>$841.42</td>
                 </tr>
-              </tfoot>
+              </tbody>
             </table>
+
             <div className={styles.payment}>
               <div>
                 <h4>Payment</h4>

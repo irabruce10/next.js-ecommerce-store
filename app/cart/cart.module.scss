@@ -43,4 +43,26 @@
       margin: 0 auto;
     }
   }
+
+  .checkout_btn {
+    background: #ff324d;
+    width: 200px;
+    margin: 0 auto;
+    list-style: none;
+    text-transform: none;
+    margin-top: 2em;
+    padding: 1em 2em;
+
+    text-align: center;
+    border: none;
+
+    .link {
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+    &:hover {
+      background: #d0bbbb;
+    }
+  }
 }

@@ -96,8 +96,12 @@ export default async function CartPage() {
             })}
           </table>
 
-          <div>
-            <Link data-test-id="cart-checkout" href="/checkout">
+          <div className={styles.checkout_btn}>
+            <Link
+              className={styles.link}
+              data-test-id="cart-checkout"
+              href="/checkout"
+            >
               Checkout
             </Link>
           </div>
