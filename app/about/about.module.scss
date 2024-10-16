@@ -1,0 +1,21 @@
+.about_container {
+  h1,
+  h2 {
+    margin-top: 1em;
+    margin-bottom: 1em;
+  }
+
+  ul {
+    list-style: none;
+
+    li {
+      font-size: 20px;
+    }
+  }
+
+  p {
+    width: 820px;
+    margin: 0 auto;
+    line-height: 25px;
+  }
+}

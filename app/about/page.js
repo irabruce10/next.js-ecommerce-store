@@ -1,6 +1,5 @@
 import React from 'react';
-
-// import aboutImage from '../public/about-image.jpg'; //
+import styles from './about.module.scss';
 
 export const metadata = {
   title: 'About',
@@ -8,7 +7,7 @@ export const metadata = {
 
 export default function aboutPage() {
   return (
-    <div>
+    <div className={styles.about_container}>
       <h1>About Us</h1>
       <p>
         Welcome to our e-commerce store, where we offer a wide range of products
