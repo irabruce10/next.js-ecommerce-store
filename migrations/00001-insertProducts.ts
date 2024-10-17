@@ -1,4 +1,5 @@
-import { Sql } from 'postgres';
+import type { Sql } from 'postgres';
+
 const products = [
   {
     id: 1,

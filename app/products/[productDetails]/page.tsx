@@ -6,17 +6,21 @@ import styles from './productDetail.module.scss';
 type Props = {
   params: Promise<{
     productDetails: string;
-    productQty: number;
   }>;
 };
 export async function generateMetadata(props: Props) {
-  const singleProduct = await getProductInsecure(
-    Number((await props.params).productDetails),
-  );
+  // const singleProduct = await getProductInsecure(
+  //   Number((await props.params).productDetails),
+  // );
+
+  const singleProduct = (await props.params).productDetails;
 
   return {
-    title: `${singleProduct?.name} - E-soko`,
-    description: singleProduct?.description,
+    // title: `${singleProduct?.name} - E-soko`,
+    // description: singleProduct?.description,
+
+    title: `Product ${singleProduct} - E-soko`,
+    description: `productDetails${singleProduct}`,
   };
 }
 

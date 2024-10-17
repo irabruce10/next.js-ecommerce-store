@@ -29,7 +29,7 @@ jest.config.js
 
 # Dependencies
 
-node_modules
+node_modules/
 
 # Git and GitHub
 

@@ -3,7 +3,7 @@ import { getProductsInsecure } from '../database/product';
 import Link from '../../node_modules/next/link';
 import Image from '../../node_modules/next/image';
 import type { ReactElement, ReactNode, ReactPortal } from 'react';
-import type { StaticImport } from '../../node_modules/next/dist/shared/lib/get-img-props';
+
 export const metadata = {
   title: 'Product',
 };
@@ -19,15 +19,8 @@ export default async function productPage() {
         {products.map(
           (product: {
             id: any;
-            image: string | StaticImport;
-            name:
-              | string
-              | number
-              | boolean
-              | ReactElement
-              | Iterable<ReactNode>
-              | null
-              | undefined;
+            image: string;
+            name: string | null | undefined;
             price:
               | string
               | number
@@ -51,7 +44,7 @@ export default async function productPage() {
                   <Image
                     src={product.image}
                     alt={product.id}
-                    width={250}
+                    width={350}
                     height={300}
                     data-test-id="product-image"
                   />{' '}

@@ -1,13 +1,12 @@
-import { config } from 'dotenv-safe';
-import postgres from 'postgres';
+import { postgresConfig, setEnvironmentVariables } from './util/config.js';
 
-config();
+setEnvironmentVariables();
 
-const option = {
-  transform: {
-    ...postgres.camel,
-    undefined: null,
-  },
-};
+// const option = {
+//   transform: {
+//     ...postgres.camel,
+//     undefined: null,
+//   },
+// };
 
-export default option;
+export default postgresConfig;
