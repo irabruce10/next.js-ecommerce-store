@@ -1,5 +1,4 @@
 import Link from 'next/link';
-
 import CartCount from './CardCount';
 
 export default function Navigation() {
@@ -18,7 +17,7 @@ export default function Navigation() {
         <li className="cart">
           <Link href="/cart" data-test-id="cart-link">
             <CartCount />
-          </Link>{' '}
+          </Link>
         </li>
       </ul>
     </div>

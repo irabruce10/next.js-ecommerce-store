@@ -104,7 +104,7 @@ export default async function checkoutPage() {
               <input
                 required=""
                 name="credit card"
-                placeholder="Credit card *"
+                placeholder="XXXX XXXX XXXX "
                 type="card"
               />
             </div>
