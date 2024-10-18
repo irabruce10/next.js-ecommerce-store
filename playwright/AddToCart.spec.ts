@@ -32,7 +32,7 @@ test('add to cart test', async ({ page }) => {
   ).toBeVisible();
   await expect(
     page.getByRole('heading', {
-      name: 'Your cart is emptyYour Cart is Empty Now.Start Adding some Products',
+      name: 'Your cart is empty Now.Start Adding some Products',
     }),
   ).toBeVisible();
 
