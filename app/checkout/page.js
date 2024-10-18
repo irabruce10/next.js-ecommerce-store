@@ -176,8 +176,6 @@ export default async function checkoutPage() {
                     type="radio"
                     name="payment-option"
                     id="exampleRadios3"
-                    value="option3"
-                    checked=""
                   />
                   <label htmlFor="exampleRadios3">Direct Bank Transfer</label>
                   <p data-method="option3">
@@ -190,7 +188,6 @@ export default async function checkoutPage() {
                     type="radio"
                     name="payment-option"
                     id="exampleRadios4"
-                    value="option4"
                   />
                   <label htmlFor="exampleRadios4">Check Payment</label>
                   <p data-method="option4">

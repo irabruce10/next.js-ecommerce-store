@@ -7,11 +7,9 @@
         "name": "next"
       }
     ],
-    "module": "esnext",
-    "target": "esnext",
+    "jsx": "preserve",
     "moduleResolution": "node",
-    "allowJs": true,
-    "jsx": "preserve"
+    "resolveJsonModule": true
   },
   "include": [
     "**/*.ts",

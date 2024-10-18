@@ -80,10 +80,11 @@ export default async function CartPage() {
                     <td data-title="Quantity">
                       <div data-test-id={`cart-product-quantity-${item.id}`}>
                         <SelectForm item={item.id} product={product}>
-                          <input
-                            value={item.quantity}
+                          <button
                             data-test-id={`cart-product-quantity-${item.id}`}
-                          />
+                          >
+                            {item.quantity}
+                          </button>
                         </SelectForm>
                       </div>
                     </td>

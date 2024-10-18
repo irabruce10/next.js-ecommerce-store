@@ -4,8 +4,8 @@ import Logo from './Logo';
 import { useEffect, type ReactNode } from 'react';
 import { hideLoading } from '../redux/CartSlide';
 
-import Navigation from './Navigation';
 import { useDispatch } from '../../node_modules/react-redux/dist/react-redux';
+import Navigation from './Navigation';
 // import Header from './Header';
 type Props = {
   children: ReactNode;
