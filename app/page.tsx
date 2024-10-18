@@ -5,13 +5,13 @@ export default function Home() {
   return (
     <div className="homePage">
       <h1 className="title">Welcome to our E-soko ue</h1>
-      <Image
+      {/* <Image
         className="img"
         src={bg1}
         placeholder="blur"
         quality={80}
         alt="E-soko"
-      />
+      /> */}
     </div>
   );
 }
