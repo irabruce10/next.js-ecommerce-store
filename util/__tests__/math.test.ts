@@ -1,6 +1,6 @@
 import { expect, test } from '@jest/globals';
-import { add, getProd, remove } from '../math';
-import { getProductInsecure } from '../../app/database/product';
+import { add, remove } from '../math';
+
 test('add 2 numbers', () => {
   expect(add(1, 1)).toBe(2);
   expect(add(10, 10)).toBe(20);
