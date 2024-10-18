@@ -151,16 +151,28 @@ export default async function checkoutPage() {
 
               <tbody>
                 <tr>
-                  <th>SubTotal</th>
-                  <td>$841.42</td>
+                  <th>SubTotal</th>€
+                  {productCookies.map(async (itecm) => {
+                    const producct = await getProductInsecure(itecm.id);
+                    const totalPrice = producct.price * itecm.quantity;
+
+                    console.log('producct', producct);
+                    return totalPrice;
+                  })}
                 </tr>
                 <tr>
                   <th>Shipping</th>
                   <td>Free Shipping</td>
                 </tr>
                 <tr>
-                  <th>Total</th>
-                  <td>$841.42</td>
+                  <th>Total</th>€
+                  {productCookies.map(async (itecm) => {
+                    const producct = await getProductInsecure(itecm.id);
+                    const totalPrice = producct.price * itecm.quantity;
+
+                    console.log('producct', producct);
+                    return totalPrice;
+                  })}
                 </tr>
               </tbody>
             </table>

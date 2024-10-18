@@ -44,7 +44,7 @@ export default async function productPage() {
                   <Image
                     src={product.image}
                     alt={product.id}
-                    width={350}
+                    width={300}
                     height={300}
                     data-test-id="product-image"
                   />{' '}

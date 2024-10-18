@@ -33,12 +33,11 @@ export default async function SumProduct() {
     productCookies = [];
   }
 
-  console.log('ies', productCookies);
   let totalSum = 0;
 
   const result = productCookies.map(async ({ id }) => {
     const product = await getProductInsecure(id);
-    console.log('product', product);
+
     return (totalSum += product.totalPrice);
   });
 
@@ -46,5 +45,5 @@ export default async function SumProduct() {
   //   return products.reduce((total, product) => total + product.price, 0);
   // };
 
-  return <div>${result}</div>;
+  return <div>€{result}</div>;
 }
