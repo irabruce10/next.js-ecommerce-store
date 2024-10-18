@@ -31,8 +31,11 @@ export default async function productDetailsPage(props: Props) {
   );
 
   return (
-    <div className={styles.productDetail_container}>
-      <h1> Product Details</h1>
+    <div
+      className={styles.productDetail_container}
+      data-test-id="products-link"
+    >
+      <h1 data-test-id="products-link"> Product Details</h1>
       <div className={styles.productDetail_card}>
         <div className={styles.aside1}>
           <img

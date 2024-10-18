@@ -13,7 +13,9 @@ export default async function productPage() {
 
   return (
     <div className={styles.product_container}>
-      <h1 className="title">Our top Products</h1>
+      <h1 data-test-id="products-link" className="title">
+        Our top Products
+      </h1>
 
       <div className={styles.product_card}>
         {products.map(
