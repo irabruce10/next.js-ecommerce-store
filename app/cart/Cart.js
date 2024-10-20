@@ -81,7 +81,7 @@ export default async function CartPage() {
                       <div data-test-id={`cart-product-quantity-${item.id}`}>
                         <SelectForm item={item.id} product={product}>
                           <button
-                            data-test-id={`cart-product-quantity-${item.id}`}
+                            data-test-id={`cart-product-quantity-${item.quantity}`}
                           >
                             {item.quantity}
                           </button>
@@ -94,7 +94,7 @@ export default async function CartPage() {
                     <td>
                       <DeleteButton
                         product={product.id}
-                        data-test-id={`cart-product-remove-${item.id}`}
+                        data-test-id={`cart-product-remove-${product.id}`}
                       />
                     </td>
                   </tr>
