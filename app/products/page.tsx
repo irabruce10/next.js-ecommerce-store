@@ -12,7 +12,7 @@ export default async function productPage() {
   const products = await getProductsInsecure();
 
   return (
-    <div className={styles.product_container}>
+    <div className={styles.product_container} data-test-id="products-link">
       <h1 data-test-id="products-link" className="title">
         Our top Products
       </h1>
