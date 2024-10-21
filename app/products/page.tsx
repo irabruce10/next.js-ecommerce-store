@@ -24,7 +24,6 @@ export default async function productPage() {
             image: string;
             name: string | null | undefined;
             price:
-              | string
               | number
               | boolean
               | ReactElement
