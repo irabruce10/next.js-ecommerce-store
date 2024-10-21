@@ -41,8 +41,8 @@ export default async function productDetailsPage(props: Props) {
           <img
             src={singleProduct?.image}
             alt={singleProduct?.name}
-            width={400}
-            height={550}
+            width={100}
+            height={100}
             data-test-id="product-image"
           />
         </div>
@@ -53,7 +53,9 @@ export default async function productDetailsPage(props: Props) {
             {Number(singleProduct?.price)}
           </p>
           <p className={styles.description}>{singleProduct?.description}</p>
-          <p data-test-id="product-quantity">{singleProduct?.quantity}</p>
+          <p data-test-id="product-quantity">
+            quantity {singleProduct?.quantity}
+          </p>
           {/* <p>Rating: {?.rating.rate}</p> */}
           <AddToCart
             // increasePerClick={true}

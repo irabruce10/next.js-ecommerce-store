@@ -70,12 +70,14 @@ export default function AddToCart({
               -
             </button>
 
-            <span
+            <input
               className={styles.proQuantity}
               data-test-id="product-quantity"
-            >
-              {product.quantity}
-            </span>
+              value={quantity}
+              onChange={(event) => Number(event.currentTarget.value)}
+            />
+
+            {/* <span>{product.quantity}</span> */}
             <button
               className={styles.addToCart_btn}
               value={quantity}
