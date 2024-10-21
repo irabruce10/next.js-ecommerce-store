@@ -52,7 +52,7 @@ export default async function productPage() {
                   <h2>{product.name}</h2>
                 </Link>
 
-                <p className={styles.price}>Price: {Number(product.price)}</p>
+                <p className={styles.price}>{Number(product.price)}</p>
               </div>
             );
           },
