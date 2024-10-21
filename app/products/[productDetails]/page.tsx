@@ -41,8 +41,8 @@ export default async function productDetailsPage(props: Props) {
           <img
             src={singleProduct?.image}
             alt={singleProduct?.name}
-            width={100}
-            height={100}
+            width={200}
+            height={200}
             data-test-id="product-image"
           />
         </div>
