@@ -12,7 +12,7 @@ export default async function productPage() {
   const products = await getProductsInsecure();
 
   return (
-    <div className={styles.product_container} data-test-id="products-link">
+    <div className={styles.product_container}>
       <h1 data-test-id="products-link" className="title">
         Our top Products
       </h1>
@@ -40,7 +40,7 @@ export default async function productPage() {
               >
                 <Link
                   href={`/products/${product.id}`}
-                  data-test-id="products-link"
+                  data-test-id={`product-${product.id}`}
                   className={styles.product_link}
                 >
                   <Image
