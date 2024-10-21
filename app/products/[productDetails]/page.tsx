@@ -50,7 +50,7 @@ export default async function productDetailsPage(props: Props) {
         <div className={styles.aside2}>
           <h1>{singleProduct?.name}</h1>
           <p className={styles.price} data-test-id="product-price">
-            Price: € {singleProduct?.price}
+            Price: € {Number(singleProduct?.price)}
           </p>
           <p className={styles.description}>{singleProduct?.description}</p>
           {/* <p>Rating: {?.rating.rate}</p> */}

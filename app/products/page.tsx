@@ -54,7 +54,7 @@ export default async function productPage() {
                 </Link>
 
                 <p data-test-id="product-price" className={styles.price}>
-                  Price: {product.price}
+                  Price: {Number(product.price)}
                 </p>
               </div>
             );
