@@ -12,7 +12,9 @@ export default function Navigation() {
           <Link href="/about">About</Link>
         </li>
         <li>
-          <Link href="/products">Products</Link>
+          <Link href="/products" data-test-id="products-link">
+            Products
+          </Link>
         </li>
         <li className="cart">
           <Link href="/cart" data-test-id="cart-link">
