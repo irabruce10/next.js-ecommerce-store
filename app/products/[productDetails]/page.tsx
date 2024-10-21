@@ -53,6 +53,7 @@ export default async function productDetailsPage(props: Props) {
             {Number(singleProduct?.price)}
           </p>
           <p className={styles.description}>{singleProduct?.description}</p>
+          <p data-test-id="product-quantity">{singleProduct?.quantity}</p>
           {/* <p>Rating: {?.rating.rate}</p> */}
           <AddToCart
             // increasePerClick={true}
