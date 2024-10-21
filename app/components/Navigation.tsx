@@ -14,7 +14,7 @@ export default function Navigation() {
         <li>
           <Link href="/products">Products</Link>
         </li>
-        <li className="cart" data-test-id="products-link">
+        <li className="cart">
           <Link href="/cart" data-test-id="cart-link">
             <CartCount />
           </Link>
