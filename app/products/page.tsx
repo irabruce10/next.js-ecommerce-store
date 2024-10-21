@@ -46,8 +46,8 @@ export default async function productPage() {
                   <Image
                     src={product.image}
                     alt={product.id}
-                    width={300}
-                    height={300}
+                    width={200}
+                    height={200}
                     data-test-id="product-image"
                   />{' '}
                   <h2>{product.name}</h2>
