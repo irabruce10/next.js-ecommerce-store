@@ -83,7 +83,7 @@ export default async function CartPage() {
                           <button
                             data-test-id={`cart-product-quantity-${item.quantity}`}
                           >
-                            {item.quantitgy}
+                            {item.quantity}
                           </button>
                         </SelectForm>
                       </div>
