@@ -7,5 +7,5 @@ test('navigation test', async ({ page }) => {
     page.getByRole('heading', { name: 'Welcome to our E-soko' }),
   ).toBeVisible();
 
-  // await page.getByRole('link', { name: 'About' }).click();
+  await page.getByRole('link', { name: 'About' }).click();
 });
