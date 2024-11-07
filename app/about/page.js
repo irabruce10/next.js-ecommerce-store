@@ -25,12 +25,12 @@ export default function aboutPage() {
         <li>Electronics</li>
         <li>Clothing</li>
         <li>Home & Garden</li>
-        <li>Books</li>
+        <li>Books </li>
         {/* Add more products as needed */}
       </ul>
       <p>
         If you have any questions or need assistance, please don't hesitate to
-        contact us.
+        contact us.thank You for visiting our store!
       </p>
     </div>
   );
