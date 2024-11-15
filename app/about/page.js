@@ -27,6 +27,8 @@ export default function aboutPage() {
         <li>Home & Garden</li>
         <li>Books </li>
         <li>Phones</li>
+        <li>Clothes</li>
+        <li>Computer</li>
         {/* Add more products as needed */}
       </ul>
       <p>
