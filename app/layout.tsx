@@ -5,6 +5,7 @@ import { Salsa } from 'next/font/google';
 import App from './components/App';
 import Footer from './components/footer/Footer';
 import type { ReactNode } from 'react';
+import './globals.css';
 
 const salsa = Salsa({
   subsets: ['latin'],

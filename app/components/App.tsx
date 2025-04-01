@@ -17,9 +17,19 @@ export default function App({ children }: Props) {
     dispatch(hideLoading());
   }, [dispatch]);
   return (
-    <div className="container">
-      <header className="header">
-        <Logo />
+    // <div className="container">
+    //   <header className="header">
+    //     <Logo />
+    //     <Navigation />
+    //     {/* <Header /> */}
+    //     {/* <CartSidebar /> */}
+    //   </header>
+    //   <main className="main">{children}</main>
+    // </div>
+
+    <div>
+      <header>
+        {/* <Logo /> */}
         <Navigation />
         {/* <Header /> */}
         {/* <CartSidebar /> */}
