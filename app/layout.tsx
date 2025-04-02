@@ -3,9 +3,10 @@ import { StoreProvider } from './redux/StoreProvider';
 import { Salsa } from 'next/font/google';
 
 import App from './components/App';
-import Footer from './components/footer/Footer';
+// import Footer from './components/footer/Footer';
 import type { ReactNode } from 'react';
 import './globals.css';
+import Footer from './components/Footer';
 
 const salsa = Salsa({
   subsets: ['latin'],

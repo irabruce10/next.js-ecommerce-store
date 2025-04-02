@@ -51,6 +51,14 @@ body {
   margin-left: 7em;
 } */
 
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  scrollbar-width: none;
+}
+
 .nav-ul li {
   list-style-type: none;
   margin: 0 30px;
