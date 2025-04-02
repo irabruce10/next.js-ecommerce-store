@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-:root {
+/* :root {
   --background: #ffffff;
   --foreground: #171717;
 }
@@ -10,9 +10,9 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
-html,
+/* html,
 body {
   background-color: #fff;
 }
@@ -21,9 +21,9 @@ body {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-}
+} */
 
-.container {
+/* .container {
   width: 1200px;
   margin: auto;
   padding: 10px;
@@ -33,8 +33,8 @@ body {
 .header {
   display: flex;
   margin-top: -10px;
-}
-.nav-container {
+} */
+/* .nav-container {
   width: 50%;
   margin: auto;
   justify-content: space-between;
@@ -49,7 +49,7 @@ body {
   justify-content: space-around;
   width: 100%;
   margin-left: 7em;
-}
+} */
 
 .nav-ul li {
   list-style-type: none;

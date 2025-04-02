@@ -25,7 +25,7 @@ export default function CartModal() {
                 {/* TOP */}
 
                 <div className="flex items-center justify-between gap-8">
-                  <h3 className=" font-semibold ">Prduct Name</h3>
+                  <h3 className=" font-semibold ">Product Name</h3>
                   <div className="p-1 bg-gray-50 rounded-sm">49</div>
                 </div>
 

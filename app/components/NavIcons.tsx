@@ -47,7 +47,7 @@ export default function NavIcons() {
         </div>
       </div>
       {isCart && (
-        <div className="">
+        <div className=" absolute">
           <CartModal />
         </div>
       )}
