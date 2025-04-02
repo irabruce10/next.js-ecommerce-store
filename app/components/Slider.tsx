@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
 const slides = [
@@ -33,9 +33,21 @@ const slides = [
 
 export default function Slider() {
   const [current, setCurrent] = useState(0);
+
+  // useEffect to loop through the slides
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
+    }, 3000);
+
+    return () => clearInterval(timer);
+  }, []);
   return (
     <div className="h-[calc(100vh-80px)] overflow-hidden">
-      <div className="w-max h-full flex transition-all ease-in-out duration-1000">
+      <div
+        className="w-max h-full flex transition-all ease-in-out duration-1000"
+        style={{ transform: `translateX(-${current * 100}vw)` }}
+      >
         {slides.map((slide, index) => (
           <div
             key={slide.id}
@@ -74,6 +86,7 @@ export default function Slider() {
           <div
             className={` w-3 h-3 rounded-full ring-1 ring-gray-600 cursor-pointer flex text-center justify-center ${current === index ? 'scale-150' : ''}`}
             key={slide.id}
+            onClick={() => setCurrent(index)}
           >
             {current === index && (
               <div className=" w-[6px] m-auto h-[6px] bg-gray-600  rounded-full"></div>
