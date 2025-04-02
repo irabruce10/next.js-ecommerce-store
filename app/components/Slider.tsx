@@ -69,6 +69,18 @@ export default function Slider() {
           </div>
         ))}
       </div>
+      <div className="absolute flex m-auto left-1/2 gap-4 bottom-8">
+        {slides.map((slide, index) => (
+          <div
+            className={` w-3 h-3 rounded-full ring-1 ring-gray-600 cursor-pointer flex text-center justify-center ${current === index ? 'scale-150' : ''}`}
+            key={slide.id}
+          >
+            {current === index && (
+              <div className=" w-[6px] m-auto h-[6px] bg-gray-600  rounded-full"></div>
+            )}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
