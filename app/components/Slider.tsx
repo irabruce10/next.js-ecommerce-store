@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { useState } from 'react';
+import Image from 'next/image';
 
 const slides = [
   {
@@ -38,26 +39,31 @@ export default function Slider() {
         {slides.map((slide, index) => (
           <div
             key={slide.id}
-            className={`w-full h-full relative ${current === index ? 'opacity-100' : 'opacity-0'} ${slide.bg}`}
+            className={`${slide.bg} w-screen h-full flex flex-col gap-16 xl:flex-row`}
           >
             {/* text */}
-            <div className="">
-              <h2>{slide.description}</h2>
-              <h1>{slide.title}</h1>
-              <Link
-                href={slide.url}
-                className=" font-semibold py-4 px-8 rounded-md"
-              >
-                <button>Shop Now</button>
+            <div className=" h-1/2 xl:w-1/2 xl:h-full flex flex-col items-center justify-center gap-8 2xl:gap-12 text-center">
+              <h2 className=" text-xl lg:text-3xl 2xl:text-5xl ">
+                {slide.description}
+              </h2>
+              <h1 className=" text-5xl lg:text-6xl 2xl:text-8xl font-semibold ">
+                {slide.title}
+              </h1>
+              <Link href={slide.url} className="">
+                <button className=" rounded-md bg-black text-white px-4 py-3">
+                  Shop Now
+                </button>
               </Link>
             </div>
 
             {/* image */}
-            <div className="flex justify-center items-center h-full">
-              <img
+            <div className=" h-1/2 xl:w-1/2 xl:h-full relative ">
+              <Image
                 src={slide.img}
                 alt={slide.title}
-                className="object-cover w-full h-full"
+                fill
+                sizes="100%"
+                className="object-cover"
               />
             </div>
           </div>
