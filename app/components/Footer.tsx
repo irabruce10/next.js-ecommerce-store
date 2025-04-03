@@ -66,9 +66,9 @@ const Footer = () => {
             <input
               type="text"
               placeholder="Email address"
-              className="p-4 w-3/4"
+              className="p-4 w-3/4 bg-white"
             />
-            <button className="w-1/4 bg-lama text-white">JOIN</button>
+            <button className="w-1/4 bg-[#F35C7A] text-white">JOIN</button>
           </div>
           <span className="font-semibold">Secure Payments</span>
           <div className="flex justify-between">
