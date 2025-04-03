@@ -9,7 +9,11 @@ const products = [
     description:
       'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
     category: 'men_s clothing',
-    image: 'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
+    image:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+
     quantity: 1,
     countInStock: 10,
   },
@@ -23,6 +27,9 @@ const products = [
     category: 'men_s clothing',
     image:
       'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+
     quantity: 1,
     countInStock: 8,
   },
@@ -35,7 +42,8 @@ const products = [
       'great outerwear jackets for Spring/Autumn/Winter, suitable for many occasions, such as working, hiking, camping, mountain/rock climbing, cycling, traveling or other outdoors.',
     category: 'men_s clothing',
     image: 'https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg',
-
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     quantity: 1,
     countInStock: 10,
   },
@@ -47,7 +55,8 @@ const products = [
       'The color could be slightly different between on the screen and in practice. / Please note that body builds vary by person, therefore, detailed size information should be reviewed below',
     category: 'men_s clothing',
     image: 'https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg',
-
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     quantity: 1,
     countInStock: 5,
   },
@@ -59,7 +68,8 @@ const products = [
       "From our Legends Collection, the Naga was inspired by the mythical water dragon that protects the ocean's pearl. Wear facing inward to be bestowed with love and abundance",
     category: 'jewelery',
     image: 'https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg',
-
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     quantity: 1,
     countInStock: 0,
   },
@@ -71,7 +81,8 @@ const products = [
       'Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.',
     category: 'jewelery',
     image: 'https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg',
-
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     quantity: 1,
     countInStock: 1,
   },
@@ -83,7 +94,8 @@ const products = [
       "Classic Created Wedding Engagement Solitaire Diamond Promise Ring for Her. Gifts to spoil your love more for Engagement, Wedding, Anniversary, Valentine's Day...",
     category: 'jewelery',
     image: 'https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg',
-
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     quantity: 1,
     countInStock: 3,
   },
@@ -95,7 +107,8 @@ const products = [
       'Rose Gold Plated Double Flared Tunnel Plug Earrings. Made of 316L Stainless Steel',
     category: 'jewelery',
     image: 'https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg',
-
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     quantity: 1,
     countInStock: 14,
   },
@@ -106,8 +119,10 @@ const products = [
     description:
       'USB 3.0 and USB 2.0 Compatibility Fast data transfers Improve PC Performance High Capacity; Compatibility Formatted NTFS for Windows 10, Windows 8.1, Windows 7 ',
     category: 'electronics',
-    image: 'https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg',
-
+    image:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     quantity: 1,
     countInStock: 4,
   },
@@ -119,7 +134,8 @@ const products = [
       'Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) ',
     category: 'electronics',
     image: 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg',
-
+    imagesec:
+      'https://images.pexels.com/photos/2081199/pexels-photo-2081199.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
     quantity: 1,
     countInStock: 0,
   },
@@ -146,6 +162,7 @@ export async function up(sql: Sql) {
           description,
           category,
           image,
+          imagesec,
           quantity,
           count_in_stock
         )
@@ -156,6 +173,7 @@ export async function up(sql: Sql) {
           ${product.description},
           ${product.category},
           ${product.image},
+          ${product.imagesec},
           ${product.quantity},
           ${product.countInStock}
         )

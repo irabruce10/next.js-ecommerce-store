@@ -11,6 +11,7 @@ export default async function ProductList() {
     <div className="flex mt-12 gap-x-8 gap-y-16 justify-between flex-wrap">
       {products.slice(0, 8).map((product: any) => (
         <Link
+          key={product.id}
           href="/test"
           className=" w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"
         >
@@ -24,7 +25,7 @@ export default async function ProductList() {
             />
 
             <Image
-              src="https://images.pexels.com/photos/31224767/pexels-photo-31224767.jpeg"
+              src={product.imagesec}
               alt=""
               fill
               sizes="25vw"

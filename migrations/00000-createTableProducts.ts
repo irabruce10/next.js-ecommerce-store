@@ -9,6 +9,7 @@ export async function up(sql: Sql) {
       description varchar(250) NOT NULL,
       category varchar(250),
       image varchar(250) NOT NULL,
+      imagesec varchar(250) NOT NULL,
       quantity integer NOT NULL,
       count_in_stock integer
     );
