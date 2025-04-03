@@ -9,7 +9,7 @@ export default async function ProductList() {
 
   return (
     <div className="flex mt-12 gap-x-8 gap-y-16 justify-between flex-wrap">
-      {products.map((product) => (
+      {products.slice(0, 8).map((product: any) => (
         <Link
           href="/test"
           className=" w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"
