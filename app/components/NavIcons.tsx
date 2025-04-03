@@ -34,14 +34,11 @@ export default function NavIcons() {
       )}
       <Image src="/notification.png" alt="not" width={22} height={22} />
 
-      <div className="relative cursor-pointer">
-        <Image
-          src="/cart.png"
-          alt="cart"
-          width={22}
-          height={22}
-          onClick={() => setIsCart((prev) => !prev)}
-        />
+      <div
+        className="relative cursor-pointer"
+        onClick={() => setIsCart((prev) => !prev)}
+      >
+        <Image src="/cart.png" alt="cart" width={22} height={22} />
         <div className=" absolute -top-4 -right-4 w-6 h-6 bg-primary bg-[#F35C7A] text-white justify-center rounded-full text-center text-sm ">
           2
         </div>
