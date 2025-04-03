@@ -38,7 +38,7 @@ export default function ProductImages() {
           sizes="50vw"
         />
       </div>
-      <div className=" flex justify-between gap-4 mt-8 ">
+      <div className=" flex justify-between gap-4 mt-8 cursor-pointer ">
         {images.map((img, index) => (
           <div
             key={img.id}
