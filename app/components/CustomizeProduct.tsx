@@ -19,7 +19,20 @@ export default function CustomizeProduct() {
         </li>
       </ul>
       <h4 className=" font-medium ">Choose a Size</h4>
-      <div className=" flex items-center gap-3"></div>
+      <ul className=" flex items-center gap-3">
+        <li className=" ring-1 ring-[#F35C7A] text-[#F35C7A] rounded-md py-1 px-4 text-sm cursor-pointer ">
+          small
+        </li>
+        <li className=" ring-1 ring-[#F35C7A] bg-[#F35C7A] text-white rounded-md py-1 px-4 text-sm cursor-pointer ">
+          medium
+        </li>
+        <li className=" ring-1 ring-[#F35C7A] text-white bg-pink-200 rounded-md py-1 px-4 text-sm cursor-not-allowed ">
+          large
+        </li>
+        <li className=" ring-1 ring-[#F35C7A] text-[#F35C7A] rounded-md py-1 px-4 text-sm cursor-pointer ">
+          extra large
+        </li>
+      </ul>
     </div>
   );
 }
