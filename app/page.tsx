@@ -1,6 +1,4 @@
 import CategoryList from './components/CategoryList';
-import Footer from './components/Footer';
-
 import ProductList from './components/ProductList';
 import Slider from './components/Slider';
 
