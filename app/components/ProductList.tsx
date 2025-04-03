@@ -33,7 +33,7 @@ export default async function ProductList() {
           </div>
 
           <div className="flex justify-between">
-            <span className=" font-medium">Product Name</span>
+            <span className=" font-medium">Product Name.</span>
             <span className=" font-semibold">$46</span>
           </div>
           <div className=" text-sm text-gray-500 text-left ">
