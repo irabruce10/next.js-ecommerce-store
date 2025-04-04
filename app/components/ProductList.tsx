@@ -12,12 +12,12 @@ export default async function ProductList() {
       {products.slice(0, 8).map((product: any) => (
         <Link
           key={product.id}
-          href="/test"
+          href={`/products/${product.id}`}
           className=" w-full flex flex-col gap-4 sm:w-[45%] lg:w-[22%]"
         >
           <div className="relative w-full h-80">
             <Image
-              src={product.image}
+              src={product.images[0]}
               alt=""
               fill
               sizes="25vw"
@@ -25,7 +25,7 @@ export default async function ProductList() {
             />
 
             <Image
-              src={product.imagesec}
+              src={product.images[1]}
               alt=""
               fill
               sizes="25vw"
@@ -34,11 +34,17 @@ export default async function ProductList() {
           </div>
 
           <div className="flex justify-between">
-            <span className=" font-medium">Product Name.</span>
-            <span className=" font-semibold">$46</span>
+            <span className=" font-medium  text-left">
+              {product.name.length > 20
+                ? product.name.substring(0, 20) + '...'
+                : product.name}
+            </span>
+            <span className=" font-semibold">€{product.price} </span>
           </div>
           <div className=" text-sm text-gray-500 text-left ">
-            My Description
+            {product.description.length > 100
+              ? product.description.substring(0, 100) + '...'
+              : product.description}
           </div>
           <button className=" rounded-2xl ring-1 w-max ring-[#F35C7A] text-[#F35C7A] py-2 px-4 text-xs hover:bg-[#F35C7A] hover:text-white">
             Add to cart

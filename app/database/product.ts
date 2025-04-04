@@ -127,8 +127,7 @@ type Product = {
   price: string;
   description: string;
   category: string | null;
-  image: string;
-  imagesec: string;
+  images: string[];
   quantity: number;
   countInStock: number | null;
 };

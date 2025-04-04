@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 
-const images = [
+const image = [
   {
     id: '1',
     url: 'https://images.pexels.com/photos/1183266/pexels-photo-1183266.jpeg',
@@ -25,13 +25,44 @@ const images = [
     alt: 'Product 4',
   },
 ];
-export default function ProductImages() {
+
+type ProductImagesProps = {
+  images: string[]; // Explicitly expect string[]
+};
+export default function ProductImages({ images }: { images: string[] }) {
+  console.log('Product image', images);
   const [index, setIndex] = useState(0);
+
+  const image = [
+    {
+      id: '1',
+      url: images[0],
+      alt: 'Product 1',
+    },
+    {
+      id: '2',
+      url: images[1],
+      alt: 'Product 2',
+    },
+    {
+      id: '3',
+      url: images[2],
+      alt: 'Product 3',
+    },
+    {
+      id: '4',
+      url: images[3],
+      alt: 'Product 4',
+    },
+  ];
+
+  console.log(image);
+
   return (
     <div className="">
       <div className=" h-[500px] relative">
         <Image
-          src={images[index]?.url}
+          src={image[index]?.url}
           alt=""
           fill
           className=" object-cover rounded-md"
@@ -39,7 +70,7 @@ export default function ProductImages() {
         />
       </div>
       <div className=" flex justify-between gap-4 mt-8 cursor-pointer ">
-        {images.map((img, index) => (
+        {image.map((img, index) => (
           <div
             key={img.id}
             className=" w-1/4 h-32 relative gap-4 mt-8"
