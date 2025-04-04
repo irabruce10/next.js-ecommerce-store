@@ -62,7 +62,7 @@ export default function ProductImages({ images }: { images: string[] }) {
     <div className="">
       <div className=" h-[500px] relative">
         <Image
-          src={image[index]?.url}
+          src={image[index]?.url ?? '/path/to/placeholder/image.jpg'}
           alt=""
           fill
           className=" object-cover rounded-md"
@@ -77,7 +77,7 @@ export default function ProductImages({ images }: { images: string[] }) {
             onClick={() => setIndex(index)}
           >
             <Image
-              src={img.url}
+              src={img.url ?? '/path/to/placeholder/image.jpg'}
               alt=""
               fill
               className=" object-cover rounded-md"
