@@ -1,18 +1,15 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getProductsInsecure } from '../database/product';
+import {
+  getAllProductByCategoryInsecure,
+  getProductsInsecure,
+} from '../database/product';
 
-export default async function ProductList({
-  categoryId,
-}: {
-  categiryId: string;
-}) {
-  const products = await getProductsInsecure();
-
+export default async function ProductByCategory({ categoryId }) {
   return (
     <div className="flex mt-12 gap-x-8 gap-y-16 justify-between flex-wrap">
-      {products.slice(0, 8).map((product: any) => (
+      {categoryId.slice(0, 8).map((product: any) => (
         <Link
           key={product.id}
           href={`/products/${product.id}`}

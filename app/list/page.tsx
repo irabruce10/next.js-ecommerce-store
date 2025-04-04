@@ -1,8 +1,19 @@
 import Image from 'next/image';
 import Filter from '../components/Filter';
 import ProductList from '../components/ProductList';
+import ProductByCategory from '../components/ProductByCategory';
+import { getAllProductByCategoryInsecure } from '../database/product';
 
-export default function page() {
+export default async function Listpage({
+  searchParams,
+}: {
+  searchParams: any;
+}) {
+  console.log('searchParams', searchParams);
+
+  const categoryId = await getAllProductByCategoryInsecure(searchParams.cat);
+  console.log('category', categoryId);
+
   return (
     <div className="  px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
       {/* campaign*/}
@@ -27,7 +38,9 @@ export default function page() {
       <h1 className=" mt-12 text-xl font-semibold text-left ">
         Shoes is For You!
       </h1>
-      <ProductList />
+      {/* <ProductList categoryId={categoryId} /> */}
+
+      <ProductByCategory categoryId={categoryId} />
     </div>
   );
 }

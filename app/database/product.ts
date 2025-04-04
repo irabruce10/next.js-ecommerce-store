@@ -156,51 +156,18 @@ export const getProductInsecure = cache(async (id: number) => {
   return products;
 });
 
-// export function getProduct(id: number) {
-//   return products.find((product) => product.id === id);
-// }
+// getAllProductByCategory
+export const getAllProductByCategoryInsecure = cache(
+  async (category: string) => {
+    const products = await sql<Product[]>`
+      SELECT
+        *
+      FROM
+        products
+      WHERE
+        category = ${category}
+    `;
 
-// INSERT INTO
-//   products (
-//     name,
-//     price,
-//     description,
-//     category,
-//     image,
-//     quantity,
-//     count_in_stock
-//   )
-// VALUES
-//   (
-//     'Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops',
-//     109.95,
-//     'Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday',
-//     'men_clothing',
-//     'https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg',
-//     1,
-//     8
-//   ),
-//   (
-//    'Mens Casual Premium Slim Fit T-Shirts ',
-//    22.3,
-//    'Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans.',
-//    'men_clothing',
-//    'https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg',
-//     1,
-//     10
-
-// ),
-// ('SanDisk SSD PLUS 1TB Internal SSD - SATA III 6 Gb/s',
-// 164,
-// 'Easy upgrade for faster boot up, shutdown, application load and response (As compared to 5400 RPM SATA 2.5” hard drive; Based on published specifications and internal benchmarking tests using PCMark vantage scores) Boosts burst write performance, making it ideal for typical PC workloads The perfect balance of performance and reliability Read/write speeds of up to 535MB/s/450MB/s (Based on internal testing; Performance may vary depending upon drive capacity, host device, OS and application.)',
-// 'electronics',
-// 'https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg',
-// 1,
-// 10),
-//   ('Solid Gold Petite Micropave ',
-//   199.99,
-//   'Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.',
-//   'jewelery',
-//   'https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg',
-//   1,
-//   4);
+    return products;
+  },
+);
