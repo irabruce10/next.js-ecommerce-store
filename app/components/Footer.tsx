@@ -11,7 +11,7 @@ const Footer = () => {
           <Link href="/">
             <div className="text-2xl tracking-wide">IMarkt</div>
           </Link>
-          <p>4040 Linz, LeonfStrass 311 ,Austria</p>
+          <p>4040 Linz, LeonfStrass 311, Austria</p>
           <span className="font-semibold mr-3.5 ">imarkto@gmail.dev</span>
           <span className="font-semibold mr-3.5">+257 00 79 335 848</span>
           <div className="flex gap-6 ml-8.5">
