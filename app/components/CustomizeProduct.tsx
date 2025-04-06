@@ -1,6 +1,25 @@
-import React from 'react';
+'use client';
 
-export default function CustomizeProduct({ sizes, colors, stock }) {
+import React, { useState } from 'react';
+
+export default function CustomizeProduct({
+  sizes,
+  colors,
+  stock,
+  product,
+}: {
+  sizes: string[];
+  colors: string[];
+  stock: number;
+  product: any;
+}) {
+  const [selectedOptions, setSelectOptions] = useState<{
+    [key: string]: string;
+  }>({});
+  const handleOptionSelect = () => {
+    // setSelectOptions(prev=>({...prev,[colors,sizes]}))
+  };
+
   return (
     <div className=" flex flex-col gap-6">
       <h4 className=" font-medium ">Choose a Color</h4>
@@ -19,14 +38,25 @@ export default function CustomizeProduct({ sizes, colors, stock }) {
         </li>
       </ul> */}
 
-      {colors.map((color) => (
-        <li
-          className=" w-8 h-8 rounded-full ring-1 ring-gray-300 relative cursor-pointer bg-{color}"
-          key={color}
-        >
-          {color}
-        </li>
+      {product.colors.map((col) => (
+        <div>{col}</div>
       ))}
+      <h4 className=" font-medium ">Choose a Size</h4>
+      {product.sizes.map((size) => (
+        <div>{size}</div>
+      ))}
+
+      {/* {sizes.map((size) => (
+        <li className=" ring-1 ring-[#F35C7A] text-[#F35C7A] rounded-md py-1 px-4 text-sm cursor-pointer " key={size[0]}>
+          {size[0]}
+        </li>
+      ))} */}
+
+      {/* {colors.map((color) => (
+        <div className=" flex  flex-col gap-4" key={color[0]}>
+          {colors[0]}
+        </div>
+      ))} */}
 
       <h4 className=" font-medium ">Choose a Size</h4>
       <ul className=" flex items-center gap-3">
