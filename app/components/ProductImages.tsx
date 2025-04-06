@@ -56,8 +56,6 @@ export default function ProductImages({ images }: { images: string[] }) {
     },
   ];
 
-  console.log(image);
-
   return (
     <div className="">
       <div className=" h-[500px] relative">

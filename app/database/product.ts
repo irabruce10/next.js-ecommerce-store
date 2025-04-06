@@ -124,13 +124,53 @@ import { sql } from './connect';
 type Product = {
   id: number;
   name: string;
-  price: string;
+  price: number;
   description: string;
   category: string | null;
-  images: string[];
+  images: string;
   quantity: number;
   countInStock: number | null;
+  choices: {
+    colors: string[];
+    sizes: string[];
+    stock: number;
+  };
 };
+
+//get All product with choices
+export const getAllProductsInsecureWithChoices = cache(async () => {
+  const products = await sql<Product[]>`
+    SELECT
+      p.*,
+      c.color,
+      c.size,
+      c.stock
+    FROM
+      products p
+      JOIN choices c ON p.id = c.product_id
+  `;
+
+  return products;
+});
+
+export const getProductInsecures = cache(async (id: number) => {
+  const [product] = await sql`
+    SELECT
+      p.*,
+      array_agg(DISTINCT c.color) AS colors,
+      array_agg(DISTINCT c.size) AS sizes,
+      sum(c.stock) AS stock
+    FROM
+      products p
+      LEFT JOIN choices c ON c.product_id = p.id
+    WHERE
+      p.id = ${id}
+    GROUP BY
+      p.id
+  `;
+
+  return product;
+});
 
 export const getProductsInsecure = cache(async () => {
   const products = await sql<Product[]>`

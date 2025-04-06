@@ -1,13 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getProductsInsecure } from '../database/product';
+import {
+  getAllProductsInsecureWithChoices,
+  getProductInsecureWithChoices,
+  getProductsInsecure,
+} from '../database/product';
 
-export default async function ProductList({
-  categoryId,
-}: {
-  categiryId: string;
-}) {
+export default async function ProductList() {
   const products = await getProductsInsecure();
 
   return (

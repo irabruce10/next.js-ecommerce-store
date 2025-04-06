@@ -1,6 +1,6 @@
 import type { Sql } from 'postgres';
 
-const products = [
+const products: Product[] = [
   {
     id: 1,
     name: 'Fjallraven - Foldsack No. 1 Backpack ',
@@ -20,6 +20,11 @@ const products = [
 
     quantity: 1,
     countInStock: 10,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium', 'Large'],
+      stock: 6,
+    },
   },
 
   {
@@ -39,6 +44,11 @@ const products = [
 
     quantity: 1,
     countInStock: 8,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
   {
     id: 3,
@@ -56,6 +66,11 @@ const products = [
     ],
     quantity: 1,
     countInStock: 10,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
   {
     id: 4,
@@ -72,6 +87,11 @@ const products = [
     ],
     quantity: 1,
     countInStock: 20,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
   {
     id: 5,
@@ -88,6 +108,11 @@ const products = [
     ],
     quantity: 1,
     countInStock: 0,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
   {
     id: 6,
@@ -104,6 +129,11 @@ const products = [
     ],
     quantity: 1,
     countInStock: 1,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
   {
     id: 7,
@@ -120,6 +150,11 @@ const products = [
     ],
     quantity: 1,
     countInStock: 4,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
   {
     id: 8,
@@ -136,6 +171,11 @@ const products = [
     ],
     quantity: 1,
     countInStock: 14,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
 
   {
@@ -154,6 +194,11 @@ const products = [
 
     quantity: 1,
     countInStock: 0,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
 
   {
@@ -171,6 +216,11 @@ const products = [
     ],
     quantity: 1,
     countInStock: 7,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
   {
     id: 12,
@@ -188,23 +238,33 @@ const products = [
     ],
     quantity: 1,
     countInStock: 15,
+    choices: {
+      colors: ['Black', 'Navy'],
+      sizes: ['Small', 'Medium'],
+      stock: 5,
+    },
   },
 ];
 
-// type Product = {
-//   id: number;
-//   name: string;
-//   price: string;
-//   description: string;
-//   category: string | null;
-//   image: string;
-//   quantity: number;
-//   countInStock: number | null;
-// };
+type Product = {
+  id: number;
+  name: string;
+  price: number;
+  description: string;
+  category: string | null;
+  image: string;
+  quantity: number;
+  countInStock: number | null;
+  choices: {
+    colors: string[];
+    sizes: string[];
+    stock: number;
+  };
+};
 
 export async function up(sql: Sql) {
   for (const product of products) {
-    await sql`
+    const [productRow] = await sql`
       INSERT INTO
         products (
           name,
@@ -225,7 +285,32 @@ export async function up(sql: Sql) {
           ${product.quantity},
           ${product.countInStock}
         )
+      RETURNING
+        id
     `;
+
+    // const productId = productRow?.id;
+
+    for (const color of product.choices.colors) {
+      for (const size of product.choices.sizes) {
+        await sql`
+          INSERT INTO
+            choices (
+              product_id,
+              color,
+              size,
+              stock
+            )
+          VALUES
+            (
+              ${productRow?.id},
+              ${color},
+              ${size},
+              ${product.choices.stock}
+            )
+        `;
+      }
+    }
   }
 }
 
@@ -235,6 +320,11 @@ export async function down(sql: Sql) {
       DELETE FROM products
       WHERE
         id = ${product.id}
+    `;
+    await sql`
+      DELETE FROM choices
+      WHERE
+        product_id = ${product.id}
     `;
   }
 }

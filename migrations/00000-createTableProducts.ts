@@ -13,8 +13,19 @@ export async function up(sql: Sql) {
       count_in_stock integer
     );
   `;
+
+  await sql`
+    CREATE TABLE choices (
+      id serial PRIMARY KEY,
+      product_id integer REFERENCES products (id) ON DELETE cascade,
+      color text,
+      size text,
+      stock integer
+    )
+  `;
 }
 
 export async function down(sql: Sql) {
-  await sql` DROP TABLE products; `;
+  await sql` DROP TABLE choices; `;
+  await sql` DROP TABLE products;`;
 }
