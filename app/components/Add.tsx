@@ -2,8 +2,30 @@
 
 import { useState } from 'react';
 
-export default function Add() {
+export default function Add({
+  colors,
+  sizes,
+  product,
+  productId,
+  stock,
+}: {
+  colors: string[];
+  sizes: string[];
+  productId: number;
+  stock: number;
+  product: any;
+}) {
   const [quantity, setQuantity] = useState(1);
+
+  const handleQuantity = (type: 'i' | 'd') => {
+    if (type === 'd' && quantity > 1) {
+      setQuantity((prev) => prev - 1);
+    }
+    if (type === 'i' && quantity < stock) {
+      setQuantity((prev) => prev + 1);
+    }
+  };
+
   return (
     <div className=" flex flex-col gap-4">
       <h4 className=" font-medium">Choose a Quantity</h4>
@@ -12,20 +34,20 @@ export default function Add() {
           <div className=" bg-gray-100 py-2 px-4 rounded-3xl flex items-center justify-between w-32">
             <button
               className=" cursor-pointer  text-xl "
-              onClick={() => setQuantity(Math.max(quantity - 1, 1))}
+              onClick={() => handleQuantity('d')}
             >
               -
             </button>
             {quantity}
             <button
               className="cursor-pointer  text-xl"
-              onClick={() => setQuantity(quantity + 1)}
+              onClick={() => handleQuantity('i')}
             >
               +
             </button>
           </div>
           <div className="text-xs ml-2">
-            Only <span className="  text-orange-500">4 items</span> left!{' '}
+            Only <span className="  text-orange-500">{stock} items</span> left!{' '}
             {`Don't`} miss it
           </div>
         </div>

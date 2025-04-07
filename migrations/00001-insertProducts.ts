@@ -21,9 +21,9 @@ const products: Product[] = [
     quantity: 1,
     countInStock: 10,
     choices: {
-      colors: ['Black', 'Navy'],
+      colors: ['Black', 'Gold'],
       sizes: ['Small', 'Medium', 'Large'],
-      stock: 6,
+      stock: 1,
     },
   },
 
@@ -45,9 +45,9 @@ const products: Product[] = [
     quantity: 1,
     countInStock: 8,
     choices: {
-      colors: ['Black', 'Navy'],
-      sizes: ['Small', 'Medium'],
-      stock: 5,
+      colors: ['Black', 'Navy', 'White'],
+      sizes: ['Medium', 'XLarge'],
+      stock: 2,
     },
   },
   {
@@ -67,9 +67,9 @@ const products: Product[] = [
     quantity: 1,
     countInStock: 10,
     choices: {
-      colors: ['Black', 'Navy'],
-      sizes: ['Small', 'Medium'],
-      stock: 5,
+      colors: ['Black', 'Blue', 'Green', 'Yellow'],
+      sizes: ['Small', 'Medium', 'XLarge'],
+      stock: 4,
     },
   },
   {
@@ -88,9 +88,9 @@ const products: Product[] = [
     quantity: 1,
     countInStock: 20,
     choices: {
-      colors: ['Black', 'Navy'],
+      colors: ['Beige', 'Maroon'],
       sizes: ['Small', 'Medium'],
-      stock: 5,
+      stock: 3,
     },
   },
   {
@@ -130,7 +130,7 @@ const products: Product[] = [
     quantity: 1,
     countInStock: 1,
     choices: {
-      colors: ['Black', 'Navy'],
+      colors: ['Yellow', 'Navy'],
       sizes: ['Small', 'Medium'],
       stock: 5,
     },
@@ -151,7 +151,7 @@ const products: Product[] = [
     quantity: 1,
     countInStock: 4,
     choices: {
-      colors: ['Black', 'Navy'],
+      colors: ['red', 'Navy'],
       sizes: ['Small', 'Medium'],
       stock: 5,
     },
@@ -172,9 +172,9 @@ const products: Product[] = [
     quantity: 1,
     countInStock: 14,
     choices: {
-      colors: ['Black', 'Navy'],
+      colors: ['White', 'Navy'],
       sizes: ['Small', 'Medium'],
-      stock: 5,
+      stock: 15,
     },
   },
 
@@ -195,8 +195,8 @@ const products: Product[] = [
     quantity: 1,
     countInStock: 0,
     choices: {
-      colors: ['Black', 'Navy'],
-      sizes: ['Small', 'Medium'],
+      colors: ['Black'],
+      sizes: ['1T', '512G', '256G', '128'],
       stock: 5,
     },
   },

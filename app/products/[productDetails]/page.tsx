@@ -36,7 +36,7 @@ export default async function productDetailsPage(props: Props) {
     Number((await props.params).productDetails),
   );
 
-  console.log('Product Details', product);
+  console.log('pro oage', product);
 
   return (
     <div className=" text-left px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
@@ -55,13 +55,22 @@ export default async function productDetailsPage(props: Props) {
         </div>
         <div className=" h-[2px] bg-gray-100" />
 
-        <CustomizeProduct
-          colors={product?.colors}
-          sizes={product?.sizes}
-          stock={product?.stock}
-          product={product}
-        />
-        <Add />
+        {product?.colors && product?.sizes ? (
+          <CustomizeProduct
+            colors={product?.colors}
+            sizes={product?.sizes}
+            stock={product?.stock}
+            product={product}
+          />
+        ) : (
+          <Add
+            colors={product?.colors}
+            sizes={product?.sizes}
+            stock={product?.stock}
+            product={product}
+            productId={product?.productId}
+          />
+        )}
 
         <div className=" h-[2px] bg-gray-100" />
         <div className=" text-sm  ">
