@@ -174,7 +174,7 @@ const products: Product[] = [
     choices: {
       colors: ['White', 'Navy'],
       sizes: ['Small', 'Medium'],
-      stock: 15,
+      stock: 5,
     },
   },
 
@@ -210,8 +210,8 @@ const products: Product[] = [
     category: 'bags',
     image: [
       'https://images.pexels.com/photos/842959/pexels-photo-842959.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
-      'https://images.pexels.com/photos/9321607/pexels-photo-9321607.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
       'https://images.pexels.com/photos/2452345/pexels-photo-2452345.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
+      'https://images.pexels.com/photos/9321607/pexels-photo-9321607.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
       'https://images.pexels.com/photos/2263819/pexels-photo-2263819.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load',
     ],
     quantity: 1,
@@ -230,11 +230,10 @@ const products: Product[] = [
       'Lightweight and durable canvas tote bag made from eco-friendly materials. Ideal for groceries, beach days, or everyday errands.',
     category: 'bags',
     image: [
-      'https://images.pexels.com/photos/1667586/pexels-photo-1667586.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/1765024/pexels-photo-1765024.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.pexels.com/photos/1036744/pexels-photo-1036744.jpeg?auto=compress&cs=tinysrgb&w=600',
       'https://images.pexels.com/photos/1094084/pexels-photo-1094084.jpeg?auto=compress&cs=tinysrgb&w=600',
       'https://images.pexels.com/photos/1486838/pexels-photo-1486838.jpeg?auto=compress&cs=tinysrgb&w=600',
+      'https://images.pexels.com/photos/1036744/pexels-photo-1036744.jpeg?auto=compress&cs=tinysrgb&w=600',
+      'https://images.pexels.com/photos/1667586/pexels-photo-1667586.jpeg?auto=compress&cs=tinysrgb&w=600',
     ],
     quantity: 1,
     countInStock: 15,
