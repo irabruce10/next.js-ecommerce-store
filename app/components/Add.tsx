@@ -5,15 +5,13 @@ import { useState } from 'react';
 export default function Add({
   colors,
   sizes,
-  product,
-  productId,
+
   stock,
 }: {
   colors: string[];
   sizes: string[];
-  productId: number;
+
   stock: number;
-  product: any;
 }) {
   const [quantity, setQuantity] = useState(1);
 
@@ -48,6 +46,7 @@ export default function Add({
           </div>
           <div className="text-xs ml-2">
             Only <span className="  text-orange-500">{stock} items</span> left!{' '}
+            <br />
             {`Don't`} miss it
           </div>
         </div>

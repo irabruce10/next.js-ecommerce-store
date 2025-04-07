@@ -197,17 +197,102 @@ export const getProductInsecure = cache(async (id: number) => {
 });
 
 // getAllProductByCategory
+// export const getAllProductByCategoryInsecure = cache(
+//   async (category: string) => {
+//     const products = await sql<Product[]>`
+//       SELECT
+//         *
+//       FROM
+//         products
+//       WHERE
+//         category = ${category}
+//     `;
+
+//     return products;
+//   },
+// );
+
+// export const getAllProductByCategoryInsecure = cache(
+//   async (category: string, minPrice?: number, maxPrice?: number) => {
+//     const products = await sql<Product[]>`
+//       SELECT
+//         *
+//       FROM
+//         products
+//       WHERE
+//         category = ${category} ${minPrice !== undefined
+//         ? sql`AND price >= ${minPrice}`
+//         : sql``} ${maxPrice !== undefined
+//         ? sql`AND price <= ${maxPrice}`
+//         : sql``}
+//     `;
+
+//     return products;
+//   },
+// );
 export const getAllProductByCategoryInsecure = cache(
-  async (category: string) => {
+  async (
+    category: string,
+    filters?: { minPrice?: number; maxPrice?: number; sort?: string },
+  ) => {
+    const { minPrice, maxPrice, sort } = filters || {};
+
+    let orderBySql = sql``;
+
+    if (sort === 'price_asc') {
+      orderBySql = sql`
+        ORDER BY
+          price ASC
+      `;
+    } else if (sort === 'price_desc') {
+      orderBySql = sql`
+        ORDER BY
+          price DESC
+      `;
+    }
+
+    // const products = await sql<Product[]>`
+    //   SELECT
+    //     *
+    //   FROM
+    //     products
+    //   WHERE
+    //     category = ${category} ${minPrice !== undefined
+    //     ? sql`AND price >= ${minPrice}`
+    //     : sql``} ${maxPrice !== undefined
+    //     ? sql`AND price <= ${maxPrice}`
+    //     : sql``} ${orderBySql}
+    // `;
+
+    // return products;
+
+    let priceFilterSql = sql``;
+
+    // If minPrice is defined and greater than maxPrice, adjust query to show the lower value
+    if (minPrice !== undefined && maxPrice !== undefined) {
+      if (minPrice > maxPrice) {
+        priceFilterSql = sql`AND price >= ${minPrice}`;
+      } else {
+        priceFilterSql = sql`
+          AND price >= ${minPrice}
+          AND price <= ${maxPrice}
+        `;
+      }
+    } else if (minPrice !== undefined) {
+      priceFilterSql = sql`AND price >= ${minPrice}`;
+    } else if (maxPrice !== undefined) {
+      priceFilterSql = sql`AND price <= ${maxPrice}`;
+    }
+
     const products = await sql<Product[]>`
       SELECT
         *
       FROM
         products
       WHERE
-        category = ${category}
+        category = ${category} ${priceFilterSql} ${orderBySql}
     `;
 
-    return products;
+    return { products, categoryId: category };
   },
 );

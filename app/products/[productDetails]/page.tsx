@@ -36,8 +36,6 @@ export default async function productDetailsPage(props: Props) {
     Number((await props.params).productDetails),
   );
 
-  console.log('pro oage', product);
-
   return (
     <div className=" text-left px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
       {/* Image  */}
@@ -67,8 +65,6 @@ export default async function productDetailsPage(props: Props) {
             colors={product?.colors}
             sizes={product?.sizes}
             stock={product?.stock}
-            product={product}
-            productId={product?.productId}
           />
         )}
 

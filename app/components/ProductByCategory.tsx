@@ -6,10 +6,10 @@ import {
   getProductsInsecure,
 } from '../database/product';
 
-export default async function ProductByCategory({ categoryId }) {
+export default async function ProductByCategory({ categoryId, products }) {
   return (
     <div className="flex mt-12 gap-x-8 gap-y-16 justify-between flex-wrap">
-      {categoryId.slice(0, 8).map((product: any) => (
+      {products.slice(0, 8).map((product: any) => (
         <Link
           key={product.id}
           href={`/products/${product.id}`}

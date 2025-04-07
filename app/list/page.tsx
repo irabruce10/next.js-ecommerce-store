@@ -3,17 +3,27 @@ import Filter from '../components/Filter';
 import ProductList from '../components/ProductList';
 import ProductByCategory from '../components/ProductByCategory';
 import { getAllProductByCategoryInsecure } from '../database/product';
+import { useSearchParams } from 'next/navigation';
 
 export default async function Listpage({
   searchParams,
 }: {
   searchParams: any;
 }) {
-  console.log('searchParams', searchParams);
+  // const categoryId = await getAllProductByCategoryInsecure(searchParams.cat);
 
-  const categoryId = await getAllProductByCategoryInsecure(searchParams.cat);
-  console.log('category', categoryId);
+  const { cat, min, max, sort } = searchParams;
+  console.log('Search Params: ', searchParams);
 
+  const { products, categoryId } = await getAllProductByCategoryInsecure(cat, {
+    minPrice: min ? Number(min) : undefined,
+    maxPrice: max ? Number(max) : undefined,
+    sort: sort || undefined,
+  });
+
+  console.log('Category Id filter: ', categoryId);
+
+  console.log('maxPrice: ' + max + ' minPrice: ' + min);
   return (
     <div className="  px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative">
       {/* campaign*/}
@@ -33,14 +43,14 @@ export default async function Listpage({
       </div>
 
       {/* Filter */}
-      <Filter />
+      <Filter categoryId={categoryId} />
       {/* Products */}
-      <h1 className=" mt-12 text-xl font-semibold text-left ">
-        Shoes is For You!
+      <h1 className=" mt-12 text-xl font-semibold text-left capitalize ">
+        {searchParams.cat}
       </h1>
       {/* <ProductList categoryId={categoryId} /> */}
 
-      <ProductByCategory categoryId={categoryId} />
+      <ProductByCategory categoryId={categoryId} products={products} />
     </div>
   );
 }

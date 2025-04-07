@@ -96,7 +96,7 @@ export default function CustomizeProduct({
         </>
       )}
 
-      <Add sizes={sizes} stock={stock} />
+      <Add sizes={sizes} stock={stock} colors={colors} />
     </div>
   );
 }
