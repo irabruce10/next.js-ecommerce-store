@@ -61,11 +61,7 @@ export default async function productDetailsPage(props: Props) {
             product={product}
           />
         ) : (
-          <Add
-            colors={product?.colors}
-            sizes={product?.sizes}
-            stock={product?.stock}
-          />
+          <Add />
         )}
 
         <div className=" h-[2px] bg-gray-100" />

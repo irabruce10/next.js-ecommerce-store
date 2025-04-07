@@ -22,25 +22,7 @@ export default function CustomizeProduct({
     setSelectOptions((prev) => ({ ...prev, [type]: option }));
   };
 
-  console.log('select option', selectedOptions);
-
-  console.log('czm', stock);
-
-  const isVariantInStock = () => {
-    const selectedColor = selectedOptions.color;
-    const selectedSize = selectedOptions.size;
-
-    if (selectedColor && selectedSize) {
-      const variant = product.variants.find(
-        (variant: any) =>
-          variant.color === selectedColor && variant.size === selectedSize,
-      );
-      console.log('variant', variant);
-      return variant && variant.stock > 0;
-    }
-
-    return false;
-  };
+  console.log('xsmiz', selectedOptions);
 
   return (
     <div className=" flex flex-col gap-6">
@@ -96,7 +78,13 @@ export default function CustomizeProduct({
         </>
       )}
 
-      <Add sizes={sizes} stock={stock} colors={colors} />
+      <Add
+        colors={product.colors}
+        sizes={product.sizes}
+        stock={stock}
+        selectedColor={selectedOptions.color}
+        selectedSize={selectedOptions.size}
+      />
     </div>
   );
 }

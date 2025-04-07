@@ -233,7 +233,11 @@ export const getProductInsecure = cache(async (id: number) => {
 export const getAllProductByCategoryInsecure = cache(
   async (
     category: string,
-    filters?: { minPrice?: number; maxPrice?: number; sort?: string },
+    filters?: {
+      minPrice?: number;
+      maxPrice?: number;
+      sort?: string;
+    },
   ) => {
     const { minPrice, maxPrice, sort } = filters || {};
 
@@ -283,6 +287,8 @@ export const getAllProductByCategoryInsecure = cache(
     } else if (maxPrice !== undefined) {
       priceFilterSql = sql`AND price <= ${maxPrice}`;
     }
+    // Name "starts with" filter logic
+    let nameFilterSql = sql``;
 
     const products = await sql<Product[]>`
       SELECT
