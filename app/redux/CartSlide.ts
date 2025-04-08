@@ -12,6 +12,7 @@ import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 // };
 
 export interface CartItem {
+  [x: string]: any;
   id: number;
   name: string;
   price: number;
