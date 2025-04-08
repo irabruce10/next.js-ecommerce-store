@@ -2,7 +2,7 @@
 // import CartSidebar from './CartSidebar';
 import Logo from './Logo';
 import { useEffect, type ReactNode } from 'react';
-import { hideLoading } from '../redux/CartSlide';
+// import { hideLoading } from '../redux/CartSlide';
 
 import { useDispatch } from '../../node_modules/react-redux/dist/react-redux';
 import Navigation from './Navigation';
@@ -12,10 +12,10 @@ type Props = {
 };
 
 export default function App({ children }: Props) {
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(hideLoading());
-  }, [dispatch]);
+  // const dispatch = useDispatch();
+  // useEffect(() => {
+  //   dispatch(hideLoading());
+  // }, [dispatch]);
   return (
     // <div className="container">
     //   <header className="header">
