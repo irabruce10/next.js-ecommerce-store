@@ -2,13 +2,37 @@ import React from 'react';
 import Image from 'next/image';
 import { useSelector } from 'react-redux';
 import type { RooterState } from '../redux/Store';
+import { useDispatch } from 'react-redux';
+import {
+  addItem,
+  deleteFromCart,
+  removeFromCart,
+  type CartItem,
+} from '../redux/CartSlide';
 
 export default function CartModal() {
   // const items = useSelector((state: RooterState) => state.cart);
   // console.log('items', items);
+  const dispatch = useDispatch();
+
+  // const items = useSelector((state: RooterState) => state.cart.items);
+  // const removeCartHandler = (id: number) => dispatch(removeFromCart({ id }));
+  // const addCartHandler = (item: CartItem) => dispatch(addItem(item));
+  // console.log('items', items);
 
   const items = useSelector((state: RooterState) => state.cart.items);
-  console.log('items', items);
+  const removeCartHandler = (id: number) => dispatch(removeFromCart({ id }));
+  const addCartHandler = (item: CartItem) => {
+    if (item.quantity < item.stock) {
+      dispatch(addItem({ ...item, quantity: item.quantity + 1 }));
+    } else {
+      alert('Cannot add more items. Stock limit reached.');
+    }
+    // dispatch(addItem(items));
+    console.log('items', items);
+  };
+
+  const deleteCartHandler = (id: number) => dispatch(deleteFromCart({ id }));
 
   return (
     <div className=" w-max absolute p-4 rounded-md shadow-[0_3px_10px_rgb(0,0,0,0.2)] bg-white top-12 right-0 flex flex-col gap-6 z-20">
@@ -57,11 +81,29 @@ export default function CartModal() {
                     </div>
                     {/* bottom */}
                     <div className="flex justify-between text-sm">
-                      <span className=" text-gray-500">
-                        Qty.{item.quantity}
-                      </span>
-
-                      <span className=" text-blue-500">remove</span>
+                      <div className=" flex items-center">
+                        <div className=" bg-gray-100 py-2 px-4 rounded-3xl flex items-center justify-between w-32">
+                          <button
+                            className=" cursor-pointer  text-xl "
+                            onClick={() => removeCartHandler(item.id)}
+                          >
+                            -
+                          </button>
+                          {item.quantity}
+                          <button
+                            className="cursor-pointer  text-xl"
+                            onClick={() => addCartHandler(item)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                      <button
+                        onClick={() => deleteCartHandler(item.id)}
+                        className=" cursor-pointer text-blue-500"
+                      >
+                        Delete
+                      </button>
                     </div>
                   </div>
                 </div>

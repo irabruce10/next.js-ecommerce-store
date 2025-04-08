@@ -18,6 +18,7 @@ export interface CartItem {
   price: number;
   image: string[];
   quantity: number;
+  stock: number;
 }
 interface CartState {
   items: CartItem[];
@@ -41,19 +42,43 @@ const cartSlice = createSlice({
       }
     },
 
+    // removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
+    //   const existingItem = state.items.findIndex(
+    //     (item) => item.id === action.payload.id,
+    //   );
+
+    //   if (existingItem) {
+    //     if (existingItem.quantity >= 1) {
+    //       existingItem.quantity -= 1;
+    //     } else {
+    //       state.items = state.items.filter(
+    //         (item) => item.id != action.payload.id,
+    //       );
+    //     }
+    //   }
+    // },
+
     removeFromCart: (state, action: PayloadAction<{ id: number }>) => {
-      const existingItem = state.items.findIndex(
+      const index = state.items.findIndex(
         (item) => item.id === action.payload.id,
       );
 
-      if (existingItem) {
-        if (existingItem.quantity > 1) {
-          existingItem.quantity -= 1;
+      if (index !== -1) {
+        if (state.items[index].quantity > 1) {
+          state.items[index].quantity -= 1;
         } else {
-          state.items = state.items.filter(
-            (item) => item.id != action.payload.id,
-          );
+          state.items.splice(index, 1);
         }
+      }
+    },
+
+    deleteFromCart: (state, action: PayloadAction<{ id: number }>) => {
+      const index = state.items.findIndex(
+        (item) => item.id === action.payload.id,
+      );
+
+      if (index !== -1) {
+        state.items.splice(index, 1);
       }
     },
 
@@ -63,7 +88,8 @@ const cartSlice = createSlice({
   },
 });
 
-export const { addItem, removeFromCart, clearCart } = cartSlice.actions;
+export const { addItem, removeFromCart, deleteFromCart, clearCart } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
 
