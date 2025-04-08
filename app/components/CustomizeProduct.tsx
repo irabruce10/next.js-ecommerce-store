@@ -22,8 +22,6 @@ export default function CustomizeProduct({
     setSelectOptions((prev) => ({ ...prev, [type]: option }));
   };
 
-  console.log('xsmiz', selectedOptions);
-
   return (
     <div className=" flex flex-col gap-6">
       {product.colors.length > 0 && (

@@ -4,6 +4,8 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 import CartModal from './CartModal';
+import { useSelector } from 'react-redux';
+import type { RooterState } from '../redux/Store';
 export default function NavIcons() {
   const isLoggedIn = false;
   const [isProfile, setIsProfile] = useState(false);
@@ -16,6 +18,10 @@ export default function NavIcons() {
     }
     setIsProfile((prev) => !prev);
   };
+  const items = useSelector((state: RooterState) => state.cart.items);
+  console.log('items', items);
+  const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
+  console.log('TotalQuantity', totalQuantity);
 
   return (
     <div className="flex gap-4 items-center xl:gap-6 relative">
@@ -40,7 +46,7 @@ export default function NavIcons() {
       >
         <Image src="/cart.png" alt="cart" width={22} height={22} />
         <div className=" absolute -top-4 -right-4 w-6 h-6 bg-primary bg-[#F35C7A] text-white justify-center rounded-full text-center text-sm ">
-          2
+          {totalQuantity}
         </div>
       </div>
       {isCart && (

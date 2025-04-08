@@ -45,7 +45,7 @@ export default function Add({
 
   console.log('pr redux', product);
 
-  const items = useSelector((state: RooterState) => state.cart);
+  const items = useSelector((state: RooterState) => state.cart.items);
   console.log('items', items);
 
   // console.log('slx', selectionOptions);
