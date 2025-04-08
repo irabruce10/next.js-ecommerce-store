@@ -43,6 +43,8 @@ export default function Add({
     }
   };
 
+  console.log('pr redux', product);
+
   const items = useSelector((state: RooterState) => state.cart);
   console.log('items', items);
 

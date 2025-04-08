@@ -79,11 +79,10 @@ export default function CustomizeProduct({
       )}
 
       <Add
-        colors={product.colors}
-        sizes={product.sizes}
         stock={stock}
         selectedColor={selectedOptions.color}
         selectedSize={selectedOptions.size}
+        product={product}
       />
     </div>
   );

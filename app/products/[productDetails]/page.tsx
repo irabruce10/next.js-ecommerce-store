@@ -35,6 +35,7 @@ export default async function productDetailsPage(props: Props) {
   const product = await getProductInsecures(
     Number((await props.params).productDetails),
   );
+  console.log('product single page', product);
 
   return (
     <div className=" text-left px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 relative flex flex-col lg:flex-row gap-16">
@@ -61,7 +62,7 @@ export default async function productDetailsPage(props: Props) {
             product={product}
           />
         ) : (
-          <Add />
+          <Add product={product} />
         )}
 
         <div className=" h-[2px] bg-gray-100" />
