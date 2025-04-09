@@ -161,14 +161,21 @@ export default async function CartPage() {
     productCookies = [];
   }
 
+  console.log('prokkk', productCookies);
+
   const productsWithData = await Promise.all(
     productCookies.map(async (item) => {
       const product = await getProductInsecure(item.id);
 
-      console.log('pr', product);
-
       const totalPrice = product.price * item.quantity;
-      return { ...product, quantity: item.quantity, totalPrice };
+      return {
+        ...product,
+        quantity: item.quantity,
+        totalPrice,
+        selectedColor: item.selectedColor,
+        selectedSize: item.selectedSize,
+        stock: item.stock,
+      };
     }),
   );
 
@@ -176,6 +183,18 @@ export default async function CartPage() {
     (acc, item) => acc + item.totalPrice,
     0,
   );
+
+  const validProducts = productsWithData.filter(Boolean) as Array<{
+    id: number;
+    name: string;
+    price: number;
+    images?: string[];
+    quantity: number;
+    totalPrice: number;
+    selectedColor: string;
+    selectedSize: string;
+    stock: number;
+  }>;
 
   return (
     <div className="mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
@@ -202,7 +221,7 @@ export default async function CartPage() {
               </tr>
             </thead>
             <tbody>
-              {productsWithData.map((product) => (
+              {validProducts.map((product) => (
                 <tr key={product.id} className="border-t">
                   <td className="p-4">
                     <Image
@@ -213,8 +232,26 @@ export default async function CartPage() {
                       className=" object-cover rounded-md"
                     />
                   </td>
-                  <td className="p-4">{product.name}</td>
+                  <td className="p-4">
+                    {product.name}
+
+                    <div className="text-sm text-gray-500 mt-1">
+                      Color:{' '}
+                      <span className="font-medium">
+                        {product.selectedColor}
+                      </span>{' '}
+                      <br />
+                      Size:{' '}
+                      <span className="font-medium">
+                        {product.selectedSize}
+                      </span>{' '}
+                      <br />
+                      Stock:{' '}
+                      <span className="font-medium">{product.stock}</span>
+                    </div>
+                  </td>
                   {/* <td className="p-4">€{product?.price}</td> */}
+
                   <td className="p-4">
                     <SelectForm item={product.id} product={product}>
                       <button className="px-2 py-1 border rounded bg-white">

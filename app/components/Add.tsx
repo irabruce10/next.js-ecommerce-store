@@ -63,8 +63,22 @@ export default function Add({
         newQty = existItem.quantity + 1;
       }
     }
-    dispatch(addItem({ ...product, quantity: newQty }));
-    await createOrUpdateCookie(product.id, quantity);
+    dispatch(
+      addItem({
+        ...product,
+        quantity: newQty,
+        stock,
+        selectedColor,
+        selectedSize,
+      }),
+    );
+    await createOrUpdateCookie(
+      product.id,
+      quantity,
+      stock,
+      selectedColor,
+      selectedSize,
+    );
   };
   return (
     <div className=" flex flex-col gap-4">
