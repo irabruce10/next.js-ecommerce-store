@@ -33,6 +33,7 @@ import Image from 'next/image';
 import Menu from './Menu';
 import SearchBar from './SearchBar';
 import NavIcons from './NavIcons';
+import CartCount from './CardCount';
 
 export default function Navigation() {
   return (
@@ -69,6 +70,12 @@ export default function Navigation() {
             <Link href="/contact" className="text-sm">
               Contact
             </Link>
+
+            <li className="cart">
+              <Link href="/cart" data-test-id="cart-link">
+                <CartCount />
+              </Link>
+            </li>
           </div>
         </div>
 

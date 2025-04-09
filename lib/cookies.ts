@@ -1,6 +1,6 @@
 'use server';
 
-import { cookies } from '../node_modules/next/headers';
+import { cookies } from 'next/headers';
 
 // Get a cookie value
 export async function getCookie(name: string) {

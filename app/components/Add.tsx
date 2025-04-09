@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addItem } from '../redux/CartSlide';
 
 import type { RooterState } from '../redux/Store';
+import createOrUpdateCookie from '../products/[productDetails]/action';
 
 type Props = {
   product: {
@@ -43,19 +44,27 @@ export default function Add({
     }
   };
 
-  console.log('pr redux', product);
-
   const items = useSelector((state: RooterState) => state.cart.items);
-  console.log('items', items);
 
-  // console.log('slx', selectionOptions);
   const dispatch = useDispatch();
 
-  const handleAdd = (product: any) => {
+  const handleAdd = async (product: any) => {
     console.log('Hello');
     console.log('selectedOp', selectedColor, selectedSize);
 
-    dispatch(addItem({ ...product, selectedColor, selectedSize }));
+    // dispatch(addItem({ ...product, selectedColor, selectedSize }));
+    // await createOrUpdateCookie(product.id, product.quantity);
+
+    const existItem = items.find((item) => item.id === product.id);
+
+    let newQty = 0;
+    if (existItem) {
+      if (existItem.quantity + 1 <= product.countInStock) {
+        newQty = existItem.quantity + 1;
+      }
+    }
+    dispatch(addItem({ ...product, quantity: newQty }));
+    await createOrUpdateCookie(product.id, quantity);
   };
   return (
     <div className=" flex flex-col gap-4">

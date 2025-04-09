@@ -6,6 +6,8 @@ import { useState } from 'react';
 import CartModal from './CartModal';
 import { useSelector } from 'react-redux';
 import type { RooterState } from '../redux/Store';
+import { getCookie } from '../../lib/cookies';
+import { parseJson } from '../../lib/json';
 export default function NavIcons() {
   const isLoggedIn = false;
   const [isProfile, setIsProfile] = useState(false);
@@ -22,6 +24,32 @@ export default function NavIcons() {
   console.log('items', items);
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
   console.log('TotalQuantity', totalQuantity);
+
+  // const [cartQuantity, setCartQuantity] = useState(0);
+
+  // async function c() {
+  //   const cookieCart = await getCookie('cart');
+  //   if (cookieCart) {
+  //     const parsedCart = parseJson(cookieCart);
+  //     const quantity = parsedCart.reduce((acc, item) => acc + item.quantity, 0);
+  //     setCartQuantity(quantity);
+  //   }
+  // }
+  // console.log('hello', c());
+
+  // console.log('qty', cartQuantity);
+
+  // const cookie = getCookie('cart');
+
+  // console.log('cookie', cookie);
+  // const parsedCartItems = await parseJson(cookie);
+
+  // console.log('parse', parsedCartItems!);
+
+  // const totalQuantity = parsedCartItems?.reduce(
+  //   (total, item) => total + item.quantity,
+  //   0,
+  // );
 
   return (
     <div className="flex gap-4 items-center xl:gap-6 relative">
