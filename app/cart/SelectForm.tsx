@@ -82,7 +82,9 @@ const SelectForm: React.FC<SelectFormProps> = ({ item, product, children }) => {
     <div className="flex items-center justify-center space-x-4 py-2">
       <button
         value={product.quantity}
-        onClick={() => updateCookiesMinus(item, Number(product.quantity))}
+        onClick={() =>
+          updateCookiesMinus(item, Number(product.quantity), product.stock)
+        }
         className="w-9 h-9 rounded-full bg-gray-200 hover:bg-gray-300 text-xl font-semibold text-gray-800 transition duration-200 cursor-pointer"
         aria-label="Decrease quantity"
       >

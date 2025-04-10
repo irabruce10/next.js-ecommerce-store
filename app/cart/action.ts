@@ -19,90 +19,59 @@ export default async function removeProductFromCookie(productId: number) {
   return updatedProducts;
 }
 
-// export async function updateCookiesPlus(item: number, quantity: number) {
-//   const getProducts = await getCookie('cart');
-
-//   console.log('getProducts', getProducts);
-
-//   const products: Product[] = !getProducts ? [] : parseJson(getProducts)!;
-
-//   const productCookie = products.find((product) => {
-//     return product.id === item;
-//   });
-
-//   if (!productCookie) {
-//     products.push({ id: item, quantity: quantity });
-//   } else {
-//     productCookie.quantity += 1;
-//   }
-
-//   (await cookies()).set('cart', JSON.stringify(products));
-// }
-
 export async function updateCookiesPlus(
-  item: number,
+  itemId: number,
   quantity: number,
   stock: number,
 ) {
-  const getProducts = await getCookie('cart');
+  const cookieData = await getCookie('cart');
+  const products: Product[] = !cookieData ? [] : parseJson(cookieData)!;
 
-  const products: Product[] = !getProducts ? [] : parseJson(getProducts)!;
+  const product = products.find((p) => p.id === itemId);
 
-  const productCookie = products.find((product) => product.id === item);
-
-  if (!productCookie) {
-    products.push({ id: item, quantity: quantity, stock: stock });
+  if (!product) {
+    // If the product doesn't exist, add it with initial quantity (but not more than stock)
+    products.push({
+      id: itemId,
+      quantity: quantity > stock ? stock : quantity,
+      stock,
+    });
   } else {
-    // Make sure we don’t exceed the stock
-    if (productCookie.quantity < productCookie.stock) {
-      productCookie.quantity += 1;
+    // Update quantity only if it doesn't exceed stock
+    if (product.quantity < product.stock) {
+      product.quantity += 1;
     }
   }
 
   (await cookies()).set('cart', JSON.stringify(products));
 }
 
-export async function updateCookiesMinus(item: number, quantity: number) {
-  const getProducts = await getCookie('cart');
+export async function updateCookiesMinus(
+  itemId: number,
+  quantity: number,
+  stock: number,
+) {
+  const cookieData = await getCookie('cart');
+  const products: Product[] = !cookieData ? [] : parseJson(cookieData)!;
 
-  const products: Product[] = !getProducts ? [] : parseJson(getProducts)!;
+  const product = products.find((p) => p.id === itemId);
 
-  const productCookie = products.find((product) => product.id === item);
-
-  if (!productCookie) {
-    products.push({ id: item, quantity: quantity, stock: 1 }); // Default stock if unknown
+  if (!product) {
+    // If the product doesn't exist, return early (nothing to update)
+    return;
   } else {
-    productCookie.quantity -= 1;
+    // Decrease quantity only if it's greater than 1 (to avoid negative quantities)
+    if (product.quantity > 1) {
+      product.quantity -= 1;
+    } else {
+      // Optionally: Remove the product from the cart if quantity is 1 or less
+      products.splice(products.indexOf(product), 1);
+    }
   }
 
-  if (productCookie?.quantity === 0) {
-    products.splice(products.indexOf(productCookie), 1);
-  }
-
+  // Save the updated cart to the cookie
   (await cookies()).set('cart', JSON.stringify(products));
 }
-
-// export async function updateCookiesMinus(item: number, quantity: number) {
-//   const getProducts = await getCookie('cart');
-
-//   const products: Product[] = !getProducts ? [] : parseJson(getProducts)!;
-
-//   const productCookie = products.find((product) => {
-//     return product.id === item;
-//   });
-
-//   if (!productCookie) {
-//     products.push({ id: item, quantity: quantity });
-//   } else {
-//     productCookie.quantity -= 1;
-//   }
-
-//   if (productCookie?.quantity === 0) {
-//     products.splice(products.indexOf(productCookie), 1);
-//   }
-
-//   (await cookies()).set('cart', JSON.stringify(products));
-// }
 
 export async function removeAllCookies(item: number) {
   const getProducts = await getCookie('cart');
