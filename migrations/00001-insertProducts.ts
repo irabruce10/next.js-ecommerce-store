@@ -251,7 +251,7 @@ type Product = {
   price: number;
   description: string;
   category: string | null;
-  image: string;
+  image: string[];
   quantity: number;
   countInStock: number | null;
   choices: {
