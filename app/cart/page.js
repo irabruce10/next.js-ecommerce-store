@@ -1,12 +1,12 @@
 import React from 'react';
 import CartPage from './Cart';
 
-function page() {
+function Page() {
   return (
-    <div>
+    <div className="min-h-screen flex flex-col bg-gray-50">
       <CartPage />
     </div>
   );
 }
 
-export default page;
+export default Page;

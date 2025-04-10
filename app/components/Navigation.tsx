@@ -71,11 +71,11 @@ export default function Navigation() {
               Contact
             </Link>
 
-            <li className="cart">
+            {/* <li className="cart">
               <Link href="/cart" data-test-id="cart-link">
                 <CartCount />
               </Link>
-            </li>
+            </li> */}
           </div>
         </div>
 
@@ -83,6 +83,14 @@ export default function Navigation() {
         <div className=" w-2/3 xl:w-1/2 flex items-center justify-between gap-8">
           <SearchBar />
           <NavIcons />
+
+          {/* Cart - Move to left in Desktop View */}
+
+          <div>
+            <Link href="/cart" data-test-id="cart-link">
+              <CartCount />
+            </Link>
+          </div>
         </div>
       </div>
     </div>

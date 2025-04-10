@@ -21,35 +21,8 @@ export default function NavIcons() {
     setIsProfile((prev) => !prev);
   };
   const items = useSelector((state: RooterState) => state.cart.items);
-  console.log('items', items);
+
   const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
-  console.log('TotalQuantity', totalQuantity);
-
-  // const [cartQuantity, setCartQuantity] = useState(0);
-
-  // async function c() {
-  //   const cookieCart = await getCookie('cart');
-  //   if (cookieCart) {
-  //     const parsedCart = parseJson(cookieCart);
-  //     const quantity = parsedCart.reduce((acc, item) => acc + item.quantity, 0);
-  //     setCartQuantity(quantity);
-  //   }
-  // }
-  // console.log('hello', c());
-
-  // console.log('qty', cartQuantity);
-
-  // const cookie = getCookie('cart');
-
-  // console.log('cookie', cookie);
-  // const parsedCartItems = await parseJson(cookie);
-
-  // console.log('parse', parsedCartItems!);
-
-  // const totalQuantity = parsedCartItems?.reduce(
-  //   (total, item) => total + item.quantity,
-  //   0,
-  // );
 
   return (
     <div className="flex gap-4 items-center xl:gap-6 relative">
@@ -68,7 +41,7 @@ export default function NavIcons() {
       )}
       <Image src="/notification.png" alt="not" width={22} height={22} />
 
-      <div
+      {/* <div
         className="relative cursor-pointer"
         onClick={() => setIsCart((prev) => !prev)}
       >
@@ -76,12 +49,12 @@ export default function NavIcons() {
         <div className=" absolute -top-4 -right-4 w-6 h-6 bg-primary bg-[#F35C7A] text-white justify-center rounded-full text-center text-sm ">
           {totalQuantity}
         </div>
-      </div>
-      {isCart && (
+      </div> */}
+      {/* {isCart && (
         <div className=" absolute">
           <CartModal />
         </div>
-      )}
+      )} */}
     </div>
   );
 }
