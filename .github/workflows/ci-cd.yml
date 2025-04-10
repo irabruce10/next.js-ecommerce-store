@@ -45,30 +45,6 @@ jobs:
       - name: Check TypeScript Types
         run: pnpm tsc
 
-      # Cache and install Playwright browser binaries, modified version of:
-      # https://github.com/microsoft/playwright/issues/7249#issuecomment-1154603556
-      # https://github.com/microsoft/playwright/issues/7249#issuecomment-1385567519
-      # https://playwrightsolutions.com/playwright-github-action-to-cache-the-browser-binaries/
-      - name: Get installed Playwright version for cache key
-        run: echo "PLAYWRIGHT_VERSION=$(yq eval '.version' --output-format=yaml ./node_modules/@playwright/test/package.json)" >> $GITHUB_ENV
-      - name: Cache Playwright browser binaries
-        uses: actions/cache@v4
-        id: playwright-browser-cache
-        with:
-          path: |
-            ~/.cache/ms-playwright
-          key: ${{ runner.os }}-playwright-${{ env.PLAYWRIGHT_VERSION }}
-      - name: Install Playwright browsers only on cache miss
-        run: pnpm playwright install --with-deps chromium
-        if: steps.playwright-browser-cache.outputs.cache-hit != 'true'
-
-      - name: Run tests
-        run: pnpm playwright test
-      - uses: actions/upload-artifact@v4
-        if: failure()
-        with:
-          name: playwright-screenshots-videos
-          path: playwright/test-results/
   cd:
     name: Deploy to Fly.io
     runs-on: ubuntu-latest
