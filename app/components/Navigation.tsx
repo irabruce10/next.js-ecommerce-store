@@ -61,15 +61,15 @@ export default function Navigation() {
             <Link href="/products" className="text-sm">
               Products
             </Link>
-            <Link href="/shop" className="text-sm">
+            {/* <Link href="/shop" className="text-sm">
               Shop
-            </Link>
+            </Link> */}
             <Link href="/about" className="text-sm">
               About
             </Link>
-            <Link href="/contact" className="text-sm">
+            {/* <Link href="/contact" className="text-sm">
               Contact
-            </Link>
+            </Link> */}
 
             {/* <li className="cart">
               <Link href="/cart" data-test-id="cart-link">

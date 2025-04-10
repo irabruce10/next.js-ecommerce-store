@@ -23,8 +23,8 @@ export default function Menu() {
           <Link href="/about">About</Link>
           <Link href="/products">Products</Link>
           <Link href="/cart">Cart (1)</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/logout">Logout</Link>
+          {/* <Link href="/contact">Contact</Link>
+          <Link href="/logout">Logout</Link> */}
         </div>
       )}
     </div>
