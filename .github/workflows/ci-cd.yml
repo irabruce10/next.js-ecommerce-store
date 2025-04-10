@@ -10,7 +10,7 @@ jobs:
     env:
       PGHOST: localhost
       PGDATABASE: ecommerce_store
-      PGUSERNAME: bruce
+      PGUSERNAME: brucem
       PGPASSWORD: Mars.b11
     steps:
       - name: Start preinstalled PostgreSQL on Ubuntu

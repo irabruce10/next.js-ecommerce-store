@@ -7,7 +7,7 @@ test('add to cart test', async ({ page }) => {
   await page.waitForURL('/products');
   await expect(
     page.getByRole('heading', {
-      name: 'Our top Products',
+      name: 'Featured  Products',
     }),
   ).toBeVisible();
 
