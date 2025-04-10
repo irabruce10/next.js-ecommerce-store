@@ -167,20 +167,22 @@ export default async function CartPage() {
     productCookies.map(async (item) => {
       const product = await getProductInsecure(item.id);
 
-      const totalPrice = product.price * item.quantity;
-      return {
-        ...product,
-        quantity: item.quantity,
-        totalPrice,
-        selectedColor: item.selectedColor,
-        selectedSize: item.selectedSize,
-        stock: item.stock,
-      };
+      if (product) {
+        const totalPrice = product?.price * item.quantity;
+        return {
+          ...product,
+          quantity: item.quantity,
+          totalPrice,
+          selectedColor: (item as any).selectedColor,
+          selectedSize: (item as any).selectedSize,
+          stock: item.stock,
+        };
+      }
     }),
   );
 
   const totalSum = productsWithData.reduce(
-    (acc, item) => acc + item.totalPrice,
+    (acc, item) => acc + (item?.totalPrice ?? 0),
     0,
   );
 
@@ -188,14 +190,13 @@ export default async function CartPage() {
     id: number;
     name: string;
     price: number;
-    images?: string[];
+    images: string;
     quantity: number;
     totalPrice: number;
-    selectedColor: string;
-    selectedSize: string;
+    selectedColor: any;
+    selectedSize: any;
     stock: number;
   }>;
-
   return (
     <div className="mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
       <h1 className="text-3xl font-semibold mb-12">Shopping Cart</h1>
@@ -246,8 +247,6 @@ export default async function CartPage() {
                         {product.selectedSize}
                       </span>{' '}
                       <br />
-                      Stock:{' '}
-                      <span className="font-medium">{product.stock}</span>
                     </div>
                   </td>
                   {/* <td className="p-4">€{product?.price}</td> */}
@@ -261,7 +260,7 @@ export default async function CartPage() {
                   </td>
                   <td className="p-4">€{product.totalPrice.toFixed(2)}</td>
                   <td className="p-4">
-                    <DeleteButton product={product.id} />
+                    <DeleteButton product={product.id} id={undefined} />
                   </td>
                 </tr>
               ))}

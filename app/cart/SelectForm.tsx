@@ -6,6 +6,7 @@ import { updateCookiesMinus, updateCookiesPlus } from './action';
 type Props = {
   item: number;
   quantity: number;
+  stock: number;
   children: ReactNode;
 };
 
@@ -26,7 +27,9 @@ export default function SelectForm(props: Props) {
         <button
           value={props.quantity}
           // type="round"
-          onClick={() => updateCookiesPlus(props.item, Number(props.quantity))}
+          onClick={() =>
+            updateCookiesPlus(props.item, Number(props.quantity), props.stock)
+          }
         >
           +
         </button>

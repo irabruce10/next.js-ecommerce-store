@@ -3,6 +3,7 @@ import sjson from 'secure-json-parse';
 export type Product = {
   id: number;
   quantity: number;
+  stock: number;
 };
 
 export function parseJson(json: string | undefined) {
