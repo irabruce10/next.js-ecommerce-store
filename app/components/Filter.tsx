@@ -2,11 +2,8 @@
 
 import React from 'react';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { Router } from 'next/router';
 
-export default function Filter({ categoryId }) {
-  console.log('Filter', categoryId);
-
+export default function Filter({ categoryId }: { categoryId: number }) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const { replace } = useRouter();

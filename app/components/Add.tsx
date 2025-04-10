@@ -49,12 +49,6 @@ export default function Add({
   const dispatch = useDispatch();
 
   const handleAdd = async (product: any) => {
-    console.log('Hello');
-    console.log('selectedOp', selectedColor, selectedSize);
-
-    // dispatch(addItem({ ...product, selectedColor, selectedSize }));
-    // await createOrUpdateCookie(product.id, product.quantity);
-
     const existItem = items.find((item) => item.id === product.id);
 
     let newQty = 0;
@@ -76,8 +70,8 @@ export default function Add({
       product.id,
       quantity,
       stock,
-      selectedColor,
-      selectedSize,
+      selectedColor ?? '',
+      selectedSize ?? '',
     );
   };
   return (

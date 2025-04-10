@@ -81,6 +81,9 @@ export default function CustomizeProduct({
         selectedColor={selectedOptions.color}
         selectedSize={selectedOptions.size}
         product={product}
+        colors={[]}
+        sizes={[]}
+        productImage={[]}
       />
     </div>
   );
