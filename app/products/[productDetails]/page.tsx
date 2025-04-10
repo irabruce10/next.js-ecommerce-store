@@ -2,8 +2,7 @@ import {
   getProductInsecure,
   getProductInsecures,
 } from '../../database/product';
-import AddToCart from '../../components/AddToCart';
-import styles from './productDetail.module.scss';
+
 import CustomizeProduct from '../../components/CustomizeProduct';
 import Add from '../../components/Add';
 import ProductImages from '../../components/ProductImages';
@@ -61,7 +60,13 @@ export default async function productDetailsPage(props: Props) {
             product={product}
           />
         ) : (
-          <Add product={product} />
+          <Add
+            product={product}
+            colors={product?.colors || []}
+            sizes={product?.sizes || []}
+            productImage={product?.images || []}
+            stock={product?.stock || 0}
+          />
         )}
 
         <div className=" h-[2px] bg-gray-100" />

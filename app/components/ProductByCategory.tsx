@@ -6,7 +6,13 @@ import {
   getProductsInsecure,
 } from '../database/product';
 
-export default async function ProductByCategory({ categoryId, products }) {
+export default async function ProductByCategory({
+  categoryId: number,
+  products,
+}: {
+  categoryId: string;
+  products: any[];
+}) {
   return (
     <div className="flex mt-12 gap-x-8 gap-y-16 justify-between flex-wrap">
       {products.slice(0, 8).map((product: any) => (

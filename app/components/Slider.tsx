@@ -61,7 +61,7 @@ export default function Slider() {
               <h1 className=" text-5xl lg:text-6xl 2xl:text-8xl font-semibold ">
                 {slide.title}
               </h1>
-              <Link href={slide.url} className="">
+              <Link href={{ pathname: slide.url }} className="">
                 <button className=" rounded-md bg-black text-white px-4 py-3">
                   Shop Now
                 </button>
