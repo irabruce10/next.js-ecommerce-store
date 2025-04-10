@@ -1,4 +1,4 @@
-('use client');
+'use client';
 
 import React, { useState } from 'react';
 import Add from './Add';
@@ -76,14 +76,21 @@ export default function CustomizeProduct({
         </>
       )}
 
-      <Add
+      {/* <Add
         stock={stock}
         selectedColor={selectedOptions.color}
         selectedSize={selectedOptions.size}
         product={product}
-        colors={[]}
-        sizes={[]}
-        productImage={[]}
+      /> */}
+
+      <Add
+        colors={colors}
+        sizes={sizes}
+        productImage={product.images}
+        stock={stock}
+        selectedColor={selectedOptions.color}
+        selectedSize={selectedOptions.size}
+        product={product}
       />
     </div>
   );
