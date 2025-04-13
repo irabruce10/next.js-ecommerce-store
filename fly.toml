@@ -4,7 +4,7 @@
 #
 
 app = 'esoko'
-primary_region = 'fra'
+primary_region = 'otp'
 
 [build]
 
