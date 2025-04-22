@@ -177,7 +177,7 @@ export default async function CheckoutPage() {
           {/* Payment Method */}
           <div className="space-y-4">
             <h2 className="text-xl font-medium">Payment Method</h2>
-            <div className=" flex flex-wrap gap-2">
+            <div className=" flex flex-wrap gap-2 text-center justify-center">
               {[
                 {
                   id: 'discover',

@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux';
 import type { RooterState } from '../redux/Store';
 import { getCookie } from '../../lib/cookies';
 import { parseJson } from '../../lib/json';
+import LogoutButton from '../(auth)/logout/LogoutButton';
 export default function NavIcons() {
   const isLoggedIn = false;
   const [isProfile, setIsProfile] = useState(false);
@@ -20,9 +21,6 @@ export default function NavIcons() {
     }
     setIsProfile((prev) => !prev);
   };
-  const items = useSelector((state: RooterState) => state.cart.items);
-
-  const totalQuantity = items.reduce((total, item) => total + item.quantity, 0);
 
   return (
     <div className="flex gap-4 items-center xl:gap-6 relative">
@@ -36,7 +34,9 @@ export default function NavIcons() {
       {isProfile && (
         <div className="absolute p-4 top-12 left-0 text-sm shadow-[0_3px_10px_rgb(0,0,0,0.2)] z-20 ">
           <Link href="/">Profile</Link>
-          <div className=" mt-2 cursor-pointer">Logout</div>
+          <div className=" mt-2 cursor-pointer">
+            <LogoutButton />
+          </div>
         </div>
       )}
       <Image src="/notification.png" alt="not" width={22} height={22} />
