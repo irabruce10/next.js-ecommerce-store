@@ -35,10 +35,14 @@ export default async function CheckoutPage() {
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6 ">
+      <div className="mt-14 ">
+        <h1 className="text-2xl md:text-3xl font-bold px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64 mb-12">
+          Checkout
+        </h1>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Billing Details */}
         <section className="space-y-6">
-          <h1 className="text-2xl font-semibold">Checkout</h1>
           <h2 className="text-xl font-medium">Billing Details</h2>
           <form className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
@@ -57,14 +61,7 @@ export default async function CheckoutPage() {
                 data-test-id="checkout-last-name"
               />
             </div>
-            <input
-              type="password"
-              name="password"
-              placeholder="Password *"
-              required
-              className="border rounded-lg p-2 w-full"
-              data-test-id="checkout-security-code"
-            />
+
             <select
               name="country"
               required
@@ -180,25 +177,39 @@ export default async function CheckoutPage() {
           {/* Payment Method */}
           <div className="space-y-4">
             <h2 className="text-xl font-medium">Payment Method</h2>
-            <div className="space-y-3">
+            <div className=" flex flex-wrap gap-2">
               {[
                 {
-                  id: 'bank',
+                  id: 'discover',
                   label: 'Direct Bank Transfer',
-                  desc: 'Transfer directly to our bank account. Use your Order ID as payment reference.',
+                  logo: 'discover.png',
                 },
                 {
-                  id: 'cheque',
-                  label: 'Cheque Payment',
-                  desc: 'Please send your cheque to Store Name, Store Street, Store Town, Store State / County, Store Postcode.',
+                  id: 'visa',
+                  label: 'Visa',
+                  logo: '/visa.png',
                 },
+                {
+                  id: 'MasterCard',
+                  label: 'MasterCard',
+                  logo: 'mastercard.png',
+                },
+
                 {
                   id: 'paypal',
                   label: 'PayPal',
-                  desc: 'Pay via PayPal; you can pay with your credit card if you don’t have a PayPal account.',
+                  logo: 'paypal.png',
+                },
+                {
+                  id: 'skrill',
+                  label: 'Skrill',
+                  logo: 'skrill.png',
                 },
               ].map((opt, idx) => (
-                <label key={opt.id} className="flex items-start space-x-2">
+                <label
+                  key={opt.id}
+                  className="flex items-center space-x-4 border rounded-lg p-2.5 cursor-pointer hover:shadow transition"
+                >
                   <input
                     type="radio"
                     name="paymentOption"
@@ -206,10 +217,12 @@ export default async function CheckoutPage() {
                     className="mt-1 accent-[#F35C7A]"
                     defaultChecked={idx === 0}
                   />
-                  <div>
-                    <span className="font-medium ">{opt.label}</span>
-                    <p className="text-gray-600 text-sm">{opt.desc}</p>
-                  </div>
+                  <img
+                    src={opt.logo}
+                    alt={`${opt.label} logo`}
+                    className="w-8 h-8 object-contain"
+                  />
+                  {/* <span className="font-medium">{opt.label}</span> */}
                 </label>
               ))}
             </div>
