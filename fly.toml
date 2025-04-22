@@ -1,27 +1,15 @@
-# fly.toml app configuration file generated for esoko on 2025-04-10T23:09:03+02:00
-#
-# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
-#
+app = "esoko"
+primary_region = "otp"
 
-app = 'esoko'
-primary_region = 'otp'
-
-[build]
+[mounts]
+  source = "postgres"
+  destination = "/postgres-volume"
 
 [env]
-  PORT = '8080'
-
-[[mounts]]
-  source = 'postgres'
-  destination = '/postgres-volume'
+  PORT = "8080"
 
 [http_service]
   internal_port = 8080
   force_https = true
   auto_stop_machines = "suspend"
   auto_start_machines = true
-
-[[vm]]
-  memory = '1gb'
-  cpu_kind = 'shared'
-  cpus = 2
