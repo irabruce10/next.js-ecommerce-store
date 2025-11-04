@@ -63,7 +63,17 @@
 // }
 
 import React from 'react';
+import ProductList from '../components/ProductList';
+import Slider from '../components/Slider';
 
 export default function ProductPage() {
-  return <div>Product Page</div>;
+  return (
+    <div>
+      {/* <Slider /> */}
+      <div className="mt-24 px-4 md:px-8 lg:px-16 xl:px-32 2xl:px-64">
+        <h1 className="text-2xl md:text-3xl font-bold">All Products</h1>
+        <ProductList />
+      </div>
+    </div>
+  );
 }
